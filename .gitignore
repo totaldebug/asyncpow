@@ -1,0 +1,21 @@
+# cache
+__pycache__
+.idea
+.cache
+
+# python
+*.pyc
+.venv
+venv
+
+# PyPi
+dist
+build
+.vscode/*
+*.egg-info
+.mypy_cache
+.pytest_cache
+.coverage
+coverage.xml
+_build
+.nox
