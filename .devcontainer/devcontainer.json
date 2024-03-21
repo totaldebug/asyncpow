@@ -42,7 +42,8 @@
 				"ms-python.isort",
 				"ms-python.python",
 				"ms-python.vscode-pylance",
-				"ms-python.black-formatter"
+				"ms-python.black-formatter",
+				"GitHub.vscode-github-actions"
 			]
 		}
 	},
