@@ -49,5 +49,5 @@ def release(session: Session) -> None:
     pypi_password = session.posargs[0]
     session.run("poetry", "install", external=True)
     session.run("poetry", "build", external=True)
-    session.run("semantic-release", "-vv", "version", "--print")
+    session.run("semantic-release", "version", "--print")
     #session.run("poetry", "publish", "-u", "__token__", "-p", pypi_password)
