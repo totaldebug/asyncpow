@@ -34,3 +34,4 @@
           nox -rs release -- "$PYPI_PASSWORD"
         env:
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
