@@ -50,4 +50,4 @@ def release(session: Session) -> None:
     session.run("poetry", "install", external=True)
     session.run("poetry", "build", external=True)
     session.run("semantic-release", "-vv", "version", "--print")
-    session.run("poetry", "publish", "-u", "__token__", "-p", pypi_password)
+    #session.run("poetry", "publish", "-u", "__token__", "-p", pypi_password)
