@@ -39,10 +39,11 @@
           npm install @semantic-release/git
           npm install @semantic-release/github
           npm install conventional-changelog-conventionalcommits
+          npm install semantic-release-pypi
 
-      - name: Publish distribution 📦 to PyPI
+      - name: Run Release
         run: |
-          nox -rs release -- "$PYPI_PASSWORD"
+          nox -rs release
         env:
-          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+          PYPI_TOKEN: ${{ secrets.PYPI_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
