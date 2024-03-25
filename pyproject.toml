@@ -18,7 +18,7 @@ classifiers = [
 ]
 keywords = ["wled", "api", "async", "client"]
 maintainers = ["Steven Marks - TotalDebug"]
-packages = [{ include = "asyncpow", from = "src" }]
+packages = [{ include = "asyncpow" }]
 
 [tool.poetry.dependencies]
 python = "^3.12"
