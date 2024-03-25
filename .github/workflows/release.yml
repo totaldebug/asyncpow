@@ -20,6 +20,12 @@
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -28,10 +34,15 @@
         run: |
           python -m pip install --upgrade pip
           python -m pip install poetry nox
+          npm install @semantic-release/changelog
+          npm install @semantic-release/exec
+          npm install @semantic-release/git
+          npm install @semantic-release/github
+          npm install conventional-changelog-conventionalcommits
 
       - name: Publish distribution 📦 to PyPI
         run: |
           nox -rs release -- "$PYPI_PASSWORD"
         env:
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -21,7 +21,6 @@
  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  """
 
-from .const import __version__
 from .overseerr import Overseerr
 
-__all__ = ["Overseerr", "__version__"]
+__all__ = ["Overseerr"]

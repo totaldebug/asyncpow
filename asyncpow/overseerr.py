@@ -46,8 +46,8 @@ class Overseerr:
         async with Overseerr(
             host="OVERSEERR_HOST",
             api_key="OVERSEER_KEY",
-            port="5055",
-            ssl=True,
+            port=5055,
+            tls=True,
             base_url="overseerr/",
         ) as api:
             # Inside the context, you can use the API wrapper as needed
@@ -88,7 +88,6 @@ class Overseerr:
 
         # Initialize a single instance of ClientSession
         self._session = aiohttp.ClientSession()
-
         # Initialize instances of API classes
         self.status = Status(self.url, self.api_key, self._session)
         self.discover = Discover(self.url, self.api_key, self._session)

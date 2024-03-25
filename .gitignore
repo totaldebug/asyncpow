@@ -20,3 +20,7 @@ build
 coverage.xml
 _build
 .nox
+*.ipynb
+
+# Node
+node_modules
