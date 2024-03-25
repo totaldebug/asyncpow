@@ -20,7 +20,9 @@
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       # This action uses Python Semantic Release v8
       - name: Python Semantic Release
         id: release
