@@ -48,3 +48,4 @@ def release(session: Session) -> None:
     """Release a new version of the package"""
     session.run("poetry", "install", external=True)
     session.run("npx", "semantic-release", "--debug")
+    session.run("poetry", "publish", "-u", "__token__", "-p", pypi_password)
