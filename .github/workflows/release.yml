@@ -43,7 +43,7 @@
 
       - name: Run Release
         run: |
-          nox -rs release
+          nox -rs release -- "$PYPI_PASSWORD"
         env:
           PYPI_TOKEN: ${{ secrets.PYPI_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
