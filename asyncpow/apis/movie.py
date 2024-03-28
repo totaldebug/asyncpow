@@ -24,52 +24,49 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 from aiohttp import ClientSession
 from yarl import URL
 
-from asyncpow.models.status import StatusAppDataModel, StatusModel
+from asyncpow.models.movie import MovieDetailsModel
 from asyncpow.utils.http import request
 
 
-class Status:
+class Movie:
     """
-    Class to interact with status-related endpoints.
-
-    Initialize the Status object with the base URL, API key, and session.
+    Initialize the Movie object with the base URL and API key.
     """
 
     def __init__(self, base_url: URL, api_key: str, session: ClientSession) -> None:
         """
-        Initialize the Status object with the base URL, API key, and session.
+        Initialize the MovieAPI object with the base URL and API key.
+
+        Args:
+            base_url (str): The base URL for the media API.
+            api_key (str): The API key for authentication.
+            session (ClientSession): HTTP Session
 
         Returns:
             None
         """
-
-        self.base_url = base_url.joinpath("status")
+        self.media_url = base_url.joinpath("movie")
         self.api_key = api_key
         self.session = session
 
-    async def async_get_status(self, raw_response: bool = False) -> dict | StatusModel:
+    async def async_get_movie(
+        self, movieId: int, lang: str = "en", raw_response: bool = False
+    ) -> dict | MovieDetailsModel:
         """
-        Summary:
-            Asynchronously retrieves the status from the server.
+        Retrieves movie details by ID asynchronously.
 
         Args:
-            raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
+            movieId (int): The ID of the movie.
+            lang (str): The language for the response (default is "en").
+            raw_response (bool): Flag to return raw response or MovieDetailsModel (default is False).
 
         Returns:
-            dict | StatusModel: The status information as either a dictionary or a StatusModel object.
+            dict | MovieDetailsModel: The raw response or MovieDetailsModel object based on the raw_response flag.
         """
-        response = await request(self.session, self.base_url)
-        return response if raw_response else StatusModel(**response)
 
-    async def async_get_appdata(self, raw_response: bool = False) -> dict | StatusAppDataModel:
-        """Retrieves the appdata from the server
+        params = {"language": lang}
+        url = self.media_url.joinpath(str(movieId))
 
-        Args:
-            raw_response (bool, optional): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
-
-        Returns:
-            dict | StatusAppDataModel: The model object containing appdata items.
-        """
-        url = self.base_url.joinpath("appdata")
-        response = await request(self.session, url)
-        return response if raw_response else StatusAppDataModel(**response)
+        headers = {"X-Api-Key": self.api_key}
+        response = await request(self.session, url, params=params, headers=headers)
+        return response if raw_response else MovieDetailsModel(**response)

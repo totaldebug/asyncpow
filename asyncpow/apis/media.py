@@ -1,25 +1,25 @@
 """
- AsyncPOW - https://github.com/totaldebug/asyncpow
+AsyncPOW - https://github.com/totaldebug/asyncpow
 
- Copyright (c) 2024 Steven Marks, Total Debug
+Copyright (c) 2024 Steven Marks, Total Debug
 
- Permission is hereby granted, free of charge, to any person obtaining a copy of
- this software and associated documentation files (the "Software"), to deal in
- the Software without restriction, including without limitation the rights to
- use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- the Software, and to permit persons to whom the Software is furnished to do so,
- subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
 
- The above copyright notice and this permission notice shall be included in all
- copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- """
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+"""
 
 from typing import Optional
 
@@ -54,13 +54,14 @@ class Media:
         self.api_key = api_key
         self.session = session
 
-    async def get_media(
+    async def async_get_media(
         self,
         take: int = 20,
         skip: int = 0,
-        filter: MediaFilterOptions = MediaFilterOptions.AVAILABLE,
-        sort: SortOptions = SortOptions.ADDED,
-    ) -> MediaModel:
+        filter: MediaFilterOptions | None = None,
+        sort: SortOptions | None = None,
+        raw_response: bool = False,
+    ) -> dict | MediaModel:
         """
         Get media items based on specified parameters.
 
@@ -69,20 +70,28 @@ class Media:
             skip (int): The number of items to skip (default is 0).
             filter (MediaFilterOptions): The filter option for media items (default is MediaFilterOptions.AVAILABLE).
             sort (SortOptions): The sorting option for media items (default is SortOptions.ADDED).
+            raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
 
         Returns:
-            MediaModel: The media model object retrieved based on the parameters.
+            dict | MediaModel: The media model object retrieved based on the parameters.
         """
+        params: dict = {"take": take, "skip": skip}
+        if filter:
+            params["filter"] = filter
+        if sort:
+            params["sort"] = sort
 
-        url = self.media_url.with_query(
-            {"take": take, "skip": skip, "filter": str(filter), "sort": str(sort)}
-        )
         headers = {"X-Api-Key": self.api_key}
-        return await request(self.session, url, headers=headers)
+        response = await request(self.session, self.media_url, params=params, headers=headers)
+        return response if raw_response else MediaModel(**response)
 
-    async def post_media_status(
-        self, mediaId: int, status: MediaStatusOptions, is4k: Optional[bool] = None
-    ) -> MediaModel2:
+    async def async_post_media_status(
+        self,
+        mediaId: int,
+        status: MediaStatusOptions,
+        is4k: Optional[bool] = None,
+        raw_response: bool = False,
+    ) -> dict | MediaModel2:
         """
         Update the status of a media item with optional 4k flag.
 
@@ -90,17 +99,21 @@ class Media:
             mediaId (int): The ID of the media item.
             status (MediaStatusOptions): The status to set for the media item.
             is4k (Optional[bool]): Optional flag indicating 4k status.
+            raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
 
         Returns:
-            MediaModel2: The model object representing the updated media item.
+            dict | MediaModel2: The model object representing the updated media item.
         """
 
         url = self.media_url.joinpath(str(mediaId), str(status))
         data = {"is4k": is4k} if is4k else {}
         headers = {"X-Api-Key": self.api_key}
-        return await request(self.session, url, method="POST", data=data, headers=headers)
+        response = await request(
+            self.session, url, method=hdrs.METH_POST, data=data, headers=headers
+        )
+        return response if raw_response else MediaModel2(**response)
 
-    async def delete_media(self, mediaId: int):
+    async def async_delete_media(self, mediaId: int) -> None:
         """
         Delete a media item by its ID.
 

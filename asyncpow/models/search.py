@@ -1,33 +1,32 @@
 """
- AsyncPOW - https://github.com/totaldebug/asyncpow
+AsyncPOW - https://github.com/totaldebug/asyncpow
 
- Copyright (c) 2024 Steven Marks, Total Debug
+Copyright (c) 2024 Steven Marks, Total Debug
 
- Permission is hereby granted, free of charge, to any person obtaining a copy of
- this software and associated documentation files (the "Software"), to deal in
- the Software without restriction, including without limitation the rights to
- use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- the Software, and to permit persons to whom the Software is furnished to do so,
- subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
 
- The above copyright notice and this permission notice shall be included in all
- copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- """
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+"""
 
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 from asyncpow.models.media import MediaInfoModel
 
 
-@dataclass
-class MovieResultModel:
+class MovieResultModel(BaseModel):
     """
     Data class representing a movie search result.
     """
@@ -50,8 +49,7 @@ class MovieResultModel:
     mediaInfo: MediaInfoModel
 
 
-@dataclass
-class TvResultModel:
+class TvResultModel(BaseModel):
     """
     Data class representing a TV show search result.
     """
@@ -73,8 +71,7 @@ class TvResultModel:
     mediaInfo: MediaInfoModel
 
 
-@dataclass
-class PersonResultModel:
+class PersonResultModel(BaseModel):
     """
     Data class representing a person search result.
     """
@@ -86,8 +83,7 @@ class PersonResultModel:
     knwonFor: list[MovieResultModel | TvResultModel]
 
 
-@dataclass
-class DiscoverTrendingModel:
+class DiscoverTrendingModel(BaseModel):
     """
     Data class representing trending items in discovery.
     """
@@ -98,8 +94,7 @@ class DiscoverTrendingModel:
     results: list[MovieResultModel | TvResultModel | PersonResultModel]
 
 
-@dataclass
-class WatchlistModel:
+class WatchlistModel(BaseModel):
     """
     Data class representing an item in the watchlist.
     """
@@ -110,8 +105,7 @@ class WatchlistModel:
     tmdbId: int
 
 
-@dataclass
-class DiscoverWatchlistModel:
+class DiscoverWatchlistModel(BaseModel):
     """
     Data class representing watchlist items in discovery.
     """

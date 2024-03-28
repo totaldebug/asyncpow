@@ -1,122 +1,64 @@
 """
- AsyncPOW - https://github.com/totaldebug/asyncpow
+AsyncPOW - https://github.com/totaldebug/asyncpow
 
- Copyright (c) 2024 Steven Marks, Total Debug
+Copyright (c) 2024 Steven Marks, Total Debug
 
- Permission is hereby granted, free of charge, to any person obtaining a copy of
- this software and associated documentation files (the "Software"), to deal in
- the Software without restriction, including without limitation the rights to
- use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- the Software, and to permit persons to whom the Software is furnished to do so,
- subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
 
- The above copyright notice and this permission notice shall be included in all
- copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- """
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+"""
 
-from dataclasses import dataclass
-from typing import List, Optional
+from typing import Literal
+
+from pydantic import BaseModel
+
+from asyncpow.models.common import (
+    CreditModel,
+    ExternalIdsModel,
+    GenreModel,
+    KeywordModel,
+    ProductionCompanyModel,
+    ProductionCountryModel,
+    SpokenLanguagesModel,
+    WatchProviderModel,
+)
 
 
-@dataclass
-class Genre:
+class RelatedVideoModel(BaseModel):
     """
-    Data class representing a movie genre.
-    """
-
-    id: int
-    name: str
-
-
-@dataclass
-class Video:
-    """
-    Data class representing a video.
+    Data class representing a related video.
     """
 
     url: str
     key: str
     name: str
     size: int
-    type: str
-    site: str
+    type: Literal[
+        "Clip",
+        "Teaser",
+        "Trailer",
+        "Featurette",
+        "Opening Credits",
+        "Behind the Scenes",
+        "Bloopers",
+    ]
+    site: Literal["YouTube"]
 
 
-@dataclass
-class ProductionCompany:
-    """
-    Data class representing a production company.
-    """
-
-    id: int
-    logoPath: str
-    originCountry: str
-    name: str
-
-
-@dataclass
-class ProductionCountry:
-    """
-    Data class representing a production country.
-    """
-
-    iso_3166_1: str
-    name: str
-
-
-@dataclass
-class ReleaseDate:
-    """
-    Data class representing a release date.
-    """
-
-    certification: str
-    iso_639_1: str
-    note: str
-    release_date: str
-    type: int
-
-
-@dataclass
-class Cast:
-    """
-    Data class representing a cast member.
-    """
-
-    id: int
-    castId: int
-    character: str
-    creditId: str
-    gender: int
-    name: str
-    order: int
-    profilePath: str
-
-
-@dataclass
-class Crew:
-    """
-    Data class representing a crew member.
-    """
-
-    id: int
-    creditId: str
-    gender: int
-    name: str
-    job: str
-    department: str
-    profilePath: str
-
-
-@dataclass
-class Collection:
+class CollectionModel(BaseModel):
     """
     Data class representing a collection.
     """
@@ -127,24 +69,7 @@ class Collection:
     backdropPath: str
 
 
-@dataclass
-class ExternalIds:
-    """
-    Data class representing external IDs.
-    """
-
-    facebookId: str
-    freebaseId: str
-    freebaseMid: str
-    imdbId: str
-    instagramId: str
-    tvdbId: int
-    tvrageId: int
-    twitterId: str
-
-
-@dataclass
-class RequestedBy:
+class RequestedByModel(BaseModel):
     """
     Data class representing the user who made the request.
     """
@@ -162,8 +87,7 @@ class RequestedBy:
     requestCount: int
 
 
-@dataclass
-class ModifiedBy:
+class ModifiedByModel(BaseModel):
     """
     Data class representing the user who modified the item.
     """
@@ -181,8 +105,7 @@ class ModifiedBy:
     requestCount: int
 
 
-@dataclass
-class Request:
+class RequestModel(BaseModel):
     """
     Data class representing a request.
     """
@@ -192,55 +115,30 @@ class Request:
     media: str
     createdAt: str
     updatedAt: str
-    requestedBy: RequestedBy
-    modifiedBy: ModifiedBy
+    requestedBy: RequestedByModel
+    modifiedBy: ModifiedByModel
     is4k: bool
     serverId: int
     profileId: int
     rootFolder: str
 
 
-@dataclass
-class MediaInfo:
+class MediaInfoModel(BaseModel):
     """
     Data class representing media information.
+    TODO: check this is used
     """
 
     id: int
     tmdbId: int
     tvdbId: int
     status: int
-    requests: List[Request]
+    requests: list[RequestModel]
     createdAt: str
     updatedAt: str
 
 
-@dataclass
-class BuyFlatrate:
-    """
-    Data class representing a flatrate purchase option.
-    """
-
-    displayPriority: int
-    logoPath: str
-    id: int
-    name: str
-
-
-@dataclass
-class WatchProvider:
-    """
-    Data class representing a watch provider.
-    """
-
-    iso_3166_1: str
-    link: str
-    buy: List[BuyFlatrate]
-    flatrate: List[BuyFlatrate]
-
-
-@dataclass
-class MovieModel:
+class MovieDetailsModel(BaseModel):
     """
     Data class representing a movie model.
     """
@@ -251,28 +149,28 @@ class MovieModel:
     backdropPath: str
     posterPath: str
     budget: int
-    genres: List[Genre]
+    genres: list[GenreModel]
     homepage: str
-    relatedVideos: List[Video]
     originalLanguage: str
     originalTitle: str
     overview: str
     popularity: float
-    productionCompanies: List[ProductionCompany]
-    productionCountries: List[ProductionCountry]
+    productionCompanies: list[ProductionCompanyModel]
+    productionCountries: list[ProductionCountryModel]
     releaseDate: str
     releases: dict
     revenue: int
     runtime: int
-    spokenLanguages: List[str]
+    spokenLanguages: list[SpokenLanguagesModel]
     status: str
     tagline: str
     title: str
     video: bool
     voteAverage: float
     voteCount: int
-    credits: dict
-    collection: Optional[Collection]
-    externalIds: ExternalIds
-    mediaInfo: MediaInfo
-    watchProviders: List[List[WatchProvider]]
+    externalIds: ExternalIdsModel
+    watchProviders: list[WatchProviderModel]
+    keywords: list[KeywordModel]
+    relatedVideos: list[RelatedVideoModel]
+    credits: CreditModel
+    collection: CollectionModel | None = None

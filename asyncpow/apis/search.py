@@ -1,25 +1,25 @@
 """
- AsyncPOW - https://github.com/totaldebug/asyncpow
+AsyncPOW - https://github.com/totaldebug/asyncpow
 
- Copyright (c) 2024 Steven Marks, Total Debug
+Copyright (c) 2024 Steven Marks, Total Debug
 
- Permission is hereby granted, free of charge, to any person obtaining a copy of
- this software and associated documentation files (the "Software"), to deal in
- the Software without restriction, including without limitation the rights to
- use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- the Software, and to permit persons to whom the Software is furnished to do so,
- subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
 
- The above copyright notice and this permission notice shall be included in all
- copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- """
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+"""
 
 from aiohttp import ClientSession
 from yarl import URL
@@ -50,32 +50,40 @@ class Discover:
         self.api_key = api_key
         self.session = session
 
-    async def get_trending(self, page: int = 1, lang: str = "en") -> DiscoverTrendingModel:
+    async def async_get_trending(
+        self, raw_response: bool = False, page: int = 1, lang: str = "en"
+    ) -> dict | DiscoverTrendingModel:
         """
         Get trending items based on specified page and language.
 
         Args:
+            raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
             page (int): The page number for trending items (default is 1).
             lang (str): The language for the trending items (default is "en").
 
         Returns:
-            DiscoverTrendingModel: The model object containing trending items.
+            dict | DiscoverTrendingModel: The model object containing trending items.
         """
 
         url = self.discover_url.joinpath("trending").with_query({"page": page, "language": lang})
         headers = {"X-Api-Key": self.api_key}
-        return await request(self.session, url, headers=headers)
+        response = await request(self.session, url, headers=headers)
+        return response if raw_response else DiscoverTrendingModel(**response)
 
-    async def get_watchlist(self, page: int = 1) -> DiscoverWatchlistModel:
+    async def async_get_watchlist(
+        self, raw_response: bool = False, page: int = 1
+    ) -> dict | DiscoverWatchlistModel:
         """
         Get the watchlist items based on the specified page.
 
         Args:
+            raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
             page (int): The page number for watchlist items (default is 1).
 
         Returns:
-            DiscoverWatchlistModel: The model object containing watchlist items.
+            dict | DiscoverWatchlistModel: The model object containing watchlist items.
         """
         url = self.discover_url.joinpath("watchlist").with_query({"page": page})
         headers = {"X-Api-Key": self.api_key}
-        return await request(self.session, url, headers=headers)
+        response = await request(self.session, url, headers=headers)
+        return response if raw_response else DiscoverWatchlistModel(**response)
