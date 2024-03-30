@@ -1,3 +1,10 @@
+## [0.2.1](https://github.com/totaldebug/asyncpow/compare/v0.2.0...v0.2.1) (2024-03-30)
+
+
+### Bug Fixes
+
+* incorrectly identifying models for trending results, incorrect model types ([1c12962](https://github.com/totaldebug/asyncpow/commit/1c12962207e8dd3d5f402e8ce8133cddcaf11da0))
+
 ## [0.2.0](https://github.com/totaldebug/asyncpow/compare/v0.1.0...v0.2.0) (2024-03-28)
 
 
