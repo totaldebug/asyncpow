@@ -24,7 +24,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 from aiohttp import ClientSession
 from yarl import URL
 
-from asyncpow.models.search import DiscoverTrendingModel, DiscoverWatchlistModel
+from asyncpow.models.search import (
+    DiscoverTrendingModel,
+    DiscoverWatchlistModel,
+    MovieResultModel,
+    PersonResultModel,
+    TvResultModel,
+)
 from asyncpow.utils.http import request
 
 
@@ -68,7 +74,25 @@ class Discover:
         url = self.discover_url.joinpath("trending").with_query({"page": page, "language": lang})
         headers = {"X-Api-Key": self.api_key}
         response = await request(self.session, url, headers=headers)
-        return response if raw_response else DiscoverTrendingModel(**response)
+        if raw_response:
+            return response
+        trending_model = DiscoverTrendingModel(
+            page=response["page"],
+            totalPages=response["totalPages"],
+            totalResults=response["totalResults"],
+            results=[],
+        )
+
+        for item_data in response["results"]:
+            media_type = item_data.get("mediaType")
+            if item_model := {
+                "tv": TvResultModel,
+                "movie": MovieResultModel,
+                "person": PersonResultModel,
+            }.get(media_type, None):
+                trending_model.results.append(item_model(**item_data))
+
+        return trending_model
 
     async def async_get_watchlist(
         self, raw_response: bool = False, page: int = 1

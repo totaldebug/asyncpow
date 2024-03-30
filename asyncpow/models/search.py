@@ -23,8 +23,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 from pydantic import BaseModel
 
-from asyncpow.models.media import MediaInfoModel
-
 
 class MovieResultModel(BaseModel):
     """
@@ -33,11 +31,11 @@ class MovieResultModel(BaseModel):
 
     id: int
     mediaType: str
-    popularity: int
+    popularity: float
     posterPath: str
     backdropPath: str
     voteCount: int
-    voteAverage: int
+    voteAverage: float
     genreIds: list[int]
     overview: str
     originalLanguage: str
@@ -46,7 +44,6 @@ class MovieResultModel(BaseModel):
     releaseDate: str
     adult: bool
     video: bool
-    mediaInfo: MediaInfoModel
 
 
 class TvResultModel(BaseModel):
@@ -56,11 +53,11 @@ class TvResultModel(BaseModel):
 
     id: int
     mediaType: str
-    popularity: int
+    popularity: float
     posterPath: str
     backdropPath: str
     voteCount: int
-    voteAverage: int
+    voteAverage: float
     genreIds: list[int]
     overview: str
     originalLanguage: str
@@ -68,7 +65,6 @@ class TvResultModel(BaseModel):
     originalName: str
     originCountry: list[str]
     firstAirDate: str
-    mediaInfo: MediaInfoModel
 
 
 class PersonResultModel(BaseModel):
