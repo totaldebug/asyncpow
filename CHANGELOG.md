@@ -1,3 +1,10 @@
+## [0.2.0](https://github.com/totaldebug/asyncpow/compare/v0.1.0...v0.2.0) (2024-03-28)
+
+
+### Features
+
+* added method and raw responses ([7a63894](https://github.com/totaldebug/asyncpow/commit/7a63894ac76b44e99f409def7c6f5e9abf13188c))
+
 # CHANGELOG
 
 
