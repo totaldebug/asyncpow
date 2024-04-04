@@ -32,7 +32,7 @@ from asyncpow.models.common import (
     KeywordModel,
     ProductionCompanyModel,
     ProductionCountryModel,
-    SpokenLanguagesModel,
+    SpokenLanguagesModelMovie,
     WatchProviderModel,
 )
 
@@ -161,7 +161,7 @@ class MovieDetailsModel(BaseModel):
     releases: dict
     revenue: int
     runtime: int
-    spokenLanguages: list[SpokenLanguagesModel]
+    spokenLanguages: list[SpokenLanguagesModelMovie]
     status: str
     tagline: str
     title: str

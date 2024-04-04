@@ -101,12 +101,22 @@ class GenreModel(BaseModel):
     name: str
 
 
-class SpokenLanguagesModel(BaseModel):
+class SpokenLanguagesModelTv(BaseModel):
     """
     Data class representing a spoken language.
     """
 
     englishName: str
+    iso_639_1: str
+    name: str
+
+
+class SpokenLanguagesModelMovie(BaseModel):
+    """
+    Data class representing a spoken language.
+    """
+
+    english_name: str
     iso_639_1: str
     name: str
 

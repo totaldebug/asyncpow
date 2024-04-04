@@ -30,7 +30,7 @@ from asyncpow.models.common import (
     KeywordModel,
     ProductionCompanyModel,
     ProductionCountryModel,
-    SpokenLanguagesModel,
+    SpokenLanguagesModelTv,
     WatchProviderModel,
 )
 
@@ -100,7 +100,7 @@ class TvDetailsModel(BaseModel):
     popularity: float
     productionCompanies: list[ProductionCompanyModel]
     productionCountries: list[ProductionCountryModel]
-    spokenLanguages: list[SpokenLanguagesModel]
+    spokenLanguages: list[SpokenLanguagesModelTv]
     seasons: list[SeasonModel]
     status: str
     tagline: str
