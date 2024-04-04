@@ -1,3 +1,10 @@
+## [0.2.3](https://github.com/totaldebug/asyncpow/compare/v0.2.2...v0.2.3) (2024-04-04)
+
+
+### Bug Fixes
+
+* Overseer API has inconsistant api, amend spokenLanguage model to match ([4e60171](https://github.com/totaldebug/asyncpow/commit/4e60171c2d4a92866b468eb5657f17204d1593d3))
+
 ## [0.2.2](https://github.com/totaldebug/asyncpow/compare/v0.2.1...v0.2.2) (2024-04-04)
 
 
