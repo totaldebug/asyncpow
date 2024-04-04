@@ -86,7 +86,7 @@ class TvDetailsModel(BaseModel):
     homepage: str
     inProduction: bool
     languages: list[str]
-    lastAirDate: str
+    lastAirDate: str | None = None
     lastEpisodeToAir: EpisodeModel | None = None
     name: str
     nextEpisodeToAir: EpisodeModel | None = None
