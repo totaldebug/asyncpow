@@ -1,3 +1,10 @@
+## [0.2.2](https://github.com/totaldebug/asyncpow/compare/v0.2.1...v0.2.2) (2024-04-04)
+
+
+### Bug Fixes
+
+* mTvDetailsModel - lastAirDate can be none ([1c31336](https://github.com/totaldebug/asyncpow/commit/1c31336f9a99a54efa9db7caf4ab49c51f9d1a2d))
+
 ## [0.2.1](https://github.com/totaldebug/asyncpow/compare/v0.2.0...v0.2.1) (2024-03-30)
 
 
