@@ -47,7 +47,7 @@ class EpisodeModel(BaseModel):
     seasonNumber: int
     showId: int
     stillPath: str | None
-    voteAverage: int
+    voteAverage: float
     voteCount: int | None = None
 
 
@@ -59,7 +59,7 @@ class SeasonModel(BaseModel):
     episodeCount: int
     name: str
     overview: str
-    posterPath: str
+    posterPath: str | None = None
     seasonNumber: int
 
 
