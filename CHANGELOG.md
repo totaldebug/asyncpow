@@ -1,3 +1,10 @@
+## [0.2.5](https://github.com/totaldebug/asyncpow/compare/v0.2.4...v0.2.5) (2024-04-08)
+
+
+### Bug Fixes
+
+* update MovieDetailsModel imdbId can be None ([5a5f55a](https://github.com/totaldebug/asyncpow/commit/5a5f55a386702219261de9b1b22e7a8c75387816))
+
 ## [0.2.4](https://github.com/totaldebug/asyncpow/compare/v0.2.3...v0.2.4) (2024-04-06)
 
 
