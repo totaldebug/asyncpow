@@ -1,3 +1,10 @@
+## [0.2.4](https://github.com/totaldebug/asyncpow/compare/v0.2.3...v0.2.4) (2024-04-06)
+
+
+### Bug Fixes
+
+* Overseer API has inconsistant api, amend Season model to match ([40734cd](https://github.com/totaldebug/asyncpow/commit/40734cd7a67d0d6861bc873c64705ae2637e3619))
+
 ## [0.2.3](https://github.com/totaldebug/asyncpow/compare/v0.2.2...v0.2.3) (2024-04-04)
 
 
