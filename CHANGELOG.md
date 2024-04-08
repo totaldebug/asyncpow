@@ -1,3 +1,10 @@
+## [0.3.0](https://github.com/totaldebug/asyncpow/compare/v0.2.5...v0.3.0) (2024-04-08)
+
+
+### Features
+
+* added search method, fixed models ([9b9cd7b](https://github.com/totaldebug/asyncpow/commit/9b9cd7b3db8000d8dfea6894df3c8a45cbac51b0))
+
 ## [0.2.5](https://github.com/totaldebug/asyncpow/compare/v0.2.4...v0.2.5) (2024-04-08)
 
 

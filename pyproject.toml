@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "asyncpow"
-version = "0.2.5"
+version = "0.3.0"
 description = "Asynchronous Python Overseerr Wrapper"
 authors = ["Steven Marks - TotalDebug"]
 license = "MIT"
