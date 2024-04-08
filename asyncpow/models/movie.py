@@ -144,7 +144,6 @@ class MovieDetailsModel(BaseModel):
     """
 
     id: int
-    imdbId: str
     adult: bool
     backdropPath: str
     posterPath: str
@@ -173,4 +172,5 @@ class MovieDetailsModel(BaseModel):
     keywords: list[KeywordModel]
     relatedVideos: list[RelatedVideoModel]
     credits: CreditModel
+    imdbId: str | None = None
     collection: CollectionModel | None = None
