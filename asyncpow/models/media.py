@@ -25,43 +25,11 @@ from typing import Literal
 
 from pydantic import BaseModel
 
-from asyncpow.models.common import PageInfoModel, UserModel
+from asyncpow.models.common import MediaInfoModel, PageInfoModel
 
 MediaFilterOptions = Literal["all", "available", "partial", "allavailable", "pending", "processing"]
 
 MediaStatusOptions = Literal["available", "partial", "pending", "processing", "unknown"]
-
-
-class MediaRequestModel(BaseModel):
-    """
-    Data class representing a media request model.
-    """
-
-    id: int
-    status: int
-    media: dict
-    createdAt: str
-    updatedAt: str
-    requestedBy: UserModel
-    modifiedBy: list[UserModel]
-    is4k: bool
-    serverId: int
-    profileId: int
-    rootFolder: str
-
-
-class MediaInfoModel(BaseModel):
-    """
-    Data class representing media information model.
-    """
-
-    id: int
-    tmdbId: int
-    tvdbId: int
-    status: int
-    requests: MediaRequestModel
-    createdAt: str
-    updatedAt: str
 
 
 class MediaModel(BaseModel):

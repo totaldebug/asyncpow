@@ -123,21 +123,6 @@ class RequestModel(BaseModel):
     rootFolder: str
 
 
-class MediaInfoModel(BaseModel):
-    """
-    Data class representing media information.
-    TODO: check this is used
-    """
-
-    id: int
-    tmdbId: int
-    tvdbId: int
-    status: int
-    requests: list[RequestModel]
-    createdAt: str
-    updatedAt: str
-
-
 class MovieDetailsModel(BaseModel):
     """
     Data class representing a movie model.

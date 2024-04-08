@@ -27,7 +27,7 @@ from yarl import URL
 
 from asyncpow.apis.media import Media
 from asyncpow.apis.movie import Movie
-from asyncpow.apis.search import Discover
+from asyncpow.apis.search import Discover, Search
 from asyncpow.apis.status import Status
 from asyncpow.apis.tv import Tv
 from asyncpow.const import API_URI
@@ -92,6 +92,7 @@ class Overseerr:
         self._session = aiohttp.ClientSession()
         # Initialize instances of API classes
         self.status = Status(self.url, self.api_key, self._session)
+        self.search = Search(self.url, self.api_key, self._session)
         self.discover = Discover(self.url, self.api_key, self._session)
         self.media = Media(self.url, self.api_key, self._session)
         self.movie = Movie(self.url, self.api_key, self._session)

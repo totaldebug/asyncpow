@@ -183,3 +183,54 @@ class ProductionCountryModel(BaseModel):
 
     iso_3166_1: str
     name: str
+
+
+class MediaRequestModel(BaseModel):
+    """
+    Data class representing a media request model.
+    """
+
+    id: int
+    status: int
+    media: dict
+    createdAt: str
+    updatedAt: str
+    requestedBy: UserModel
+    modifiedBy: list[UserModel]
+    is4k: bool
+    serverId: int
+    profileId: int
+    rootFolder: str
+
+
+class MediaInfoModel(BaseModel):
+    """
+    Data class representing media information model.
+    """
+
+    id: int
+    mediaType: str
+    tmdbId: int
+    status: int
+    status4k: int
+    createdAt: str
+    updatedAt: str
+    lastSeasonChange: str
+    mediaAddedAt: str
+    serviceId: int
+    externalServiceId: int
+    externalServiceSlug: int
+    ratingKey: int
+    requests: MediaRequestModel | None = None
+    plexUrl: str | None = None
+    iOSPlexUrl: str | None = None
+    serviceUrl: str | None = None
+    serviceId4k: int | None = None
+    externalServiceId4k: int | None = None
+    externalServiceSlug4k: int | None = None
+    ratingKey4k: int | None = None
+    tvdbId: int | None = None
+    imdbId: int | None = None
+    downloadStatus: list | None = None
+    downloadStatus4k: list | None = None
+    seasons: list | None = None

@@ -21,7 +21,10 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
+
+from asyncpow.exceptions import POWMediaTypeException
+from asyncpow.models.common import MediaInfoModel
 
 
 class MovieResultModel(BaseModel):
@@ -32,8 +35,6 @@ class MovieResultModel(BaseModel):
     id: int
     mediaType: str
     popularity: float
-    posterPath: str
-    backdropPath: str
     voteCount: int
     voteAverage: float
     genreIds: list[int]
@@ -44,6 +45,9 @@ class MovieResultModel(BaseModel):
     releaseDate: str
     adult: bool
     video: bool
+    posterPath: str | None = None
+    backdropPath: str | None = None
+    mediaInfo: MediaInfoModel | None = None
 
 
 class TvResultModel(BaseModel):
@@ -54,8 +58,6 @@ class TvResultModel(BaseModel):
     id: int
     mediaType: str
     popularity: float
-    posterPath: str
-    backdropPath: str
     voteCount: int
     voteAverage: float
     genreIds: list[int]
@@ -65,6 +67,9 @@ class TvResultModel(BaseModel):
     originalName: str
     originCountry: list[str]
     firstAirDate: str
+    posterPath: str | None = None
+    backdropPath: str | None = None
+    mediaInfo: MediaInfoModel | None = None
 
 
 class PersonResultModel(BaseModel):
@@ -73,21 +78,80 @@ class PersonResultModel(BaseModel):
     """
 
     id: int
-    profilePath: str
+    name: str
+    popularity: float
     adult: bool
     mediaType: str
-    knwonFor: list[MovieResultModel | TvResultModel]
+    knownFor: list[MovieResultModel | TvResultModel]
+    profilePath: str | None = None
+
+    @validator("knownFor", pre=True)
+    def validate_knownfor(cls, v):
+        """
+        Validate the 'knownFor' field by creating and returning a list of validated known for items.
+
+        Args:
+            v: The value to be validated.
+
+        Returns:
+            list: A list of validated known for items.
+
+        Raises:
+            POWMediaTypeException: If the media type is unsupported.
+
+        Examples:
+            validated_known_for = validate_knownfor(v)
+        """
+
+        validated_known_for = []
+        for item in v:
+            media_type = item.get("mediaType")
+            if media_type == "movie":
+                validated_known_for.append(MovieResultModel(**item))
+            elif media_type == "tv":
+                validated_known_for.append(TvResultModel(**item))
+            else:
+                raise POWMediaTypeException(f"Unsupported Media Type: {media_type}")
+        return validated_known_for
 
 
-class DiscoverTrendingModel(BaseModel):
+class SearchResultModel(BaseModel):
     """
-    Data class representing trending items in discovery.
+    Data class representing search items in search.
     """
 
     page: int
     totalPages: int
     totalResults: int
     results: list[MovieResultModel | TvResultModel | PersonResultModel]
+
+    @validator("results", pre=True)
+    def validate_results(cls, v):
+        """
+        Validate the 'results' field by creating and returning a list of validated result items.
+
+        Args:
+            v: The value to be validated.
+
+        Returns:
+            list: A list of validated result items.
+
+        Raises:
+            POWMediaTypeException: If the media type is unsupported.
+        """
+
+        validated_results = []
+        for item in v:
+            media_type = item.get("mediaType")
+            if media_type == "movie":
+                validated_results.append(MovieResultModel(**item))
+            elif media_type == "tv":
+                validated_results.append(TvResultModel(**item))
+            elif media_type == "person":
+                validated_results.append(PersonResultModel(**item))
+            else:
+                raise POWMediaTypeException(f"Unsupported Media Type: {media_type}")
+        return validated_results
 
 
 class WatchlistModel(BaseModel):

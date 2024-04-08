@@ -24,14 +24,49 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 from aiohttp import ClientSession
 from yarl import URL
 
-from asyncpow.models.search import (
-    DiscoverTrendingModel,
-    DiscoverWatchlistModel,
-    MovieResultModel,
-    PersonResultModel,
-    TvResultModel,
-)
+from asyncpow.models.search import DiscoverWatchlistModel, SearchResultModel
 from asyncpow.utils.http import request
+
+
+class Search:
+    """
+    Class to interact with search-related endpoints.
+
+    Initialize the Search object with the base URL, API key, and session.
+    """
+
+    def __init__(self, base_url: URL, api_key: str, session: ClientSession) -> None:
+        """Initialize the SearchAPI object with the base URL, API key, and session.
+
+        Args:
+            base_url (str): The base URL for the media API.
+            api_key (str): The API key for authentication.
+            session (ClientSession): HTTP Session
+
+        Returns:
+            None
+        """
+        self.search_url = base_url.joinpath("search")
+        self.api_key = api_key
+        self.session = session
+
+    async def async_get_search(
+        self, query: str, raw_response: bool = False, page: int = 1, lang: str = "en"
+    ) -> dict | SearchResultModel:
+        """Search for Movies, TV or Person
+
+        Args:
+            raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
+            page (int): The page number for items (default is 1).
+            lang (str): The language for items (default is "en").
+
+        Returns:
+            _type_: _description_
+        """
+        url = self.search_url.with_query({"query": query, "page": page, "language": lang})
+        headers = {"X-Api-Key": self.api_key}
+        response = await request(self.session, url, headers=headers)
+        return response if raw_response else SearchResultModel(**response)
 
 
 class Discover:
@@ -42,7 +77,7 @@ class Discover:
     """
 
     def __init__(self, base_url: URL, api_key: str, session: ClientSession) -> None:
-        """Initialize the SearchAPI object with the base URL, API key, and session.
+        """Initialize the DiscoverAPI object with the base URL, API key, and session.
 
         Args:
             base_url (str): The base URL for the media API.
@@ -58,7 +93,7 @@ class Discover:
 
     async def async_get_trending(
         self, raw_response: bool = False, page: int = 1, lang: str = "en"
-    ) -> dict | DiscoverTrendingModel:
+    ) -> dict | SearchResultModel:
         """
         Get trending items based on specified page and language.
 
@@ -68,31 +103,13 @@ class Discover:
             lang (str): The language for the trending items (default is "en").
 
         Returns:
-            dict | DiscoverTrendingModel: The model object containing trending items.
+            dict | SearchResultModel: The model object containing trending items.
         """
 
         url = self.discover_url.joinpath("trending").with_query({"page": page, "language": lang})
         headers = {"X-Api-Key": self.api_key}
         response = await request(self.session, url, headers=headers)
-        if raw_response:
-            return response
-        trending_model = DiscoverTrendingModel(
-            page=response["page"],
-            totalPages=response["totalPages"],
-            totalResults=response["totalResults"],
-            results=[],
-        )
-
-        for item_data in response["results"]:
-            media_type = item_data.get("mediaType")
-            if item_model := {
-                "tv": TvResultModel,
-                "movie": MovieResultModel,
-                "person": PersonResultModel,
-            }.get(media_type, None):
-                trending_model.results.append(item_model(**item_data))
-
-        return trending_model
+        return response if raw_response else SearchResultModel(**response)
 
     async def async_get_watchlist(
         self, raw_response: bool = False, page: int = 1

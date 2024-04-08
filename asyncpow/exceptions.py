@@ -25,15 +25,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 class POWException(Exception):
     """The base AsyncPOW Exception that all other exception classes extend."""
 
-    pass
-
 
 class POWTimeoutException(POWException):
     """
     Exception raised when a AsyncPOW operation times out.
     """
-
-    pass
 
 
 class POWConnectionException(POWException):
@@ -41,12 +37,14 @@ class POWConnectionException(POWException):
     Exception raised when a connection error occurs in a AsyncPOW operation.
     """
 
-    pass
-
 
 class POWAuthException(POWException):
     """
     Exception raised when authentication fails in a AsyncPOW operation.
     """
 
-    pass
+
+class POWMediaTypeException(POWException):
+    """
+    Exception raised when media type fails in a AsyncPOW operation.
+    """
