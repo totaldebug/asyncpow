@@ -56,7 +56,14 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="media.html">Media</a></li>
 <li class="toctree-l1"><a class="reference internal" href="search.html">Search</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Status</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Status</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#asyncpow.apis.status.Status"><code class="docutils literal notranslate"><span class="pre">Status</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#asyncpow.apis.status.Status.async_get_status"><code class="docutils literal notranslate"><span class="pre">Status.async_get_status()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asyncpow.apis.status.Status.async_get_appdata"><code class="docutils literal notranslate"><span class="pre">Status.async_get_appdata()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Models</span></p>
 <ul>
@@ -95,8 +102,68 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="status">
-<h1>Status<a class="headerlink" href="#status" title="Link to this heading"></a></h1>
+  <section id="module-asyncpow.apis.status">
+<span id="status"></span><h1>Status<a class="headerlink" href="#module-asyncpow.apis.status" title="Link to this heading"></a></h1>
+<p>AsyncPOW - <a class="reference external" href="https://github.com/totaldebug/asyncpow">https://github.com/totaldebug/asyncpow</a></p>
+<p>Copyright (c) 2024 Steven Marks, Total Debug</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the “Software”), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncpow.apis.status.Status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncpow.apis.status.</span></span><span class="sig-name descname"><span class="pre">Status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">URL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ClientSession</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asyncpow/apis/status.html#Status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asyncpow.apis.status.Status" title="Link to this definition"></a></dt>
+<dd><p>Class to interact with status-related endpoints.</p>
+<p>Initialize the Status object with the base URL, API key, and session.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncpow.apis.status.Status.async_get_status">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">async_get_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../models/status.html#asyncpow.models.status.StatusModel" title="asyncpow.models.status.StatusModel"><span class="pre">StatusModel</span></a></span></span><a class="reference internal" href="../_modules/asyncpow/apis/status.html#Status.async_get_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asyncpow.apis.status.Status.async_get_status" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Summary:</dt><dd><p>Asynchronously retrieves the status from the server.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_response</strong> (<em>bool</em>) – Flag to determine whether to return the raw response (True) or an object (False). Default is False.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The status information as either a dictionary or a StatusModel object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict | <a class="reference internal" href="../models/status.html#asyncpow.models.status.StatusModel" title="asyncpow.models.status.StatusModel">StatusModel</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncpow.apis.status.Status.async_get_appdata">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">async_get_appdata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../models/status.html#asyncpow.models.status.StatusAppDataModel" title="asyncpow.models.status.StatusAppDataModel"><span class="pre">StatusAppDataModel</span></a></span></span><a class="reference internal" href="../_modules/asyncpow/apis/status.html#Status.async_get_appdata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asyncpow.apis.status.Status.async_get_appdata" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the appdata from the server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_response</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to determine whether to return the raw response (True) or an object (False). Default is False.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The model object containing appdata items.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict | <a class="reference internal" href="../models/status.html#asyncpow.models.status.StatusAppDataModel" title="asyncpow.models.status.StatusAppDataModel">StatusAppDataModel</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 

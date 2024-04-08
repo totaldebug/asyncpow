@@ -54,7 +54,15 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Media</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Media</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#asyncpow.apis.media.Media"><code class="docutils literal notranslate"><span class="pre">Media</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#asyncpow.apis.media.Media.async_get_media"><code class="docutils literal notranslate"><span class="pre">Media.async_get_media()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asyncpow.apis.media.Media.async_post_media_status"><code class="docutils literal notranslate"><span class="pre">Media.async_post_media_status()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asyncpow.apis.media.Media.async_delete_media"><code class="docutils literal notranslate"><span class="pre">Media.async_delete_media()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="search.html">Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="status.html">Status</a></li>
 </ul>
@@ -95,8 +103,90 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="media">
-<h1>Media<a class="headerlink" href="#media" title="Link to this heading"></a></h1>
+  <section id="module-asyncpow.apis.media">
+<span id="media"></span><h1>Media<a class="headerlink" href="#module-asyncpow.apis.media" title="Link to this heading"></a></h1>
+<p>AsyncPOW - <a class="reference external" href="https://github.com/totaldebug/asyncpow">https://github.com/totaldebug/asyncpow</a></p>
+<p>Copyright (c) 2024 Steven Marks, Total Debug</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the “Software”), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncpow.apis.media.Media">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncpow.apis.media.</span></span><span class="sig-name descname"><span class="pre">Media</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">URL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ClientSession</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asyncpow/apis/media.html#Media"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asyncpow.apis.media.Media" title="Link to this definition"></a></dt>
+<dd><p>Class to interact with media-related endpoints.</p>
+<p>Initialize the Media object with the base URL, API key, and session.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncpow.apis.media.Media.async_get_media">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">async_get_media</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">take</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'all'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'available'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'partial'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'allavailable'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'pending'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'processing'</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'added'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'modified'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'mediaAdded'</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../models/media.html#asyncpow.models.media.MediaModel" title="asyncpow.models.media.MediaModel"><span class="pre">MediaModel</span></a></span></span><a class="reference internal" href="../_modules/asyncpow/apis/media.html#Media.async_get_media"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asyncpow.apis.media.Media.async_get_media" title="Link to this definition"></a></dt>
+<dd><p>Get media items based on specified parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>take</strong> (<em>int</em>) – The number of items to retrieve (default is 20).</p></li>
+<li><p><strong>skip</strong> (<em>int</em>) – The number of items to skip (default is 0).</p></li>
+<li><p><strong>filter</strong> (<em>MediaFilterOptions</em>) – The filter option for media items (default is MediaFilterOptions.AVAILABLE).</p></li>
+<li><p><strong>sort</strong> (<em>SortOptions</em>) – The sorting option for media items (default is SortOptions.ADDED).</p></li>
+<li><p><strong>raw_response</strong> (<em>bool</em>) – Flag to determine whether to return the raw response (True) or an object (False). Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The media model object retrieved based on the parameters.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict | <a class="reference internal" href="../models/media.html#asyncpow.models.media.MediaModel" title="asyncpow.models.media.MediaModel">MediaModel</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncpow.apis.media.Media.async_post_media_status">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">async_post_media_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mediaId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'available'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'partial'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'pending'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'processing'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'unknown'</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is4k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../models/media.html#asyncpow.models.media.MediaModel2" title="asyncpow.models.media.MediaModel2"><span class="pre">MediaModel2</span></a></span></span><a class="reference internal" href="../_modules/asyncpow/apis/media.html#Media.async_post_media_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asyncpow.apis.media.Media.async_post_media_status" title="Link to this definition"></a></dt>
+<dd><p>Update the status of a media item with optional 4k flag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mediaId</strong> (<em>int</em>) – The ID of the media item.</p></li>
+<li><p><strong>status</strong> (<em>MediaStatusOptions</em>) – The status to set for the media item.</p></li>
+<li><p><strong>is4k</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Optional flag indicating 4k status.</p></li>
+<li><p><strong>raw_response</strong> (<em>bool</em>) – Flag to determine whether to return the raw response (True) or an object (False). Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The model object representing the updated media item.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict | <a class="reference internal" href="../models/media.html#asyncpow.models.media.MediaModel2" title="asyncpow.models.media.MediaModel2">MediaModel2</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncpow.apis.media.Media.async_delete_media">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">async_delete_media</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mediaId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/asyncpow/apis/media.html#Media.async_delete_media"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asyncpow.apis.media.Media.async_delete_media" title="Link to this definition"></a></dt>
+<dd><p>Delete a media item by its ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mediaId</strong> (<em>int</em>) – The ID of the media item to delete.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 

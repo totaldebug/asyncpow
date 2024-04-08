@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>asyncpow.models.search &mdash; asyncpow  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+          </a>
+              <div class="version">
+                0.3.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">🚀 Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/media.html">Media</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/search.html">Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/status.html">Status</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/common.html">Common Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/media.html">Media Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/movie.html">Movie Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/search.html">Search Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/status.html">Status Models</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/http.html">HTTP</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">asyncpow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">asyncpow.models.search</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for asyncpow.models.search</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">AsyncPOW - https://github.com/totaldebug/asyncpow</span>
+
+<span class="sd">Copyright (c) 2024 Steven Marks, Total Debug</span>
+
+<span class="sd">Permission is hereby granted, free of charge, to any person obtaining a copy of</span>
+<span class="sd">this software and associated documentation files (the &quot;Software&quot;), to deal in</span>
+<span class="sd">the Software without restriction, including without limitation the rights to</span>
+<span class="sd">use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of</span>
+<span class="sd">the Software, and to permit persons to whom the Software is furnished to do so,</span>
+<span class="sd">subject to the following conditions:</span>
+
+<span class="sd">The above copyright notice and this permission notice shall be included in all</span>
+<span class="sd">copies or substantial portions of the Software.</span>
+
+<span class="sd">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="sd">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS</span>
+<span class="sd">FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR</span>
+<span class="sd">COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER</span>
+<span class="sd">IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN</span>
+<span class="sd">CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">validator</span>
+
+<span class="kn">from</span> <span class="nn">asyncpow.exceptions</span> <span class="kn">import</span> <span class="n">POWMediaTypeException</span>
+<span class="kn">from</span> <span class="nn">asyncpow.models.common</span> <span class="kn">import</span> <span class="n">MediaInfoModel</span>
+
+
+<div class="viewcode-block" id="MovieResultModel">
+<a class="viewcode-back" href="../../../models/search.html#asyncpow.models.search.MovieResultModel">[docs]</a>
+<span class="k">class</span> <span class="nc">MovieResultModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data class representing a movie search result.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">mediaType</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">popularity</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">voteCount</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">voteAverage</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">genreIds</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">overview</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">originalLanguage</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">originalTitle</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">releaseDate</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">adult</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">video</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">posterPath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">backdropPath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">mediaInfo</span><span class="p">:</span> <span class="n">MediaInfoModel</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="TvResultModel">
+<a class="viewcode-back" href="../../../models/search.html#asyncpow.models.search.TvResultModel">[docs]</a>
+<span class="k">class</span> <span class="nc">TvResultModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data class representing a TV show search result.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">mediaType</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">popularity</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">voteCount</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">voteAverage</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">genreIds</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">overview</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">originalLanguage</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">originalName</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">originCountry</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">firstAirDate</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">posterPath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">backdropPath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">mediaInfo</span><span class="p">:</span> <span class="n">MediaInfoModel</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="PersonResultModel">
+<a class="viewcode-back" href="../../../models/search.html#asyncpow.models.search.PersonResultModel">[docs]</a>
+<span class="k">class</span> <span class="nc">PersonResultModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data class representing a person search result.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">popularity</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">adult</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">mediaType</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">knownFor</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">MovieResultModel</span> <span class="o">|</span> <span class="n">TvResultModel</span><span class="p">]</span>
+    <span class="n">profilePath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="PersonResultModel.validate_knownfor">
+<a class="viewcode-back" href="../../../models/search.html#asyncpow.models.search.PersonResultModel.validate_knownfor">[docs]</a>
+    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;knownFor&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">validate_knownfor</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validate the &#39;knownFor&#39; field by creating and returning a list of validated known for items.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            v: The value to be validated.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list: A list of validated known for items.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            POWMediaTypeException: If the media type is unsupported.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            validated_known_for = validate_knownfor(v)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">validated_known_for</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+            <span class="n">media_type</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;mediaType&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">media_type</span> <span class="o">==</span> <span class="s2">&quot;movie&quot;</span><span class="p">:</span>
+                <span class="n">validated_known_for</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">MovieResultModel</span><span class="p">(</span><span class="o">**</span><span class="n">item</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">media_type</span> <span class="o">==</span> <span class="s2">&quot;tv&quot;</span><span class="p">:</span>
+                <span class="n">validated_known_for</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TvResultModel</span><span class="p">(</span><span class="o">**</span><span class="n">item</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">POWMediaTypeException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported Media Type: </span><span class="si">{</span><span class="n">media_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">validated_known_for</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="SearchResultModel">
+<a class="viewcode-back" href="../../../models/search.html#asyncpow.models.search.SearchResultModel">[docs]</a>
+<span class="k">class</span> <span class="nc">SearchResultModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data class representing search items in search.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">page</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">totalPages</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">totalResults</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">MovieResultModel</span> <span class="o">|</span> <span class="n">TvResultModel</span> <span class="o">|</span> <span class="n">PersonResultModel</span><span class="p">]</span>
+
+<div class="viewcode-block" id="SearchResultModel.validate_results">
+<a class="viewcode-back" href="../../../models/search.html#asyncpow.models.search.SearchResultModel.validate_results">[docs]</a>
+    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;results&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">validate_results</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validate the &#39;results&#39; field by creating and returning a list of validated result items.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            v: The value to be validated.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list: A list of validated result items.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            POWMediaTypeException: If the media type is unsupported.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">validated_results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+            <span class="n">media_type</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;mediaType&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">media_type</span> <span class="o">==</span> <span class="s2">&quot;movie&quot;</span><span class="p">:</span>
+                <span class="n">validated_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">MovieResultModel</span><span class="p">(</span><span class="o">**</span><span class="n">item</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">media_type</span> <span class="o">==</span> <span class="s2">&quot;tv&quot;</span><span class="p">:</span>
+                <span class="n">validated_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TvResultModel</span><span class="p">(</span><span class="o">**</span><span class="n">item</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">media_type</span> <span class="o">==</span> <span class="s2">&quot;person&quot;</span><span class="p">:</span>
+                <span class="n">validated_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">PersonResultModel</span><span class="p">(</span><span class="o">**</span><span class="n">item</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">POWMediaTypeException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported Media Type: </span><span class="si">{</span><span class="n">media_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">validated_results</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="WatchlistModel">
+<a class="viewcode-back" href="../../../models/search.html#asyncpow.models.search.WatchlistModel">[docs]</a>
+<span class="k">class</span> <span class="nc">WatchlistModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data class representing an item in the watchlist.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">ratingKey</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">mediaType</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">tmdbId</span><span class="p">:</span> <span class="nb">int</span></div>
+
+
+
+<div class="viewcode-block" id="DiscoverWatchlistModel">
+<a class="viewcode-back" href="../../../models/search.html#asyncpow.models.search.DiscoverWatchlistModel">[docs]</a>
+<span class="k">class</span> <span class="nc">DiscoverWatchlistModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data class representing watchlist items in discovery.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">page</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">totalPages</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">totalResults</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">WatchlistModel</span><span class="p">]</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Steven Marks, TotalDebug.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
