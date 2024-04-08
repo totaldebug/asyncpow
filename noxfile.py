@@ -37,10 +37,17 @@ def test_style(session: Session) -> None:
 
 
 @nox.session(reuse_venv=True)
-def docs(session: Session) -> None:
+def serve_docs(session: Session) -> None:
     """Create local copy of docs for testing"""
     session.run("poetry", "install", external=True)
     session.run("sphinx-autobuild", "docs", "build")
+
+
+@nox.session(reuse_venv=True)
+def build_docs(session: Session) -> None:
+    """Create local copy of docs for testing"""
+    session.run("poetry", "install", external=True)
+    session.run("sphinx-build", "-b", "html", "docs", "build")
 
 
 @nox.session(reuse_venv=True)
