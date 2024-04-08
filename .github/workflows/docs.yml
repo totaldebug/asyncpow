@@ -10,29 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: 3.12  # Adjust Python version as needed
 
-      - name: Install Poetry
-        run: |
-          curl -sSL https://install.python-poetry.org | POETRY_HOME=/etc/poetry python3 -
-
       - name: Install dependencies
         run: |
-          poetry build -f wheel
           python -m pip install --upgrade pip
-          pip install sphinx
-          pip install dist/*.whl
+          python -m pip install poetry nox
           pip install -r docs/requirements.txt
 
       - name: Build documentation
         run: |
-          sphinx-build -b html docs/ build/
+          nox -s docs
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
