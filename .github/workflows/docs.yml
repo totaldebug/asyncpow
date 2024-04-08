@@ -18,10 +18,17 @@ jobs:
         with:
           python-version: 3.12  # Adjust Python version as needed
 
+      - name: Install Poetry
+        run: |
+          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+          source $HOME/.poetry/env
+
       - name: Install dependencies
         run: |
+          poetry build -f wheel
           python -m pip install --upgrade pip
           pip install sphinx
+          pip install dist/*.whl
           pip install -r docs/requirements.txt
 
       - name: Build documentation
