@@ -1,4 +1,4 @@
-Search
+Search Models
 ----------------------------------------
 .. automodule:: asyncpow.models.search
     :members:

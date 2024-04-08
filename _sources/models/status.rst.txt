@@ -1,4 +1,4 @@
-Status
+Status Models
 ----------------------------------------
 .. automodule:: asyncpow.models.status
     :members:

@@ -17,9 +17,11 @@
    :caption: Models
 
    models/common
-   models/status
-   models/discover
+   models/media
    models/movie
+   models/search
+   models/status
+
 
 .. toctree::
    :caption: Utils

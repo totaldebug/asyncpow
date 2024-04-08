@@ -1,4 +1,4 @@
-Media
+Media Models
 ----------------------------------------
 .. automodule:: asyncpow.models.media
     :members:
