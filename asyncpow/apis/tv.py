@@ -49,13 +49,13 @@ class Tv:
         self.session = session
 
     async def async_get_tv(
-        self, tvId: int, lang: str = "en", raw_response: bool = False
+        self, id: int, lang: str = "en", raw_response: bool = False
     ) -> dict | TvDetailsModel:
         """
         Retrieves TV details by ID asynchronously.
 
         Args:
-            tvId (int): The ID of the TV show.
+            id (int): The ID of the TV show.
             lang (str): The language for the response (default is "en").
             raw_response (bool): Flag to return raw response or TvDetailsModel (default is False).
 
@@ -66,7 +66,7 @@ class Tv:
             tv_details = await async_get_tv(12345, lang="en", raw_response=False)
         """
         params = {"language": lang}
-        url = self.media_url.joinpath(str(tvId))
+        url = self.media_url.joinpath(str(id))
 
         headers = {"X-Api-Key": self.api_key}
         response = await request(self.session, url, params=params, headers=headers)

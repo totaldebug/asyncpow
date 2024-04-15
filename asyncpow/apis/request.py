@@ -26,10 +26,11 @@ from yarl import URL
 
 from asyncpow.apis.movie import Movie
 from asyncpow.apis.tv import Tv
-from asyncpow.exceptions import POWMediaTypeException
+from asyncpow.exceptions import POWException, POWMediaTypeException
 from asyncpow.models.common import SortOptions
 from asyncpow.models.media import MediaRequestModel
 from asyncpow.models.request import RequestFilterOptions, RequestResultsResponseModel
+from asyncpow.models.tv import TvDetailsModel
 from asyncpow.utils.http import request
 
 
@@ -126,24 +127,26 @@ class Request:
                 "mediaId": id,
             }
         elif type == "tv":
-            data = self.tv.async_get_tv(id=id)
+            data = await self.tv.async_get_tv(id=id)
+            if isinstance(data, TvDetailsModel):
+                if series == "all":
+                    seasons_array = [
+                        season.seasonNumber for season in data.seasons if season.seasonNumber != 0
+                    ]
+                elif series == "first":
+                    seasons_array = [1]
 
-            if series == "all":
-                seasons_array = [
-                    season.seasonNumber for season in data.seasons if season.seasonNumber != 0
-                ]
-            elif series == "first":
-                seasons_array = [1]
-
-            elif series == "latest":
-                for season in data.seasons:
-                    seasons_array = [season.seasonNumber]
-            req_data = {
-                "mediaType": "tv",
-                "mediaId": id,
-                "tvdbId": data.externalIds.tvdbId,
-                "seasons": seasons_array,
-            }
+                elif series == "latest":
+                    for season in data.seasons:
+                        seasons_array = [season.seasonNumber]
+                req_data = {
+                    "mediaType": "tv",
+                    "mediaId": id,
+                    "tvdbId": data.externalIds.tvdbId,
+                    "seasons": seasons_array,
+                }
+            else:
+                raise POWException(f"Expecting TvDetailsModel, got {type(data)}")
         else:
             raise POWMediaTypeException("Unknown media type, use either movie or tv")
 

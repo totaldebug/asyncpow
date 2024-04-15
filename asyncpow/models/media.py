@@ -20,7 +20,7 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-from typing import ForwardRef, Literal
+from typing import Literal
 
 from pydantic import BaseModel
 
@@ -30,7 +30,31 @@ MediaFilterOptions = Literal["all", "available", "partial", "allavailable", "pen
 
 MediaStatusOptions = Literal["available", "partial", "pending", "processing", "unknown"]
 
-MediaRequestModel = ForwardRef("MediaRequestModel")
+
+class MediaRequestModel(BaseModel):
+    """
+    Data class representing a media request model.
+
+    As per code
+    """
+
+    id: int
+    status: int  # 1 = PENDING APPROVAL, 2 = APPROVED, 3 = DECLINED
+    media: "MediaInfoModel"
+    requestedBy: UserModel
+    modifiedBy: UserModel | None = None
+    createdAt: str
+    updatedAt: str
+    type: MediaType
+    is4k: bool
+    serverId: int | None = None
+    profileId: int | None = None
+    rootFolder: str | None = None
+    languageProfileId: int | None = None
+    tags: list | None = None
+    isAutoRequest: bool = False
+    seasonCount: int | None = None
+    seasons: list["SeasonRequestModel"] | None = None
 
 
 class MediaInfoModel(BaseModel):
@@ -66,9 +90,6 @@ class MediaInfoModel(BaseModel):
     tautulliUrl4k: str | None = None
     serviceUrl: str | None = None
     serviceUrl4k: int | None = None
-    externalServiceId4k: int | None = None
-    externalServiceSlug4k: int | None = None
-    ratingKey4k: int | None = None
     tvdbId: int | None = None
     imdbId: int | None = None
     downloadStatus: list | None = None
@@ -85,32 +106,6 @@ class SeasonRequestModel(BaseModel):
     request: MediaRequestModel | None = None
     createdAt: str
     updatedAt: str
-
-
-class MediaRequestModel(BaseModel):
-    """
-    Data class representing a media request model.
-
-    As per code
-    """
-
-    id: int
-    status: int  # 1 = PENDING APPROVAL, 2 = APPROVED, 3 = DECLINED
-    media: MediaInfoModel
-    requestedBy: UserModel
-    modifiedBy: UserModel | None = None
-    createdAt: str
-    updatedAt: str
-    type: MediaType
-    is4k: bool
-    serverId: int | None = None
-    profileId: int | None = None
-    rootFolder: str | None = None
-    languageProfileId: int | None = None
-    tags: list | None = None
-    isAutoRequest: bool = False
-    seasonCount: int | None = None
-    seasons: list[SeasonRequestModel] | None = None
 
 
 class MediaModel(PaginatedResponseModel):
