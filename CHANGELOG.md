@@ -1,3 +1,10 @@
+## [0.4.0](https://github.com/totaldebug/asyncpow/compare/v0.3.0...v0.4.0) (2024-04-15)
+
+
+### Features
+
+* added request class ([1c16d84](https://github.com/totaldebug/asyncpow/commit/1c16d847ca8805bd8bc058d94feb241c09c5e90b))
+
 ## [0.3.0](https://github.com/totaldebug/asyncpow/compare/v0.2.5...v0.3.0) (2024-04-08)
 
 
