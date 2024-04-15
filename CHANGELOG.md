@@ -1,3 +1,10 @@
+## [0.4.1](https://github.com/totaldebug/asyncpow/compare/v0.4.0...v0.4.1) (2024-04-15)
+
+
+### Bug Fixes
+
+* duplications in models and mypy errors ([76dfd43](https://github.com/totaldebug/asyncpow/commit/76dfd43bb58e69d19e268fbf34ace44909248850))
+
 ## [0.4.0](https://github.com/totaldebug/asyncpow/compare/v0.3.0...v0.4.0) (2024-04-15)
 
 
