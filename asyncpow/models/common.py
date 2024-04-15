@@ -216,7 +216,7 @@ class SeasonModel(BaseModel):
     Data class representing a Season.
     """
 
-    airDate: str
+    airDate: str | None = None
     id: int
     episodeCount: int
     name: str
