@@ -54,6 +54,7 @@ class Search:
         """Search for Movies, TV or Person
 
         Args:
+            query (str):
             raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
             page (int): The page number for items (default is 1).
             lang (str): The language for items (default is "en").

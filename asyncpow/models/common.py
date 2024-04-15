@@ -25,6 +25,7 @@ from typing import Literal
 from pydantic import BaseModel
 
 SortOptions = Literal["added", "modified", "mediaAdded"]
+MediaType = Literal["movie", "tv"]
 
 
 class UserModel(BaseModel):
@@ -32,27 +33,53 @@ class UserModel(BaseModel):
     Data class representing a user model.
     """
 
+    displayName: str
     id: int
     email: str
-    username: str
-    plexToken: str
-    plexUsername: str
+    username: str | None = None
+    password: str | None = None
+    resetPasswordGuid: str | None = None
+    recoveryLinkExpirationDate: str | None = None
     userType: int
+    plexId: int | None = None
+    plexToken: str | None = None
+    plexUsername: str | None = None
     permissions: int
     avatar: str
     createdAt: str
     updatedAt: str
-    requestCount: str
+    requestCount: int
+    requests: list | None = None  # TODO: Requests
+    movieQuotaLimit: int | None = None
+    movieQuotaDays: int | None = None
+    tvQuotaLimit: int | None = None
+    tvQuotaDays: int | None = None
+    settings: dict | None = None  # TODO: UserSettingsModel
+    pushSubscriptions: list | None = None  # TODO: UserPushSubscriptionModel
+    createdIssues: list | None = None  # TODO: IssueModel
 
 
 class PageInfoModel(BaseModel):
     """
     Data class representing page information.
+
+    As per code
     """
 
     page: int
     pages: int
     results: int
+    pageSize: int
+
+
+class PaginatedResponseModel(BaseModel):
+    """
+    Data class representing page information.
+
+    As per code
+    """
+
+    pageInfo: PageInfoModel
 
 
 class CastModel(BaseModel):
@@ -184,52 +211,15 @@ class ProductionCountryModel(BaseModel):
     name: str
 
 
-class MediaRequestModel(BaseModel):
+class SeasonModel(BaseModel):
     """
-    Data class representing a media request model.
+    Data class representing a Season.
     """
 
+    airDate: str
     id: int
-    status: int
-    media: dict
-    createdAt: str
-    updatedAt: str
-    requestedBy: UserModel
-    modifiedBy: list[UserModel]
-    is4k: bool
-    serverId: int
-    profileId: int
-    rootFolder: str
-
-
-class MediaInfoModel(BaseModel):
-    """
-    Data class representing media information model.
-    """
-
-    id: int
-    mediaType: str
-    tmdbId: int
-    status: int
-    status4k: int
-    createdAt: str
-    updatedAt: str
-    lastSeasonChange: str
-    mediaAddedAt: str
-    serviceId: int
-    externalServiceId: int
-    externalServiceSlug: int
-    ratingKey: int
-    requests: MediaRequestModel | None = None
-    plexUrl: str | None = None
-    iOSPlexUrl: str | None = None
-    serviceUrl: str | None = None
-    serviceId4k: int | None = None
-    externalServiceId4k: int | None = None
-    externalServiceSlug4k: int | None = None
-    ratingKey4k: int | None = None
-    tvdbId: int | None = None
-    imdbId: int | None = None
-    downloadStatus: list | None = None
-    downloadStatus4k: list | None = None
-    seasons: list | None = None
+    episodeCount: int
+    name: str
+    overview: str
+    posterPath: str | None = None
+    seasonNumber: int

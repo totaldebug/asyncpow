@@ -67,8 +67,8 @@ class Media:
         Args:
             take (int): The number of items to retrieve (default is 20).
             skip (int): The number of items to skip (default is 0).
-            filter (MediaFilterOptions): The filter option for media items (default is MediaFilterOptions.AVAILABLE).
-            sort (SortOptions): The sorting option for media items (default is SortOptions.ADDED).
+            filter (MediaFilterOptions): The filter option for media items (default is None).
+            sort (SortOptions): The sorting option for media items (default is None).
             raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
 
         Returns:

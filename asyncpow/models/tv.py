@@ -20,6 +20,8 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
+from typing import Literal
+
 from pydantic import BaseModel
 
 from asyncpow.models.common import (
@@ -29,9 +31,12 @@ from asyncpow.models.common import (
     KeywordModel,
     ProductionCompanyModel,
     ProductionCountryModel,
+    SeasonModel,
     SpokenLanguagesModelTv,
     WatchProviderModel,
 )
+
+MediaRequestStatus = Literal["1"]  # TODO: Look into this more
 
 
 class EpisodeModel(BaseModel):
@@ -50,18 +55,6 @@ class EpisodeModel(BaseModel):
     voteCount: int | None = None
 
 
-class SeasonModel(BaseModel):
-    """Model for TV Seasons"""
-
-    id: int
-    airDate: str | None = None
-    episodeCount: int
-    name: str
-    overview: str
-    posterPath: str | None = None
-    seasonNumber: int
-
-
 class CreatedByModel(BaseModel):
     """Model for Created by"""
 
@@ -77,7 +70,7 @@ class TvDetailsModel(BaseModel):
     id: int
     backdropPath: str
     posterPath: str
-    contentRatings: dict
+    contentRatings: dict  # TODO: TmdbTvRatingResult
     createdBy: list[CreatedByModel]
     episodeRunTime: list[int]
     firstAirDate: str

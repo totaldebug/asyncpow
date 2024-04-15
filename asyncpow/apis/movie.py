@@ -48,13 +48,13 @@ class Movie:
         self.session = session
 
     async def async_get_movie(
-        self, movieId: int, lang: str = "en", raw_response: bool = False
+        self, id: int, lang: str = "en", raw_response: bool = False
     ) -> dict | MovieDetailsModel:
         """
         Retrieves movie details by ID asynchronously.
 
         Args:
-            movieId (int): The ID of the movie.
+            id (int): The ID of the movie.
             lang (str): The language for the response (default is "en").
             raw_response (bool): Flag to return raw response or MovieDetailsModel (default is False).
 
@@ -63,7 +63,7 @@ class Movie:
         """
 
         params = {"language": lang}
-        url = self.media_url.joinpath(str(movieId))
+        url = self.media_url.joinpath(str(id))
 
         headers = {"X-Api-Key": self.api_key}
         response = await request(self.session, url, params=params, headers=headers)

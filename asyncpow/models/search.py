@@ -23,7 +23,7 @@
 from pydantic import BaseModel, validator
 
 from asyncpow.exceptions import POWMediaTypeException
-from asyncpow.models.common import MediaInfoModel
+from asyncpow.models.media import MediaInfoModel
 
 
 class MovieResultModel(BaseModel):

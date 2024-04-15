@@ -26,6 +26,7 @@ from yarl import URL
 
 from asyncpow.apis.media import Media
 from asyncpow.apis.movie import Movie
+from asyncpow.apis.request import Request
 from asyncpow.apis.search import Discover, Search
 from asyncpow.apis.status import Status
 from asyncpow.apis.tv import Tv
@@ -96,6 +97,7 @@ class Overseerr:
         self.media = Media(self.url, self.api_key, self._session)
         self.movie = Movie(self.url, self.api_key, self._session)
         self.tv = Tv(self.url, self.api_key, self._session)
+        self.request = Request(self.url, self.api_key, self._session, self.tv, self.movie)
 
     async def __aenter__(self):
         """
