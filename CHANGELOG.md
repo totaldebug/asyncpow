@@ -1,3 +1,10 @@
+## [0.4.2](https://github.com/totaldebug/asyncpow/compare/v0.4.1...v0.4.2) (2024-04-15)
+
+
+### Bug Fixes
+
+* seasonModel airDate is none in some situations ([535bf26](https://github.com/totaldebug/asyncpow/commit/535bf26039661b070e650e3ffd3a0f6ddc37c4bb))
+
 ## [0.4.1](https://github.com/totaldebug/asyncpow/compare/v0.4.0...v0.4.1) (2024-04-15)
 
 
