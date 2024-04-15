@@ -115,25 +115,115 @@
 <span class="c1"># CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span>
 
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">ForwardRef</span><span class="p">,</span> <span class="n">Literal</span>
 
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
-<span class="kn">from</span> <span class="nn">asyncpow.models.common</span> <span class="kn">import</span> <span class="n">MediaInfoModel</span><span class="p">,</span> <span class="n">PageInfoModel</span>
+<span class="kn">from</span> <span class="nn">asyncpow.models.common</span> <span class="kn">import</span> <span class="n">MediaType</span><span class="p">,</span> <span class="n">PaginatedResponseModel</span><span class="p">,</span> <span class="n">SeasonModel</span><span class="p">,</span> <span class="n">UserModel</span>
 
 <span class="n">MediaFilterOptions</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;available&quot;</span><span class="p">,</span> <span class="s2">&quot;partial&quot;</span><span class="p">,</span> <span class="s2">&quot;allavailable&quot;</span><span class="p">,</span> <span class="s2">&quot;pending&quot;</span><span class="p">,</span> <span class="s2">&quot;processing&quot;</span><span class="p">]</span>
 
 <span class="n">MediaStatusOptions</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;available&quot;</span><span class="p">,</span> <span class="s2">&quot;partial&quot;</span><span class="p">,</span> <span class="s2">&quot;pending&quot;</span><span class="p">,</span> <span class="s2">&quot;processing&quot;</span><span class="p">,</span> <span class="s2">&quot;unknown&quot;</span><span class="p">]</span>
 
+<span class="n">MediaRequestModel</span> <span class="o">=</span> <span class="n">ForwardRef</span><span class="p">(</span><span class="s2">&quot;MediaRequestModel&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="MediaInfoModel">
+<a class="viewcode-back" href="../../../models/media.html#asyncpow.models.media.MediaInfoModel">[docs]</a>
+<span class="k">class</span> <span class="nc">MediaInfoModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data class representing media information model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">mediaType</span><span class="p">:</span> <span class="n">MediaType</span>
+    <span class="n">tmdbId</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">status</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># 1 = UNKNOWN, 2 = PENDING, 3 = PROCESSING, 4 = PARTIALLY_AVAILABLE, 5 = AVAILABLE</span>
+    <span class="n">status4k</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="n">createdAt</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">updatedAt</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">lastSeasonChange</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">issues</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># TODO: Add list of issues model</span>
+    <span class="n">mediaAddedAt</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">serviceId</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">serviceId4k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">externalServiceId</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">externalServiceId4k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">externalServiceSlug</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">externalServiceSlug4k</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">ratingKey</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">ratingKey4k</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">requests</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">MediaRequestModel</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">plexUrl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">plexUrl4k</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">iOSPlexUrl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">iOSPlexUrl4k</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tautulliUrl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tautulliUrl4k</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">serviceUrl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">serviceUrl4k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">externalServiceId4k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">externalServiceSlug4k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">ratingKey4k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tvdbId</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">imdbId</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">downloadStatus</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">downloadStatus4k</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">seasons</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">SeasonModel</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="SeasonRequestModel">
+<a class="viewcode-back" href="../../../models/media.html#asyncpow.models.media.SeasonRequestModel">[docs]</a>
+<span class="k">class</span> <span class="nc">SeasonRequestModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Model for TV Seasons&quot;&quot;&quot;</span>
+
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">seasonNumber</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">status</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># PENDING = 1, APPROVED = 2, DECLINED = 3, FAILED = 4</span>
+    <span class="n">request</span><span class="p">:</span> <span class="n">MediaRequestModel</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">createdAt</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">updatedAt</span><span class="p">:</span> <span class="nb">str</span></div>
+
+
+
+<div class="viewcode-block" id="MediaRequestModel">
+<a class="viewcode-back" href="../../../models/media.html#asyncpow.models.media.MediaRequestModel">[docs]</a>
+<span class="k">class</span> <span class="nc">MediaRequestModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data class representing a media request model.</span>
+
+<span class="sd">    As per code</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">status</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># 1 = PENDING APPROVAL, 2 = APPROVED, 3 = DECLINED</span>
+    <span class="n">media</span><span class="p">:</span> <span class="n">MediaInfoModel</span>
+    <span class="n">requestedBy</span><span class="p">:</span> <span class="n">UserModel</span>
+    <span class="n">modifiedBy</span><span class="p">:</span> <span class="n">UserModel</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">createdAt</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">updatedAt</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">MediaType</span>
+    <span class="n">is4k</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">serverId</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">profileId</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">rootFolder</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">languageProfileId</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">isAutoRequest</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">seasonCount</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">seasons</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">SeasonRequestModel</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
 
 <div class="viewcode-block" id="MediaModel">
 <a class="viewcode-back" href="../../../models/media.html#asyncpow.models.media.MediaModel">[docs]</a>
-<span class="k">class</span> <span class="nc">MediaModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">MediaModel</span><span class="p">(</span><span class="n">PaginatedResponseModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Data class representing a media model.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">pageInfo</span><span class="p">:</span> <span class="n">PageInfoModel</span>
     <span class="n">results</span><span class="p">:</span> <span class="n">MediaInfoModel</span></div>
 
 

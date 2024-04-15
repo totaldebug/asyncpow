@@ -120,6 +120,7 @@
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
 <span class="n">SortOptions</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;added&quot;</span><span class="p">,</span> <span class="s2">&quot;modified&quot;</span><span class="p">,</span> <span class="s2">&quot;mediaAdded&quot;</span><span class="p">]</span>
+<span class="n">MediaType</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;movie&quot;</span><span class="p">,</span> <span class="s2">&quot;tv&quot;</span><span class="p">]</span>
 
 
 <div class="viewcode-block" id="UserModel">
@@ -129,17 +130,30 @@
 <span class="sd">    Data class representing a user model.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="n">displayName</span><span class="p">:</span> <span class="nb">str</span>
     <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">plexToken</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">plexUsername</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">resetPasswordGuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">recoveryLinkExpirationDate</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">userType</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">plexId</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">plexToken</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">plexUsername</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">permissions</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">avatar</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">createdAt</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">updatedAt</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">requestCount</span><span class="p">:</span> <span class="nb">str</span></div>
+    <span class="n">requestCount</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">requests</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># TODO: Requests</span>
+    <span class="n">movieQuotaLimit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">movieQuotaDays</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tvQuotaLimit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tvQuotaDays</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># TODO: UserSettingsModel</span>
+    <span class="n">pushSubscriptions</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># TODO: UserPushSubscriptionModel</span>
+    <span class="n">createdIssues</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># TODO: IssueModel</span></div>
 
 
 
@@ -148,11 +162,27 @@
 <span class="k">class</span> <span class="nc">PageInfoModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Data class representing page information.</span>
+
+<span class="sd">    As per code</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">page</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">pages</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">results</span><span class="p">:</span> <span class="nb">int</span></div>
+    <span class="n">results</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">pageSize</span><span class="p">:</span> <span class="nb">int</span></div>
+
+
+
+<div class="viewcode-block" id="PaginatedResponseModel">
+<a class="viewcode-back" href="../../../models/common.html#asyncpow.models.common.PaginatedResponseModel">[docs]</a>
+<span class="k">class</span> <span class="nc">PaginatedResponseModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data class representing page information.</span>
+
+<span class="sd">    As per code</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">pageInfo</span><span class="p">:</span> <span class="n">PageInfoModel</span></div>
 
 
 
@@ -321,60 +351,20 @@
 
 
 
-<div class="viewcode-block" id="MediaRequestModel">
-<a class="viewcode-back" href="../../../models/common.html#asyncpow.models.common.MediaRequestModel">[docs]</a>
-<span class="k">class</span> <span class="nc">MediaRequestModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<div class="viewcode-block" id="SeasonModel">
+<a class="viewcode-back" href="../../../models/common.html#asyncpow.models.common.SeasonModel">[docs]</a>
+<span class="k">class</span> <span class="nc">SeasonModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Data class representing a media request model.</span>
+<span class="sd">    Data class representing a Season.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="n">airDate</span><span class="p">:</span> <span class="nb">str</span>
     <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">status</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">media</span><span class="p">:</span> <span class="nb">dict</span>
-    <span class="n">createdAt</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">updatedAt</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">requestedBy</span><span class="p">:</span> <span class="n">UserModel</span>
-    <span class="n">modifiedBy</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">UserModel</span><span class="p">]</span>
-    <span class="n">is4k</span><span class="p">:</span> <span class="nb">bool</span>
-    <span class="n">serverId</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">profileId</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">rootFolder</span><span class="p">:</span> <span class="nb">str</span></div>
-
-
-
-<div class="viewcode-block" id="MediaInfoModel">
-<a class="viewcode-back" href="../../../models/common.html#asyncpow.models.common.MediaInfoModel">[docs]</a>
-<span class="k">class</span> <span class="nc">MediaInfoModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Data class representing media information model.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">mediaType</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">tmdbId</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">status</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">status4k</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">createdAt</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">updatedAt</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">lastSeasonChange</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">mediaAddedAt</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">serviceId</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">externalServiceId</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">externalServiceSlug</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">ratingKey</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">requests</span><span class="p">:</span> <span class="n">MediaRequestModel</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">plexUrl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">iOSPlexUrl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">serviceUrl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">serviceId4k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">externalServiceId4k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">externalServiceSlug4k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">ratingKey4k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">tvdbId</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">imdbId</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">downloadStatus</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">downloadStatus4k</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">seasons</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></div>
+    <span class="n">episodeCount</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">overview</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">posterPath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">seasonNumber</span><span class="p">:</span> <span class="nb">int</span></div>
 
 </pre></div>
 
