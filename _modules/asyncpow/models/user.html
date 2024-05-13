@@ -125,6 +125,8 @@
 
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
+<span class="kn">from</span> <span class="nn">asyncpow.models.common</span> <span class="kn">import</span> <span class="n">PaginatedResponseModel</span>
+
 
 <div class="viewcode-block" id="UserSettingsModel">
 <a class="viewcode-back" href="../../../models/user.html#asyncpow.models.user.UserSettingsModel">[docs]</a>
@@ -175,10 +177,10 @@
     <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">resetPasswordGuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">recoveryLinkExpirationDate</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">userType</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">userType</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">plexId</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">plexToken</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">permissions</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">permissions</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">avatar</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">requestCount</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">requests</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># TODO: should be requests model, but circular imports</span>
@@ -191,6 +193,17 @@
     <span class="n">createdIssues</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># TODO: should be issues model, but circular imports</span>
     <span class="n">createdAt</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">updatedAt</span><span class="p">:</span> <span class="nb">str</span></div>
+
+
+
+<div class="viewcode-block" id="UserResultsResponseModel">
+<a class="viewcode-back" href="../../../models/user.html#asyncpow.models.user.UserResultsResponseModel">[docs]</a>
+<span class="k">class</span> <span class="nc">UserResultsResponseModel</span><span class="p">(</span><span class="n">PaginatedResponseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data class representing a user model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">UserModel</span><span class="p">]</span></div>
 
 </pre></div>
 

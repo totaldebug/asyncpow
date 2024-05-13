@@ -127,7 +127,7 @@
 <span class="kn">from</span> <span class="nn">yarl</span> <span class="kn">import</span> <span class="n">URL</span>
 
 <span class="kn">from</span> <span class="nn">asyncpow.models.common</span> <span class="kn">import</span> <span class="n">UserSortOptions</span>
-<span class="kn">from</span> <span class="nn">asyncpow.models.user</span> <span class="kn">import</span> <span class="n">UserModel</span>
+<span class="kn">from</span> <span class="nn">asyncpow.models.user</span> <span class="kn">import</span> <span class="n">UserModel</span><span class="p">,</span> <span class="n">UserResultsResponseModel</span>
 <span class="kn">from</span> <span class="nn">asyncpow.utils.http</span> <span class="kn">import</span> <span class="n">request</span>
 
 
@@ -191,7 +191,7 @@
         <span class="k">if</span> <span class="n">raw_response</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">response</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">UserModel</span><span class="p">(</span><span class="o">**</span><span class="n">response</span><span class="p">)</span> <span class="k">if</span> <span class="nb">id</span> <span class="k">else</span> <span class="nb">list</span><span class="p">[</span><span class="n">UserModel</span><span class="p">(</span><span class="o">**</span><span class="n">response</span><span class="p">)]</span></div>
+            <span class="k">return</span> <span class="n">UserModel</span><span class="p">(</span><span class="o">**</span><span class="n">response</span><span class="p">)</span> <span class="k">if</span> <span class="nb">id</span> <span class="k">else</span> <span class="n">UserResultsResponseModel</span><span class="p">(</span><span class="o">**</span><span class="n">response</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="User.async_create_user">

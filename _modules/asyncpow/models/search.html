@@ -123,7 +123,7 @@
 <span class="c1"># CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span>
 
 
-<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">validator</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">field_validator</span>
 
 <span class="kn">from</span> <span class="nn">asyncpow.exceptions</span> <span class="kn">import</span> <span class="n">POWMediaTypeException</span>
 <span class="kn">from</span> <span class="nn">asyncpow.models.media</span> <span class="kn">import</span> <span class="n">MediaInfoModel</span>
@@ -197,7 +197,7 @@
 
 <div class="viewcode-block" id="PersonResultModel.validate_knownfor">
 <a class="viewcode-back" href="../../../models/search.html#asyncpow.models.search.PersonResultModel.validate_knownfor">[docs]</a>
-    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;knownFor&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nd">@field_validator</span><span class="p">(</span><span class="s2">&quot;knownFor&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">validate_knownfor</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Validate the &#39;knownFor&#39; field by creating and returning a list of validated known for items.</span>
@@ -243,7 +243,7 @@
 
 <div class="viewcode-block" id="SearchResultModel.validate_results">
 <a class="viewcode-back" href="../../../models/search.html#asyncpow.models.search.SearchResultModel.validate_results">[docs]</a>
-    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;results&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nd">@field_validator</span><span class="p">(</span><span class="s2">&quot;results&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">validate_results</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Validate the &#39;results&#39; field by creating and returning a list of validated result items.</span>
