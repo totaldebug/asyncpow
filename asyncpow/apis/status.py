@@ -34,9 +34,17 @@ class Status:
     Initialize the Status object with the base URL, API key, and session.
     """
 
-    def __init__(self, base_url: URL, api_key: str, session: ClientSession) -> None:
+    def __init__(
+        self, base_url: URL, api_key: str, session: ClientSession, raw_response: bool
+    ) -> None:
         """
         Initialize the Status object with the base URL, API key, and session.
+
+        Args:
+            base_url (str): The base URL for the user API.
+            api_key (str): The API key for authentication.
+            session (ClientSession): HTTP Session.
+            raw_response (bool): Return json if True.
 
         Returns:
             None
@@ -45,30 +53,40 @@ class Status:
         self.base_url = base_url.joinpath("status")
         self.api_key = api_key
         self.session = session
+        self.raw_response = raw_response
 
-    async def async_get_status(self, raw_response: bool = False) -> dict | StatusModel:
+    async def async_get_status(
+        self,
+        raw_response: bool | None = None,
+    ) -> dict | StatusModel:
         """
         Summary:
             Asynchronously retrieves the status from the server.
 
         Args:
-            raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
+            raw_response (bool, optional): return raw json. Defaults to None.
 
         Returns:
             dict | StatusModel: The status information as either a dictionary or a StatusModel object.
         """
+        if raw_response is None:
+            raw_response = self.raw_response
+
         response = await request(self.session, self.base_url)
         return response if raw_response else StatusModel(**response)
 
-    async def async_get_appdata(self, raw_response: bool = False) -> dict | StatusAppDataModel:
+    async def async_get_appdata(self, raw_response: bool = None) -> dict | StatusAppDataModel:
         """Retrieves the appdata from the server
 
         Args:
-            raw_response (bool, optional): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
+            raw_response (bool, optional): return raw json. Defaults to None.
 
         Returns:
             dict | StatusAppDataModel: The model object containing appdata items.
         """
+        if raw_response is None:
+            raw_response = self.raw_response
+
         url = self.base_url.joinpath("appdata")
         response = await request(self.session, url)
         return response if raw_response else StatusAppDataModel(**response)

@@ -25,38 +25,8 @@ from typing import Literal
 from pydantic import BaseModel
 
 SortOptions = Literal["added", "modified", "mediaAdded"]
+UserSortOptions = Literal["created"]
 MediaType = Literal["movie", "tv"]
-
-
-class UserModel(BaseModel):
-    """
-    Data class representing a user model.
-    """
-
-    displayName: str
-    id: int
-    email: str
-    username: str | None = None
-    password: str | None = None
-    resetPasswordGuid: str | None = None
-    recoveryLinkExpirationDate: str | None = None
-    userType: int
-    plexId: int | None = None
-    plexToken: str | None = None
-    plexUsername: str | None = None
-    permissions: int
-    avatar: str
-    createdAt: str
-    updatedAt: str
-    requestCount: int
-    requests: list | None = None  # TODO: Requests
-    movieQuotaLimit: int | None = None
-    movieQuotaDays: int | None = None
-    tvQuotaLimit: int | None = None
-    tvQuotaDays: int | None = None
-    settings: dict | None = None  # TODO: UserSettingsModel
-    pushSubscriptions: list | None = None  # TODO: UserPushSubscriptionModel
-    createdIssues: list | None = None  # TODO: IssueModel
 
 
 class PageInfoModel(BaseModel):

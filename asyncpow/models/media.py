@@ -24,7 +24,7 @@ from typing import Literal
 
 from pydantic import BaseModel
 
-from asyncpow.models.common import MediaType, PaginatedResponseModel, SeasonModel, UserModel
+from asyncpow.models.common import MediaType, PaginatedResponseModel, SeasonModel
 
 MediaFilterOptions = Literal["all", "available", "partial", "allavailable", "pending", "processing"]
 
@@ -41,8 +41,8 @@ class MediaRequestModel(BaseModel):
     id: int
     status: int  # 1 = PENDING APPROVAL, 2 = APPROVED, 3 = DECLINED
     media: "MediaInfoModel"
-    requestedBy: UserModel
-    modifiedBy: UserModel | None = None
+    requestedBy: dict  # TODO: should be user model, circular import
+    modifiedBy: dict | None = None  # TODO: should be user model, circular import
     createdAt: str
     updatedAt: str
     type: MediaType
@@ -71,7 +71,7 @@ class MediaInfoModel(BaseModel):
     createdAt: str
     updatedAt: str
     lastSeasonChange: str
-    issues: dict | None = None  # TODO: Add list of issues model
+    issues: dict | None = None  # TODO: should be issue model, circular import
     mediaAddedAt: str | None = None
     serviceId: int | None = None
     serviceId4k: int | None = None
@@ -113,7 +113,7 @@ class MediaModel(PaginatedResponseModel):
     Data class representing a media model.
     """
 
-    results: MediaInfoModel
+    results: list[MediaInfoModel]
 
 
 class MediaModel2(BaseModel):

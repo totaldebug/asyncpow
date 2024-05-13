@@ -33,13 +33,16 @@ class Search:
     Initialize the Search object with the base URL, API key, and session.
     """
 
-    def __init__(self, base_url: URL, api_key: str, session: ClientSession) -> None:
+    def __init__(
+        self, base_url: URL, api_key: str, session: ClientSession, raw_response: bool
+    ) -> None:
         """Initialize the SearchAPI object with the base URL, API key, and session.
 
         Args:
             base_url (str): The base URL for the media API.
             api_key (str): The API key for authentication.
-            session (ClientSession): HTTP Session
+            session (ClientSession): HTTP Session.
+            raw_response (bool): Return json if True.
 
         Returns:
             None
@@ -49,19 +52,22 @@ class Search:
         self.session = session
 
     async def async_get_search(
-        self, query: str, raw_response: bool = False, page: int = 1, lang: str = "en"
+        self, query: str, raw_response: bool | None = None, page: int = 1, lang: str = "en"
     ) -> dict | SearchResultModel:
         """Search for Movies, TV or Person
 
         Args:
             query (str):
-            raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
+            raw_response (bool, optional): return raw json. Defaults to None.
             page (int): The page number for items (default is 1).
             lang (str): The language for items (default is "en").
 
         Returns:
             _type_: _description_
         """
+        if raw_response is None:
+            raw_response = self.raw_response
+
         url = self.search_url.with_query({"query": query, "page": page, "language": lang})
         headers = {"X-Api-Key": self.api_key}
         response = await request(self.session, url, headers=headers)
@@ -75,13 +81,16 @@ class Discover:
     Initialize the Discover object with the base URL, API key, and session.
     """
 
-    def __init__(self, base_url: URL, api_key: str, session: ClientSession) -> None:
+    def __init__(
+        self, base_url: URL, api_key: str, session: ClientSession, raw_response: bool
+    ) -> None:
         """Initialize the DiscoverAPI object with the base URL, API key, and session.
 
         Args:
             base_url (str): The base URL for the media API.
             api_key (str): The API key for authentication.
             session (ClientSession): HTTP Session
+            raw_response (bool): Return json if True.
 
         Returns:
             None
@@ -89,21 +98,24 @@ class Discover:
         self.discover_url = base_url.joinpath("discover")
         self.api_key = api_key
         self.session = session
+        self.raw_response = raw_response
 
     async def async_get_trending(
-        self, raw_response: bool = False, page: int = 1, lang: str = "en"
+        self, raw_response: bool | None = None, page: int = 1, lang: str = "en"
     ) -> dict | SearchResultModel:
         """
         Get trending items based on specified page and language.
 
         Args:
-            raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
+            raw_response (bool, optional): return raw json. Defaults to None.
             page (int): The page number for trending items (default is 1).
             lang (str): The language for the trending items (default is "en").
 
         Returns:
             dict | SearchResultModel: The model object containing trending items.
         """
+        if raw_response is None:
+            raw_response = self.raw_response
 
         url = self.discover_url.joinpath("trending").with_query({"page": page, "language": lang})
         headers = {"X-Api-Key": self.api_key}
@@ -111,18 +123,20 @@ class Discover:
         return response if raw_response else SearchResultModel(**response)
 
     async def async_get_watchlist(
-        self, raw_response: bool = False, page: int = 1
+        self, raw_response: bool | None = None, page: int = 1
     ) -> dict | DiscoverWatchlistModel:
         """
         Get the watchlist items based on the specified page.
 
         Args:
-            raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
+            raw_response (bool, optional): return raw json. Defaults to None.
             page (int): The page number for watchlist items (default is 1).
 
         Returns:
             dict | DiscoverWatchlistModel: The model object containing watchlist items.
         """
+        if raw_response is None:
+            raw_response = self.raw_response
         url = self.discover_url.joinpath("watchlist").with_query({"page": page})
         headers = {"X-Api-Key": self.api_key}
         response = await request(self.session, url, headers=headers)

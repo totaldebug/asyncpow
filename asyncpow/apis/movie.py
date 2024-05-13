@@ -31,7 +31,9 @@ class Movie:
     Initialize the Movie object with the base URL and API key.
     """
 
-    def __init__(self, base_url: URL, api_key: str, session: ClientSession) -> None:
+    def __init__(
+        self, base_url: URL, api_key: str, session: ClientSession, raw_response: bool
+    ) -> None:
         """
         Initialize the MovieAPI object with the base URL and API key.
 
@@ -39,6 +41,7 @@ class Movie:
             base_url (str): The base URL for the media API.
             api_key (str): The API key for authentication.
             session (ClientSession): HTTP Session
+            raw_response (bool): Return json if True.
 
         Returns:
             None
@@ -46,9 +49,10 @@ class Movie:
         self.media_url = base_url.joinpath("movie")
         self.api_key = api_key
         self.session = session
+        self.raw_response = raw_response
 
     async def async_get_movie(
-        self, id: int, lang: str = "en", raw_response: bool = False
+        self, id: int, lang: str = "en", raw_response: bool | None = None
     ) -> dict | MovieDetailsModel:
         """
         Retrieves movie details by ID asynchronously.
@@ -56,11 +60,13 @@ class Movie:
         Args:
             id (int): The ID of the movie.
             lang (str): The language for the response (default is "en").
-            raw_response (bool): Flag to return raw response or MovieDetailsModel (default is False).
+            raw_response (bool, optional): return raw json. Defaults to None.
 
         Returns:
             dict | MovieDetailsModel: The raw response or MovieDetailsModel object based on the raw_response flag.
         """
+        if raw_response is None:
+            raw_response = self.raw_response
 
         params = {"language": lang}
         url = self.media_url.joinpath(str(id))

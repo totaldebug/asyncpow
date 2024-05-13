@@ -32,14 +32,17 @@ class Tv:
     Initialize the Tv object with the base URL and API key.
     """
 
-    def __init__(self, base_url: URL, api_key: str, session: ClientSession) -> None:
+    def __init__(
+        self, base_url: URL, api_key: str, session: ClientSession, raw_response: bool
+    ) -> None:
         """
         Initialize the MovieAPI object with the base URL and API key.
 
         Args:
             base_url (str): The base URL for the media API.
             api_key (str): The API key for authentication.
-            session (ClientSession): HTTP Session
+            session (ClientSession): HTTP Session.
+            raw_response (bool): Return json if True.
 
         Returns:
             None
@@ -47,17 +50,21 @@ class Tv:
         self.media_url = base_url.joinpath("tv")
         self.api_key = api_key
         self.session = session
+        self.raw_response = raw_response
 
     async def async_get_tv(
-        self, id: int, lang: str = "en", raw_response: bool = False
+        self,
+        id: int,
+        lang: str = "en",
+        raw_response: bool | None = None,
     ) -> dict | TvDetailsModel:
         """
         Retrieves TV details by ID asynchronously.
 
         Args:
             id (int): The ID of the TV show.
-            lang (str): The language for the response (default is "en").
-            raw_response (bool): Flag to return raw response or TvDetailsModel (default is False).
+            lang (str): The language for the response. Default to "en".
+            raw_response (bool): Flag to return Json. Defaults to None.
 
         Returns:
             dict | TvDetailsModel: The raw response or TvDetailsModel object based on the raw_response flag.
@@ -65,6 +72,8 @@ class Tv:
         Examples:
             tv_details = await async_get_tv(12345, lang="en", raw_response=False)
         """
+        if raw_response is None:
+            raw_response = self.raw_response
         params = {"language": lang}
         url = self.media_url.joinpath(str(id))
 

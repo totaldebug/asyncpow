@@ -66,7 +66,7 @@ This project is a work in progress, the main branch is being developed on live, 
 
 The library returns results in JSON format for ease of use, this also reduces the risk of failue when the APIs are updated.
 
-Type hints and type models are in place for all of the APIs, if you notice missing items please create a request to have it fixed.
+Type hints and type models are in place where possible (this API has terrible circular dependencies which breaks python), if you notice missing items please create a request to have it fixed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -97,7 +97,11 @@ Type hints and type models are in place for all of the APIs, if you notice missi
   * Update Status - Completed
   * Delete
   * Get Watch Data
-
+* User - WIP
+  * Get - Completed
+  * Bulk Update - Completed
+  * Update
+  * Delete
 
 ## Compatibility
 

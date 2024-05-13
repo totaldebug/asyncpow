@@ -37,7 +37,9 @@ class Media:
     Initialize the Media object with the base URL, API key, and session.
     """
 
-    def __init__(self, base_url: URL, api_key: str, session: ClientSession) -> None:
+    def __init__(
+        self, base_url: URL, api_key: str, session: ClientSession, raw_response: bool
+    ) -> None:
         """
         Initialize the MediaAPI object with the base URL and API key.
 
@@ -45,6 +47,7 @@ class Media:
             base_url (str): The base URL for the media API.
             api_key (str): The API key for authentication.
             session (ClientSession): HTTP Session
+            raw_response (bool): Return json if True.
 
         Returns:
             None
@@ -52,6 +55,7 @@ class Media:
         self.media_url = base_url.joinpath("media")
         self.api_key = api_key
         self.session = session
+        self.raw_response = raw_response
 
     async def async_get_media(
         self,
@@ -59,7 +63,7 @@ class Media:
         skip: int = 0,
         filter: MediaFilterOptions | None = None,
         sort: SortOptions | None = None,
-        raw_response: bool = False,
+        raw_response: bool | None = None,
     ) -> dict | MediaModel:
         """
         Get media items based on specified parameters.
@@ -69,11 +73,14 @@ class Media:
             skip (int): The number of items to skip (default is 0).
             filter (MediaFilterOptions): The filter option for media items (default is None).
             sort (SortOptions): The sorting option for media items (default is None).
-            raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
+            raw_response (bool, optional): return raw json. Defaults to None.
 
         Returns:
             dict | MediaModel: The media model object retrieved based on the parameters.
         """
+        if raw_response is None:
+            raw_response = self.raw_response
+
         params: dict = {"take": take, "skip": skip}
         if filter:
             params["filter"] = filter
@@ -89,7 +96,7 @@ class Media:
         mediaId: int,
         status: MediaStatusOptions,
         is4k: Optional[bool] = None,
-        raw_response: bool = False,
+        raw_response: bool | None = None,
     ) -> dict | MediaModel2:
         """
         Update the status of a media item with optional 4k flag.
@@ -98,11 +105,13 @@ class Media:
             mediaId (int): The ID of the media item.
             status (MediaStatusOptions): The status to set for the media item.
             is4k (Optional[bool]): Optional flag indicating 4k status.
-            raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.
+            raw_response (bool, optional): return raw json. Defaults to None.
 
         Returns:
             dict | MediaModel2: The model object representing the updated media item.
         """
+        if raw_response is None:
+            raw_response = self.raw_response
 
         url = self.media_url.joinpath(str(mediaId), str(status))
         data = {"is4k": is4k} if is4k else {}

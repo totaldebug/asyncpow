@@ -46,6 +46,7 @@ class Request:
         base_url: URL,
         api_key: str,
         session: ClientSession,
+        raw_response: bool,
         tv_instance: Tv,
         movie_instance: Movie,
     ) -> None:
@@ -63,12 +64,13 @@ class Request:
         self.request_url = base_url.joinpath("request")
         self.api_key = api_key
         self.session = session
+        self.raw_response = raw_response
         self.tv = tv_instance
         self.movie = movie_instance
 
     async def async_get_requests(
         self,
-        raw_response: bool = False,
+        raw_response: bool | None = None,
         take: int = 20,
         skip: int = 0,
         filter: RequestFilterOptions = "all",
@@ -78,7 +80,7 @@ class Request:
         """Get a list of requests
 
         Args:
-            raw_response (bool, optional): Return JSON response. Defaults to False.
+            raw_response (bool, optional): Return JSON response. Defaults to None.
             take (int, optional): Number if pages. Defaults to 20.
             skip (int, optional): Pages to skip. Defaults to 0.
             filter (RequestFilterOptions, optional): Filter requests. Defaults to "all".
@@ -88,6 +90,8 @@ class Request:
         Returns:
             dict | RequestResultsResponseModel: Returns a request record
         """
+        if raw_response is None:
+            raw_response = self.raw_response
 
         url = self.request_url.with_query(
             {
@@ -107,7 +111,7 @@ class Request:
         id: int,
         type: Literal["movie", "tv"],
         series: Literal["all", "latest", "first"] = "all",
-        raw_response: bool = False,
+        raw_response: bool | None = None,
     ) -> dict | MediaRequestModel:
         """Get a list of requests
 
@@ -115,11 +119,13 @@ class Request:
             id (int): Movie or TV ID.
             type (str): Type of request movie | tv.
             series (str, optional): What series to request - all | latest | first, only aplies to tv. Defautls to all
-            raw_response (bool, optional): Return JSON response. Defaults to False.
+            raw_response (bool, optional): Return JSON response. Defaults to None.
 
         Returns:
             dict | MediaRequestModel: Returns a request record
         """
+        if raw_response is None:
+            raw_response = self.raw_response
 
         if type == "movie":
             req_data = {
@@ -128,25 +134,24 @@ class Request:
             }
         elif type == "tv":
             data = await self.tv.async_get_tv(id=id)
-            if isinstance(data, TvDetailsModel):
-                if series == "all":
-                    seasons_array = [
-                        season.seasonNumber for season in data.seasons if season.seasonNumber != 0
-                    ]
-                elif series == "first":
-                    seasons_array = [1]
-
-                elif series == "latest":
-                    for season in data.seasons:
-                        seasons_array = [season.seasonNumber]
-                req_data = {
-                    "mediaType": "tv",
-                    "mediaId": id,
-                    "tvdbId": data.externalIds.tvdbId,
-                    "seasons": seasons_array,
-                }
-            else:
+            if not isinstance(data, TvDetailsModel):
                 raise POWException(f"Expecting TvDetailsModel, got {type(data)}")
+            if series == "all":
+                seasons_array = [
+                    season.seasonNumber for season in data.seasons if season.seasonNumber != 0
+                ]
+            elif series == "first":
+                seasons_array = [1]
+
+            elif series == "latest":
+                for season in data.seasons:
+                    seasons_array = [season.seasonNumber]
+            req_data = {
+                "mediaType": "tv",
+                "mediaId": id,
+                "tvdbId": data.externalIds.tvdbId,
+                "seasons": seasons_array,
+            }
         else:
             raise POWMediaTypeException("Unknown media type, use either movie or tv")
 

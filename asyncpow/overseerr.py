@@ -30,6 +30,7 @@ from asyncpow.apis.request import Request
 from asyncpow.apis.search import Discover, Search
 from asyncpow.apis.status import Status
 from asyncpow.apis.tv import Tv
+from asyncpow.apis.user import User
 from asyncpow.const import API_URI
 
 VERSION_CACHE: TTLCache[str, str | None] = TTLCache(maxsize=16, ttl=7200)
@@ -57,6 +58,13 @@ class Overseerr:
             print("Status:", status)
 
     """
+
+    raw_response = False  # Default value for raw_response
+
+    @classmethod
+    def set_raw_response(cls, value: bool):
+        """Set the raw_response attribute globally."""
+        cls.raw_response = value
 
     def __init__(
         self,
@@ -91,13 +99,16 @@ class Overseerr:
         # Initialize a single instance of ClientSession
         self._session = aiohttp.ClientSession()
         # Initialize instances of API classes
-        self.status = Status(self.url, self.api_key, self._session)
-        self.search = Search(self.url, self.api_key, self._session)
-        self.discover = Discover(self.url, self.api_key, self._session)
-        self.media = Media(self.url, self.api_key, self._session)
-        self.movie = Movie(self.url, self.api_key, self._session)
-        self.tv = Tv(self.url, self.api_key, self._session)
-        self.request = Request(self.url, self.api_key, self._session, self.tv, self.movie)
+        self.status = Status(self.url, self.api_key, self._session, self.raw_response)
+        self.search = Search(self.url, self.api_key, self._session, self.raw_response)
+        self.discover = Discover(self.url, self.api_key, self._session, self.raw_response)
+        self.media = Media(self.url, self.api_key, self._session, self.raw_response)
+        self.movie = Movie(self.url, self.api_key, self._session, self.raw_response)
+        self.tv = Tv(self.url, self.api_key, self._session, self.raw_response)
+        self.request = Request(
+            self.url, self.api_key, self._session, self.raw_response, self.tv, self.movie
+        )
+        self.user = User(self.url, self.api_key, self._session, self.raw_response)
 
     async def __aenter__(self):
         """
