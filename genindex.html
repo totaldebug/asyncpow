@@ -34,7 +34,7 @@
             
           </a>
               <div class="version">
-                0.4.1
+                0.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -52,16 +52,24 @@
 <p class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="apis/media.html">Media</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis/movie.html">Movie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis/request.html">Request</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apis/search.html">Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apis/status.html">Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis/tv.html">Tv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis/user.html">User</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Models</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="models/common.html">Common Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/issue.html">Issue Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models/media.html">Media Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models/movie.html">Movie Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/request.html">Request Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models/search.html">Search Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models/status.html">Status Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/tv.html">TV Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/user.html">User Models</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Utils</span></p>
 <ul>
@@ -131,10 +139,18 @@
 </li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.SeasonModel.airDate">airDate (asyncpow.models.common.SeasonModel attribute)</a>
+
+      <ul>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.airDate">(asyncpow.models.tv.EpisodeModel attribute)</a>
 </li>
+      </ul></li>
       <li><a href="models/status.html#asyncpow.models.status.StatusAppDataModel.appData">appData (asyncpow.models.status.StatusAppDataModel attribute)</a>
 </li>
       <li><a href="models/status.html#asyncpow.models.status.StatusAppDataModel.appDataPath">appDataPath (asyncpow.models.status.StatusAppDataModel attribute)</a>
+</li>
+      <li><a href="apis/user.html#asyncpow.apis.user.User.async_bulk_update_user">async_bulk_update_user() (asyncpow.apis.user.User method)</a>
+</li>
+      <li><a href="apis/user.html#asyncpow.apis.user.User.async_create_user">async_create_user() (asyncpow.apis.user.User method)</a>
 </li>
       <li><a href="apis/media.html#asyncpow.apis.media.Media.async_delete_media">async_delete_media() (asyncpow.apis.media.Media method)</a>
 </li>
@@ -142,21 +158,45 @@
 </li>
       <li><a href="apis/media.html#asyncpow.apis.media.Media.async_get_media">async_get_media() (asyncpow.apis.media.Media method)</a>
 </li>
+      <li><a href="apis/movie.html#asyncpow.apis.movie.Movie.async_get_movie">async_get_movie() (asyncpow.apis.movie.Movie method)</a>
+</li>
+      <li><a href="apis/request.html#asyncpow.apis.request.Request.async_get_requests">async_get_requests() (asyncpow.apis.request.Request method)</a>
+</li>
       <li><a href="apis/search.html#asyncpow.apis.search.Search.async_get_search">async_get_search() (asyncpow.apis.search.Search method)</a>
 </li>
       <li><a href="apis/status.html#asyncpow.apis.status.Status.async_get_status">async_get_status() (asyncpow.apis.status.Status method)</a>
 </li>
       <li><a href="apis/search.html#asyncpow.apis.search.Discover.async_get_trending">async_get_trending() (asyncpow.apis.search.Discover method)</a>
 </li>
+      <li><a href="apis/tv.html#asyncpow.apis.tv.Tv.async_get_tv">async_get_tv() (asyncpow.apis.tv.Tv method)</a>
+</li>
+      <li><a href="apis/user.html#asyncpow.apis.user.User.async_get_user">async_get_user() (asyncpow.apis.user.User method)</a>
+</li>
       <li><a href="apis/search.html#asyncpow.apis.search.Discover.async_get_watchlist">async_get_watchlist() (asyncpow.apis.search.Discover method)</a>
 </li>
       <li><a href="apis/media.html#asyncpow.apis.media.Media.async_post_media_status">async_post_media_status() (asyncpow.apis.media.Media method)</a>
+</li>
+      <li><a href="apis/request.html#asyncpow.apis.request.Request.async_post_request">async_post_request() (asyncpow.apis.request.Request method)</a>
 </li>
       <li>
     asyncpow.apis.media
 
       <ul>
         <li><a href="apis/media.html#module-asyncpow.apis.media">module</a>
+</li>
+      </ul></li>
+      <li>
+    asyncpow.apis.movie
+
+      <ul>
+        <li><a href="apis/movie.html#module-asyncpow.apis.movie">module</a>
+</li>
+      </ul></li>
+      <li>
+    asyncpow.apis.request
+
+      <ul>
+        <li><a href="apis/request.html#module-asyncpow.apis.request">module</a>
 </li>
       </ul></li>
       <li>
@@ -176,10 +216,31 @@
 </li>
       </ul></li>
       <li>
+    asyncpow.apis.tv
+
+      <ul>
+        <li><a href="apis/tv.html#module-asyncpow.apis.tv">module</a>
+</li>
+      </ul></li>
+      <li>
+    asyncpow.apis.user
+
+      <ul>
+        <li><a href="apis/user.html#module-asyncpow.apis.user">module</a>
+</li>
+      </ul></li>
+      <li>
     asyncpow.models.common
 
       <ul>
         <li><a href="models/common.html#module-asyncpow.models.common">module</a>
+</li>
+      </ul></li>
+      <li>
+    asyncpow.models.issue
+
+      <ul>
+        <li><a href="models/issue.html#module-asyncpow.models.issue">module</a>
 </li>
       </ul></li>
       <li>
@@ -211,18 +272,34 @@
 </li>
       </ul></li>
       <li>
+    asyncpow.models.tv
+
+      <ul>
+        <li><a href="models/tv.html#module-asyncpow.models.tv">module</a>
+</li>
+      </ul></li>
+      <li>
+    asyncpow.models.user
+
+      <ul>
+        <li><a href="models/user.html#module-asyncpow.models.user">module</a>
+</li>
+      </ul></li>
+      <li>
     asyncpow.utils.http
 
       <ul>
         <li><a href="utils/http.html#module-asyncpow.utils.http">module</a>
 </li>
       </ul></li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.avatar">avatar (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.auth">auth (asyncpow.models.user.UserPushSubscriptionModel attribute)</a>
+</li>
+      <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.avatar">avatar (asyncpow.models.movie.ModifiedByModel attribute)</a>
 
       <ul>
-        <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.avatar">(asyncpow.models.movie.ModifiedByModel attribute)</a>
-</li>
         <li><a href="models/movie.html#asyncpow.models.movie.RequestedByModel.avatar">(asyncpow.models.movie.RequestedByModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.avatar">(asyncpow.models.user.UserModel attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -239,6 +316,8 @@
         <li><a href="models/search.html#asyncpow.models.search.MovieResultModel.backdropPath">(asyncpow.models.search.MovieResultModel attribute)</a>
 </li>
         <li><a href="models/search.html#asyncpow.models.search.TvResultModel.backdropPath">(asyncpow.models.search.TvResultModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.backdropPath">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -264,6 +343,8 @@
       <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.collection">collection (asyncpow.models.movie.MovieDetailsModel attribute)</a>
 </li>
       <li><a href="models/movie.html#asyncpow.models.movie.CollectionModel">CollectionModel (class in asyncpow.models.movie)</a>
+</li>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.comments">comments (asyncpow.models.issue.IssueModel attribute)</a>
 </li>
       <li><a href="models/status.html#asyncpow.models.status.StatusModel.commitsBehind">commitsBehind (asyncpow.models.status.StatusModel attribute)</a>
 </li>
@@ -296,11 +377,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.construct">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.construct">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.construct">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.construct">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.construct">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.construct">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.construct">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -340,7 +423,21 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.construct">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.construct">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.construct">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.construct">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.construct">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.construct">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.construct">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
+      <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.contentRatings">contentRatings (asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.copy">copy() (asyncpow.models.common.CastModel method)</a>
 
       <ul>
@@ -368,11 +465,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.copy">(asyncpow.models.common.SpokenLanguagesModelTv method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.copy">(asyncpow.models.common.UserModel method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.copy">(asyncpow.models.common.WatchProviderDetailsModel method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.copy">(asyncpow.models.common.WatchProviderModel method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.copy">(asyncpow.models.issue.IssueCommentModel method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.copy">(asyncpow.models.issue.IssueModel method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.copy">(asyncpow.models.media.MediaInfoModel method)</a>
 </li>
@@ -412,12 +511,26 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.copy">(asyncpow.models.status.StatusModel method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.copy">(asyncpow.models.tv.CreatedByModel method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.copy">(asyncpow.models.tv.EpisodeModel method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.copy">(asyncpow.models.tv.TvDetailsModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.copy">(asyncpow.models.user.UserModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.copy">(asyncpow.models.user.UserPushSubscriptionModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.copy">(asyncpow.models.user.UserSettingsModel method)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.createdAt">createdAt (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.createdAt">createdAt (asyncpow.models.issue.IssueCommentModel attribute)</a>
 
       <ul>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.createdAt">(asyncpow.models.issue.IssueModel attribute)</a>
+</li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.createdAt">(asyncpow.models.media.MediaInfoModel attribute)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaRequestModel.createdAt">(asyncpow.models.media.MediaRequestModel attribute)</a>
@@ -430,8 +543,18 @@
 </li>
         <li><a href="models/movie.html#asyncpow.models.movie.RequestModel.createdAt">(asyncpow.models.movie.RequestModel attribute)</a>
 </li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.createdAt">(asyncpow.models.user.UserModel attribute)</a>
+</li>
       </ul></li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.createdIssues">createdIssues (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.createdBy">createdBy (asyncpow.models.issue.IssueModel attribute)</a>
+
+      <ul>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.createdBy">(asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel">CreatedByModel (class in asyncpow.models.tv)</a>
+</li>
+      <li><a href="models/user.html#asyncpow.models.user.UserModel.createdIssues">createdIssues (asyncpow.models.user.UserModel attribute)</a>
 </li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.creditId">creditId (asyncpow.models.common.CastModel attribute)</a>
 
@@ -442,7 +565,11 @@
       <li><a href="models/common.html#asyncpow.models.common.CreditModel">CreditModel (class in asyncpow.models.common)</a>
 </li>
       <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.credits">credits (asyncpow.models.movie.MovieDetailsModel attribute)</a>
+
+      <ul>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.credits">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
+      </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CreditModel.crew">crew (asyncpow.models.common.CreditModel attribute)</a>
 </li>
       <li><a href="models/common.html#asyncpow.models.common.CrewModel">CrewModel (class in asyncpow.models.common)</a>
@@ -482,11 +609,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.dict">(asyncpow.models.common.SpokenLanguagesModelTv method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.dict">(asyncpow.models.common.UserModel method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.dict">(asyncpow.models.common.WatchProviderDetailsModel method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.dict">(asyncpow.models.common.WatchProviderModel method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.dict">(asyncpow.models.issue.IssueCommentModel method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.dict">(asyncpow.models.issue.IssueModel method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.dict">(asyncpow.models.media.MediaInfoModel method)</a>
 </li>
@@ -526,14 +655,28 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.dict">(asyncpow.models.status.StatusModel method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.dict">(asyncpow.models.tv.CreatedByModel method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.dict">(asyncpow.models.tv.EpisodeModel method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.dict">(asyncpow.models.tv.TvDetailsModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.dict">(asyncpow.models.user.UserModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.dict">(asyncpow.models.user.UserPushSubscriptionModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.dict">(asyncpow.models.user.UserSettingsModel method)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.discordId">discordId (asyncpow.models.user.UserSettingsModel attribute)</a>
+</li>
       <li><a href="apis/search.html#asyncpow.apis.search.Discover">Discover (class in asyncpow.apis.search)</a>
 </li>
       <li><a href="models/search.html#asyncpow.models.search.DiscoverWatchlistModel">DiscoverWatchlistModel (class in asyncpow.models.search)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.displayName">displayName (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/user.html#asyncpow.models.user.UserModel.displayName">displayName (asyncpow.models.user.UserModel attribute)</a>
 </li>
       <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.displayPriority">displayPriority (asyncpow.models.common.WatchProviderDetailsModel attribute)</a>
 </li>
@@ -547,24 +690,36 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.email">email (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.email">email (asyncpow.models.movie.ModifiedByModel attribute)</a>
 
       <ul>
-        <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.email">(asyncpow.models.movie.ModifiedByModel attribute)</a>
-</li>
         <li><a href="models/movie.html#asyncpow.models.movie.RequestedByModel.email">(asyncpow.models.movie.RequestedByModel attribute)</a>
 </li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.email">(asyncpow.models.user.UserModel attribute)</a>
+</li>
       </ul></li>
+      <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.endpoint">endpoint (asyncpow.models.user.UserPushSubscriptionModel attribute)</a>
+</li>
       <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelMovie.english_name">english_name (asyncpow.models.common.SpokenLanguagesModelMovie attribute)</a>
 </li>
       <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.englishName">englishName (asyncpow.models.common.SpokenLanguagesModelTv attribute)</a>
 </li>
       <li><a href="models/common.html#asyncpow.models.common.SeasonModel.episodeCount">episodeCount (asyncpow.models.common.SeasonModel attribute)</a>
 </li>
+      <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel">EpisodeModel (class in asyncpow.models.tv)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.externalIds">externalIds (asyncpow.models.movie.MovieDetailsModel attribute)</a>
+      <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.episodeNumber">episodeNumber (asyncpow.models.tv.EpisodeModel attribute)</a>
 </li>
+      <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.episodeRunTime">episodeRunTime (asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
+      <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.externalIds">externalIds (asyncpow.models.movie.MovieDetailsModel attribute)</a>
+
+      <ul>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.externalIds">(asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
+      </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.ExternalIdsModel">ExternalIdsModel (class in asyncpow.models.common)</a>
 </li>
       <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.externalServiceId">externalServiceId (asyncpow.models.media.MediaInfoModel attribute)</a>
@@ -584,7 +739,11 @@
       <li><a href="models/common.html#asyncpow.models.common.ExternalIdsModel.facebookId">facebookId (asyncpow.models.common.ExternalIdsModel attribute)</a>
 </li>
       <li><a href="models/search.html#asyncpow.models.search.TvResultModel.firstAirDate">firstAirDate (asyncpow.models.search.TvResultModel attribute)</a>
+
+      <ul>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.firstAirDate">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
+      </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.flatrate">flatrate (asyncpow.models.common.WatchProviderModel attribute)</a>
 </li>
       <li><a href="models/common.html#asyncpow.models.common.ExternalIdsModel.freebaseId">freebaseId (asyncpow.models.common.ExternalIdsModel attribute)</a>
@@ -618,11 +777,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.from_orm">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.from_orm">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.from_orm">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.from_orm">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.from_orm">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.from_orm">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.from_orm">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -662,6 +823,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.from_orm">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.from_orm">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.from_orm">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.from_orm">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.from_orm">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.from_orm">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.from_orm">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
   </ul></td>
 </tr></table>
@@ -673,6 +846,8 @@
 
       <ul>
         <li><a href="models/common.html#asyncpow.models.common.CrewModel.gender">(asyncpow.models.common.CrewModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.gender">(asyncpow.models.tv.CreatedByModel attribute)</a>
 </li>
       </ul></li>
       <li><a href="models/search.html#asyncpow.models.search.MovieResultModel.genreIds">genreIds (asyncpow.models.search.MovieResultModel attribute)</a>
@@ -686,7 +861,11 @@
       <li><a href="models/common.html#asyncpow.models.common.GenreModel">GenreModel (class in asyncpow.models.common)</a>
 </li>
       <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.genres">genres (asyncpow.models.movie.MovieDetailsModel attribute)</a>
+
+      <ul>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.genres">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -694,7 +873,11 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.homepage">homepage (asyncpow.models.movie.MovieDetailsModel attribute)</a>
+
+      <ul>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.homepage">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -714,9 +897,11 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SeasonModel.id">(asyncpow.models.common.SeasonModel attribute)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.id">(asyncpow.models.common.UserModel attribute)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.id">(asyncpow.models.common.WatchProviderDetailsModel attribute)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.id">(asyncpow.models.issue.IssueCommentModel attribute)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.id">(asyncpow.models.issue.IssueModel attribute)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.id">(asyncpow.models.media.MediaInfoModel attribute)</a>
 </li>
@@ -742,6 +927,18 @@
 </li>
         <li><a href="models/search.html#asyncpow.models.search.TvResultModel.id">(asyncpow.models.search.TvResultModel attribute)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.id">(asyncpow.models.tv.CreatedByModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.id">(asyncpow.models.tv.EpisodeModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.id">(asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.id">(asyncpow.models.user.UserModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.id">(asyncpow.models.user.UserPushSubscriptionModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.id">(asyncpow.models.user.UserSettingsModel attribute)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -753,6 +950,8 @@
         <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.imdbId">(asyncpow.models.movie.MovieDetailsModel attribute)</a>
 </li>
       </ul></li>
+      <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.inProduction">inProduction (asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
       <li><a href="models/common.html#asyncpow.models.common.ExternalIdsModel.instagramId">instagramId (asyncpow.models.common.ExternalIdsModel attribute)</a>
 </li>
       <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.iOSPlexUrl">iOSPlexUrl (asyncpow.models.media.MediaInfoModel attribute)</a>
@@ -779,7 +978,15 @@
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.iso_639_1">(asyncpow.models.common.SpokenLanguagesModelTv attribute)</a>
 </li>
       </ul></li>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.issue">issue (asyncpow.models.issue.IssueCommentModel attribute)</a>
+</li>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel">IssueCommentModel (class in asyncpow.models.issue)</a>
+</li>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueModel">IssueModel (class in asyncpow.models.issue)</a>
+</li>
       <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.issues">issues (asyncpow.models.media.MediaInfoModel attribute)</a>
+</li>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.issueType">issueType (asyncpow.models.issue.IssueModel attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -816,11 +1023,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.json">(asyncpow.models.common.SpokenLanguagesModelTv method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.json">(asyncpow.models.common.UserModel method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.json">(asyncpow.models.common.WatchProviderDetailsModel method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.json">(asyncpow.models.common.WatchProviderModel method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.json">(asyncpow.models.issue.IssueCommentModel method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.json">(asyncpow.models.issue.IssueModel method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.json">(asyncpow.models.media.MediaInfoModel method)</a>
 </li>
@@ -860,6 +1069,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.json">(asyncpow.models.status.StatusModel method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.json">(asyncpow.models.tv.CreatedByModel method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.json">(asyncpow.models.tv.EpisodeModel method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.json">(asyncpow.models.tv.TvDetailsModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.json">(asyncpow.models.user.UserModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.json">(asyncpow.models.user.UserPushSubscriptionModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.json">(asyncpow.models.user.UserSettingsModel method)</a>
+</li>
       </ul></li>
   </ul></td>
 </tr></table>
@@ -874,7 +1095,11 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.keywords">keywords (asyncpow.models.movie.MovieDetailsModel attribute)</a>
+
+      <ul>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.keywords">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
+      </ul></li>
       <li><a href="models/search.html#asyncpow.models.search.PersonResultModel.knownFor">knownFor (asyncpow.models.search.PersonResultModel attribute)</a>
 </li>
   </ul></td>
@@ -885,11 +1110,19 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="models/media.html#asyncpow.models.media.MediaRequestModel.languageProfileId">languageProfileId (asyncpow.models.media.MediaRequestModel attribute)</a>
 </li>
-      <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.lastSeasonChange">lastSeasonChange (asyncpow.models.media.MediaInfoModel attribute)</a>
+      <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.languages">languages (asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
+      <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.lastAirDate">lastAirDate (asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
+      <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.lastEpisodeToAir">lastEpisodeToAir (asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.lastSeasonChange">lastSeasonChange (asyncpow.models.media.MediaInfoModel attribute)</a>
+</li>
       <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.link">link (asyncpow.models.common.WatchProviderModel attribute)</a>
+</li>
+      <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.locale">locale (asyncpow.models.user.UserSettingsModel attribute)</a>
 </li>
       <li><a href="models/common.html#asyncpow.models.common.ProductionCompanyModel.logoPath">logoPath (asyncpow.models.common.ProductionCompanyModel attribute)</a>
 
@@ -903,9 +1136,11 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="models/media.html#asyncpow.models.media.MediaRequestModel.media">media (asyncpow.models.media.MediaRequestModel attribute)</a>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.media">media (asyncpow.models.issue.IssueModel attribute)</a>
 
       <ul>
+        <li><a href="models/media.html#asyncpow.models.media.MediaRequestModel.media">(asyncpow.models.media.MediaRequestModel attribute)</a>
+</li>
         <li><a href="models/movie.html#asyncpow.models.movie.RequestModel.media">(asyncpow.models.movie.RequestModel attribute)</a>
 </li>
       </ul></li>
@@ -939,6 +1174,8 @@
         <li><a href="models/search.html#asyncpow.models.search.WatchlistModel.mediaType">(asyncpow.models.search.WatchlistModel attribute)</a>
 </li>
       </ul></li>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.message">message (asyncpow.models.issue.IssueCommentModel attribute)</a>
+</li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_computed_fields">model_computed_fields (asyncpow.models.common.CastModel attribute)</a>
 
       <ul>
@@ -966,11 +1203,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_computed_fields">(asyncpow.models.common.SpokenLanguagesModelTv attribute)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_computed_fields">(asyncpow.models.common.UserModel attribute)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_computed_fields">(asyncpow.models.common.WatchProviderDetailsModel attribute)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_computed_fields">(asyncpow.models.common.WatchProviderModel attribute)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_computed_fields">(asyncpow.models.issue.IssueCommentModel attribute)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_computed_fields">(asyncpow.models.issue.IssueModel attribute)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_computed_fields">(asyncpow.models.media.MediaInfoModel attribute)</a>
 </li>
@@ -1010,6 +1249,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_computed_fields">(asyncpow.models.status.StatusModel attribute)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_computed_fields">(asyncpow.models.tv.CreatedByModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_computed_fields">(asyncpow.models.tv.EpisodeModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_computed_fields">(asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_computed_fields">(asyncpow.models.user.UserModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_computed_fields">(asyncpow.models.user.UserPushSubscriptionModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_computed_fields">(asyncpow.models.user.UserSettingsModel attribute)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_config">model_config (asyncpow.models.common.CastModel attribute)</a>
 
@@ -1038,11 +1289,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_config">(asyncpow.models.common.SpokenLanguagesModelTv attribute)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_config">(asyncpow.models.common.UserModel attribute)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_config">(asyncpow.models.common.WatchProviderDetailsModel attribute)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_config">(asyncpow.models.common.WatchProviderModel attribute)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_config">(asyncpow.models.issue.IssueCommentModel attribute)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_config">(asyncpow.models.issue.IssueModel attribute)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_config">(asyncpow.models.media.MediaInfoModel attribute)</a>
 </li>
@@ -1082,6 +1335,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_config">(asyncpow.models.status.StatusModel attribute)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_config">(asyncpow.models.tv.CreatedByModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_config">(asyncpow.models.tv.EpisodeModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_config">(asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_config">(asyncpow.models.user.UserModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_config">(asyncpow.models.user.UserPushSubscriptionModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_config">(asyncpow.models.user.UserSettingsModel attribute)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_construct">model_construct() (asyncpow.models.common.CastModel class method)</a>
 
@@ -1110,11 +1375,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_construct">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_construct">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_construct">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_construct">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_construct">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_construct">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_construct">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -1154,6 +1421,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_construct">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_construct">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_construct">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_construct">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_construct">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_construct">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_construct">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_copy">model_copy() (asyncpow.models.common.CastModel method)</a>
 
@@ -1182,11 +1461,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_copy">(asyncpow.models.common.SpokenLanguagesModelTv method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_copy">(asyncpow.models.common.UserModel method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_copy">(asyncpow.models.common.WatchProviderDetailsModel method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_copy">(asyncpow.models.common.WatchProviderModel method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_copy">(asyncpow.models.issue.IssueCommentModel method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_copy">(asyncpow.models.issue.IssueModel method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_copy">(asyncpow.models.media.MediaInfoModel method)</a>
 </li>
@@ -1226,6 +1507,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_copy">(asyncpow.models.status.StatusModel method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_copy">(asyncpow.models.tv.CreatedByModel method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_copy">(asyncpow.models.tv.EpisodeModel method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_copy">(asyncpow.models.tv.TvDetailsModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_copy">(asyncpow.models.user.UserModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_copy">(asyncpow.models.user.UserPushSubscriptionModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_copy">(asyncpow.models.user.UserSettingsModel method)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_dump">model_dump() (asyncpow.models.common.CastModel method)</a>
 
@@ -1254,11 +1547,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_dump">(asyncpow.models.common.SpokenLanguagesModelTv method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_dump">(asyncpow.models.common.UserModel method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_dump">(asyncpow.models.common.WatchProviderDetailsModel method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_dump">(asyncpow.models.common.WatchProviderModel method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_dump">(asyncpow.models.issue.IssueCommentModel method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_dump">(asyncpow.models.issue.IssueModel method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_dump">(asyncpow.models.media.MediaInfoModel method)</a>
 </li>
@@ -1298,6 +1593,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_dump">(asyncpow.models.status.StatusModel method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_dump">(asyncpow.models.tv.CreatedByModel method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_dump">(asyncpow.models.tv.EpisodeModel method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_dump">(asyncpow.models.tv.TvDetailsModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_dump">(asyncpow.models.user.UserModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_dump">(asyncpow.models.user.UserPushSubscriptionModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_dump">(asyncpow.models.user.UserSettingsModel method)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_dump_json">model_dump_json() (asyncpow.models.common.CastModel method)</a>
 
@@ -1326,11 +1633,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_dump_json">(asyncpow.models.common.SpokenLanguagesModelTv method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_dump_json">(asyncpow.models.common.UserModel method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_dump_json">(asyncpow.models.common.WatchProviderDetailsModel method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_dump_json">(asyncpow.models.common.WatchProviderModel method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_dump_json">(asyncpow.models.issue.IssueCommentModel method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_dump_json">(asyncpow.models.issue.IssueModel method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_dump_json">(asyncpow.models.media.MediaInfoModel method)</a>
 </li>
@@ -1370,6 +1679,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_dump_json">(asyncpow.models.status.StatusModel method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_dump_json">(asyncpow.models.tv.CreatedByModel method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_dump_json">(asyncpow.models.tv.EpisodeModel method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_dump_json">(asyncpow.models.tv.TvDetailsModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_dump_json">(asyncpow.models.user.UserModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_dump_json">(asyncpow.models.user.UserPushSubscriptionModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_dump_json">(asyncpow.models.user.UserSettingsModel method)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_extra">model_extra (asyncpow.models.common.CastModel property)</a>
 
@@ -1398,11 +1719,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_extra">(asyncpow.models.common.SpokenLanguagesModelTv property)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_extra">(asyncpow.models.common.UserModel property)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_extra">(asyncpow.models.common.WatchProviderDetailsModel property)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_extra">(asyncpow.models.common.WatchProviderModel property)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_extra">(asyncpow.models.issue.IssueCommentModel property)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_extra">(asyncpow.models.issue.IssueModel property)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_extra">(asyncpow.models.media.MediaInfoModel property)</a>
 </li>
@@ -1442,6 +1765,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_extra">(asyncpow.models.status.StatusModel property)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_extra">(asyncpow.models.tv.CreatedByModel property)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_extra">(asyncpow.models.tv.EpisodeModel property)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_extra">(asyncpow.models.tv.TvDetailsModel property)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_extra">(asyncpow.models.user.UserModel property)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_extra">(asyncpow.models.user.UserPushSubscriptionModel property)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_extra">(asyncpow.models.user.UserSettingsModel property)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_fields">model_fields (asyncpow.models.common.CastModel attribute)</a>
 
@@ -1470,11 +1805,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_fields">(asyncpow.models.common.SpokenLanguagesModelTv attribute)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_fields">(asyncpow.models.common.UserModel attribute)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_fields">(asyncpow.models.common.WatchProviderDetailsModel attribute)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_fields">(asyncpow.models.common.WatchProviderModel attribute)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_fields">(asyncpow.models.issue.IssueCommentModel attribute)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_fields">(asyncpow.models.issue.IssueModel attribute)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_fields">(asyncpow.models.media.MediaInfoModel attribute)</a>
 </li>
@@ -1514,6 +1851,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_fields">(asyncpow.models.status.StatusModel attribute)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_fields">(asyncpow.models.tv.CreatedByModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_fields">(asyncpow.models.tv.EpisodeModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_fields">(asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_fields">(asyncpow.models.user.UserModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_fields">(asyncpow.models.user.UserPushSubscriptionModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_fields">(asyncpow.models.user.UserSettingsModel attribute)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_fields_set">model_fields_set (asyncpow.models.common.CastModel property)</a>
 
@@ -1542,11 +1891,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_fields_set">(asyncpow.models.common.SpokenLanguagesModelTv property)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_fields_set">(asyncpow.models.common.UserModel property)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_fields_set">(asyncpow.models.common.WatchProviderDetailsModel property)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_fields_set">(asyncpow.models.common.WatchProviderModel property)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_fields_set">(asyncpow.models.issue.IssueCommentModel property)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_fields_set">(asyncpow.models.issue.IssueModel property)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_fields_set">(asyncpow.models.media.MediaInfoModel property)</a>
 </li>
@@ -1586,6 +1937,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_fields_set">(asyncpow.models.status.StatusModel property)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_fields_set">(asyncpow.models.tv.CreatedByModel property)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_fields_set">(asyncpow.models.tv.EpisodeModel property)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_fields_set">(asyncpow.models.tv.TvDetailsModel property)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_fields_set">(asyncpow.models.user.UserModel property)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_fields_set">(asyncpow.models.user.UserPushSubscriptionModel property)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_fields_set">(asyncpow.models.user.UserSettingsModel property)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -1616,11 +1979,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_json_schema">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_json_schema">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_json_schema">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_json_schema">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_json_schema">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_json_schema">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_json_schema">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -1660,6 +2025,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_json_schema">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_json_schema">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_json_schema">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_json_schema">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_json_schema">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_json_schema">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_json_schema">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_parametrized_name">model_parametrized_name() (asyncpow.models.common.CastModel class method)</a>
 
@@ -1688,11 +2065,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_parametrized_name">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_parametrized_name">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_parametrized_name">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_parametrized_name">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_parametrized_name">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_parametrized_name">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_parametrized_name">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -1732,6 +2111,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_parametrized_name">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_parametrized_name">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_parametrized_name">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_parametrized_name">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_parametrized_name">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_parametrized_name">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_parametrized_name">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_post_init">model_post_init() (asyncpow.models.common.CastModel method)</a>
 
@@ -1760,11 +2151,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_post_init">(asyncpow.models.common.SpokenLanguagesModelTv method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_post_init">(asyncpow.models.common.UserModel method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_post_init">(asyncpow.models.common.WatchProviderDetailsModel method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_post_init">(asyncpow.models.common.WatchProviderModel method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_post_init">(asyncpow.models.issue.IssueCommentModel method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_post_init">(asyncpow.models.issue.IssueModel method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_post_init">(asyncpow.models.media.MediaInfoModel method)</a>
 </li>
@@ -1804,6 +2197,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_post_init">(asyncpow.models.status.StatusModel method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_post_init">(asyncpow.models.tv.CreatedByModel method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_post_init">(asyncpow.models.tv.EpisodeModel method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_post_init">(asyncpow.models.tv.TvDetailsModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_post_init">(asyncpow.models.user.UserModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_post_init">(asyncpow.models.user.UserPushSubscriptionModel method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_post_init">(asyncpow.models.user.UserSettingsModel method)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_rebuild">model_rebuild() (asyncpow.models.common.CastModel class method)</a>
 
@@ -1832,11 +2237,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_rebuild">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_rebuild">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_rebuild">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_rebuild">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_rebuild">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_rebuild">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_rebuild">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -1876,6 +2283,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_rebuild">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_rebuild">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_rebuild">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_rebuild">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_rebuild">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_rebuild">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_rebuild">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_validate">model_validate() (asyncpow.models.common.CastModel class method)</a>
 
@@ -1904,11 +2323,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_validate">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_validate">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_validate">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_validate">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_validate">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_validate">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_validate">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -1948,6 +2369,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_validate">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_validate">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_validate">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_validate">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_validate">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_validate">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_validate">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_validate_json">model_validate_json() (asyncpow.models.common.CastModel class method)</a>
 
@@ -1976,11 +2409,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_validate_json">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_validate_json">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_validate_json">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_validate_json">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_validate_json">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_validate_json">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_validate_json">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -2020,6 +2455,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_validate_json">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_validate_json">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_validate_json">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_validate_json">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_validate_json">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_validate_json">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_validate_json">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.model_validate_strings">model_validate_strings() (asyncpow.models.common.CastModel class method)</a>
 
@@ -2048,11 +2495,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.model_validate_strings">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.model_validate_strings">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.model_validate_strings">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.model_validate_strings">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_validate_strings">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.model_validate_strings">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.model_validate_strings">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -2092,10 +2541,24 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.model_validate_strings">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_validate_strings">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_validate_strings">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_validate_strings">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.model_validate_strings">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_validate_strings">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.model_validate_strings">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
-      <li><a href="models/media.html#asyncpow.models.media.MediaRequestModel.modifiedBy">modifiedBy (asyncpow.models.media.MediaRequestModel attribute)</a>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.modifiedBy">modifiedBy (asyncpow.models.issue.IssueModel attribute)</a>
 
       <ul>
+        <li><a href="models/media.html#asyncpow.models.media.MediaRequestModel.modifiedBy">(asyncpow.models.media.MediaRequestModel attribute)</a>
+</li>
         <li><a href="models/movie.html#asyncpow.models.movie.RequestModel.modifiedBy">(asyncpow.models.movie.RequestModel attribute)</a>
 </li>
       </ul></li>
@@ -2107,11 +2570,21 @@
       <ul>
         <li><a href="apis/media.html#module-asyncpow.apis.media">asyncpow.apis.media</a>
 </li>
+        <li><a href="apis/movie.html#module-asyncpow.apis.movie">asyncpow.apis.movie</a>
+</li>
+        <li><a href="apis/request.html#module-asyncpow.apis.request">asyncpow.apis.request</a>
+</li>
         <li><a href="apis/search.html#module-asyncpow.apis.search">asyncpow.apis.search</a>
 </li>
         <li><a href="apis/status.html#module-asyncpow.apis.status">asyncpow.apis.status</a>
 </li>
+        <li><a href="apis/tv.html#module-asyncpow.apis.tv">asyncpow.apis.tv</a>
+</li>
+        <li><a href="apis/user.html#module-asyncpow.apis.user">asyncpow.apis.user</a>
+</li>
         <li><a href="models/common.html#module-asyncpow.models.common">asyncpow.models.common</a>
+</li>
+        <li><a href="models/issue.html#module-asyncpow.models.issue">asyncpow.models.issue</a>
 </li>
         <li><a href="models/media.html#module-asyncpow.models.media">asyncpow.models.media</a>
 </li>
@@ -2121,14 +2594,20 @@
 </li>
         <li><a href="models/status.html#module-asyncpow.models.status">asyncpow.models.status</a>
 </li>
+        <li><a href="models/tv.html#module-asyncpow.models.tv">asyncpow.models.tv</a>
+</li>
+        <li><a href="models/user.html#module-asyncpow.models.user">asyncpow.models.user</a>
+</li>
         <li><a href="utils/http.html#module-asyncpow.utils.http">asyncpow.utils.http</a>
 </li>
       </ul></li>
+      <li><a href="apis/movie.html#asyncpow.apis.movie.Movie">Movie (class in asyncpow.apis.movie)</a>
+</li>
       <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel">MovieDetailsModel (class in asyncpow.models.movie)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.movieQuotaDays">movieQuotaDays (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/user.html#asyncpow.models.user.UserModel.movieQuotaDays">movieQuotaDays (asyncpow.models.user.UserModel attribute)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.movieQuotaLimit">movieQuotaLimit (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/user.html#asyncpow.models.user.UserModel.movieQuotaLimit">movieQuotaLimit (asyncpow.models.user.UserModel attribute)</a>
 </li>
       <li><a href="models/search.html#asyncpow.models.search.MovieResultModel">MovieResultModel (class in asyncpow.models.search)</a>
 </li>
@@ -2167,7 +2646,23 @@
 </li>
         <li><a href="models/search.html#asyncpow.models.search.TvResultModel.name">(asyncpow.models.search.TvResultModel attribute)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.name">(asyncpow.models.tv.CreatedByModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.name">(asyncpow.models.tv.EpisodeModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.name">(asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.networks">networks (asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
+      <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.nextEpisodeToAir">nextEpisodeToAir (asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
+      <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.numberOfEpisodes">numberOfEpisodes (asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
+      <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.numberOfSeasons">numberOfSeasons (asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -2183,9 +2678,17 @@
 </li>
         <li><a href="models/search.html#asyncpow.models.search.TvResultModel.originalLanguage">(asyncpow.models.search.TvResultModel attribute)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.originalLanguage">(asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.originalLanguage">(asyncpow.models.user.UserSettingsModel attribute)</a>
+</li>
       </ul></li>
       <li><a href="models/search.html#asyncpow.models.search.TvResultModel.originalName">originalName (asyncpow.models.search.TvResultModel attribute)</a>
+
+      <ul>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.originalName">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
+      </ul></li>
       <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.originalTitle">originalTitle (asyncpow.models.movie.MovieDetailsModel attribute)</a>
 
       <ul>
@@ -2199,6 +2702,8 @@
       <ul>
         <li><a href="models/search.html#asyncpow.models.search.TvResultModel.originCountry">(asyncpow.models.search.TvResultModel attribute)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.originCountry">(asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.SeasonModel.overview">overview (asyncpow.models.common.SeasonModel attribute)</a>
 
@@ -2209,6 +2714,10 @@
 </li>
         <li><a href="models/search.html#asyncpow.models.search.TvResultModel.overview">(asyncpow.models.search.TvResultModel attribute)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.overview">(asyncpow.models.tv.EpisodeModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.overview">(asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
       </ul></li>
   </ul></td>
 </tr></table>
@@ -2216,6 +2725,8 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.p256dh">p256dh (asyncpow.models.user.UserPushSubscriptionModel attribute)</a>
+</li>
       <li><a href="models/common.html#asyncpow.models.common.PageInfoModel.page">page (asyncpow.models.common.PageInfoModel attribute)</a>
 
       <ul>
@@ -2265,11 +2776,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.parse_file">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.parse_file">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.parse_file">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.parse_file">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.parse_file">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.parse_file">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.parse_file">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -2309,6 +2822,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.parse_file">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.parse_file">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.parse_file">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.parse_file">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.parse_file">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.parse_file">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.parse_file">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.parse_obj">parse_obj() (asyncpow.models.common.CastModel class method)</a>
 
@@ -2337,11 +2862,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.parse_obj">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.parse_obj">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.parse_obj">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.parse_obj">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.parse_obj">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.parse_obj">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.parse_obj">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -2381,6 +2908,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.parse_obj">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.parse_obj">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.parse_obj">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.parse_obj">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.parse_obj">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.parse_obj">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.parse_obj">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -2411,11 +2950,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.parse_raw">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.parse_raw">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.parse_raw">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.parse_raw">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.parse_raw">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.parse_raw">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.parse_raw">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -2455,39 +2996,53 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.parse_raw">(asyncpow.models.status.StatusModel class method)</a>
 </li>
-      </ul></li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.password">password (asyncpow.models.common.UserModel attribute)</a>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.parse_raw">(asyncpow.models.tv.CreatedByModel class method)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.permissions">permissions (asyncpow.models.common.UserModel attribute)</a>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.parse_raw">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.parse_raw">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.parse_raw">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.parse_raw">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.parse_raw">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
+      </ul></li>
+      <li><a href="models/user.html#asyncpow.models.user.UserModel.password">password (asyncpow.models.user.UserModel attribute)</a>
+</li>
+      <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.permissions">permissions (asyncpow.models.movie.ModifiedByModel attribute)</a>
 
       <ul>
-        <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.permissions">(asyncpow.models.movie.ModifiedByModel attribute)</a>
-</li>
         <li><a href="models/movie.html#asyncpow.models.movie.RequestedByModel.permissions">(asyncpow.models.movie.RequestedByModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.permissions">(asyncpow.models.user.UserModel attribute)</a>
 </li>
       </ul></li>
       <li><a href="models/search.html#asyncpow.models.search.PersonResultModel">PersonResultModel (class in asyncpow.models.search)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.plexId">plexId (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.pgpKey">pgpKey (asyncpow.models.user.UserSettingsModel attribute)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.plexToken">plexToken (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/user.html#asyncpow.models.user.UserModel.plexId">plexId (asyncpow.models.user.UserModel attribute)</a>
+</li>
+      <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.plexToken">plexToken (asyncpow.models.movie.ModifiedByModel attribute)</a>
 
       <ul>
-        <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.plexToken">(asyncpow.models.movie.ModifiedByModel attribute)</a>
-</li>
         <li><a href="models/movie.html#asyncpow.models.movie.RequestedByModel.plexToken">(asyncpow.models.movie.RequestedByModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.plexToken">(asyncpow.models.user.UserModel attribute)</a>
 </li>
       </ul></li>
       <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.plexUrl">plexUrl (asyncpow.models.media.MediaInfoModel attribute)</a>
 </li>
       <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.plexUrl4k">plexUrl4k (asyncpow.models.media.MediaInfoModel attribute)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.plexUsername">plexUsername (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.plexUsername">plexUsername (asyncpow.models.movie.ModifiedByModel attribute)</a>
 
       <ul>
-        <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.plexUsername">(asyncpow.models.movie.ModifiedByModel attribute)</a>
-</li>
         <li><a href="models/movie.html#asyncpow.models.movie.RequestedByModel.plexUsername">(asyncpow.models.movie.RequestedByModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.plexUsername">(asyncpow.models.user.UserModel attribute)</a>
 </li>
       </ul></li>
       <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.popularity">popularity (asyncpow.models.movie.MovieDetailsModel attribute)</a>
@@ -2498,6 +3053,8 @@
         <li><a href="models/search.html#asyncpow.models.search.PersonResultModel.popularity">(asyncpow.models.search.PersonResultModel attribute)</a>
 </li>
         <li><a href="models/search.html#asyncpow.models.search.TvResultModel.popularity">(asyncpow.models.search.TvResultModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.popularity">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.SeasonModel.posterPath">posterPath (asyncpow.models.common.SeasonModel attribute)</a>
@@ -2511,13 +3068,29 @@
 </li>
         <li><a href="models/search.html#asyncpow.models.search.TvResultModel.posterPath">(asyncpow.models.search.TvResultModel attribute)</a>
 </li>
-      </ul></li>
-      <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.productionCompanies">productionCompanies (asyncpow.models.movie.MovieDetailsModel attribute)</a>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.posterPath">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
+      </ul></li>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.problemEpisode">problemEpisode (asyncpow.models.issue.IssueModel attribute)</a>
+</li>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.problemSeason">problemSeason (asyncpow.models.issue.IssueModel attribute)</a>
+</li>
+      <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.productionCode">productionCode (asyncpow.models.tv.EpisodeModel attribute)</a>
+</li>
+      <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.productionCompanies">productionCompanies (asyncpow.models.movie.MovieDetailsModel attribute)</a>
+
+      <ul>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.productionCompanies">(asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
+      </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.ProductionCompanyModel">ProductionCompanyModel (class in asyncpow.models.common)</a>
 </li>
       <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.productionCountries">productionCountries (asyncpow.models.movie.MovieDetailsModel attribute)</a>
+
+      <ul>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.productionCountries">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
+      </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.ProductionCountryModel">ProductionCountryModel (class in asyncpow.models.common)</a>
 </li>
       <li><a href="models/media.html#asyncpow.models.media.MediaRequestModel.profileId">profileId (asyncpow.models.media.MediaRequestModel attribute)</a>
@@ -2533,8 +3106,18 @@
 </li>
         <li><a href="models/search.html#asyncpow.models.search.PersonResultModel.profilePath">(asyncpow.models.search.PersonResultModel attribute)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.profilePath">(asyncpow.models.tv.CreatedByModel attribute)</a>
+</li>
       </ul></li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.pushSubscriptions">pushSubscriptions (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.pushbulletAccessToken">pushbulletAccessToken (asyncpow.models.user.UserSettingsModel attribute)</a>
+</li>
+      <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.pushoverApplicationToken">pushoverApplicationToken (asyncpow.models.user.UserSettingsModel attribute)</a>
+</li>
+      <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.pushoverSound">pushoverSound (asyncpow.models.user.UserSettingsModel attribute)</a>
+</li>
+      <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.pushoverUserKey">pushoverUserKey (asyncpow.models.user.UserSettingsModel attribute)</a>
+</li>
+      <li><a href="models/user.html#asyncpow.models.user.UserModel.pushSubscriptions">pushSubscriptions (asyncpow.models.user.UserModel attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -2550,7 +3133,9 @@
       </ul></li>
       <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.ratingKey4k">ratingKey4k (asyncpow.models.media.MediaInfoModel attribute)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.recoveryLinkExpirationDate">recoveryLinkExpirationDate (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/user.html#asyncpow.models.user.UserModel.recoveryLinkExpirationDate">recoveryLinkExpirationDate (asyncpow.models.user.UserModel attribute)</a>
+</li>
+      <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.region">region (asyncpow.models.user.UserSettingsModel attribute)</a>
 </li>
       <li><a href="models/movie.html#asyncpow.models.movie.RelatedVideoModel">RelatedVideoModel (class in asyncpow.models.movie)</a>
 </li>
@@ -2566,37 +3151,39 @@
 </li>
       <li><a href="models/media.html#asyncpow.models.media.SeasonRequestModel.request">request (asyncpow.models.media.SeasonRequestModel attribute)</a>
 </li>
+      <li><a href="apis/request.html#asyncpow.apis.request.Request">Request (class in asyncpow.apis.request)</a>
+</li>
       <li><a href="utils/http.html#asyncpow.utils.http.request">request() (in module asyncpow.utils.http)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.requestCount">requestCount (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.requestCount">requestCount (asyncpow.models.movie.ModifiedByModel attribute)</a>
 
       <ul>
-        <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.requestCount">(asyncpow.models.movie.ModifiedByModel attribute)</a>
-</li>
         <li><a href="models/movie.html#asyncpow.models.movie.RequestedByModel.requestCount">(asyncpow.models.movie.RequestedByModel attribute)</a>
 </li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.requestCount">(asyncpow.models.user.UserModel attribute)</a>
+</li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="models/media.html#asyncpow.models.media.MediaRequestModel.requestedBy">requestedBy (asyncpow.models.media.MediaRequestModel attribute)</a>
 
       <ul>
         <li><a href="models/movie.html#asyncpow.models.movie.RequestModel.requestedBy">(asyncpow.models.movie.RequestModel attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="models/movie.html#asyncpow.models.movie.RequestedByModel">RequestedByModel (class in asyncpow.models.movie)</a>
 </li>
       <li><a href="models/movie.html#asyncpow.models.movie.RequestModel">RequestModel (class in asyncpow.models.movie)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.requests">requests (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.requests">requests (asyncpow.models.media.MediaInfoModel attribute)</a>
 
       <ul>
-        <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.requests">(asyncpow.models.media.MediaInfoModel attribute)</a>
-</li>
         <li><a href="models/media.html#asyncpow.models.media.MediaModel2.requests">(asyncpow.models.media.MediaModel2 attribute)</a>
 </li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.requests">(asyncpow.models.user.UserModel attribute)</a>
+</li>
       </ul></li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.resetPasswordGuid">resetPasswordGuid (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/user.html#asyncpow.models.user.UserModel.resetPasswordGuid">resetPasswordGuid (asyncpow.models.user.UserModel attribute)</a>
 </li>
       <li><a href="models/status.html#asyncpow.models.status.StatusModel.restartRequired">restartRequired (asyncpow.models.status.StatusModel attribute)</a>
 </li>
@@ -2653,11 +3240,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.schema">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.schema">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.schema">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.schema">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.schema">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.schema">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.schema">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -2697,6 +3286,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.schema">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.schema">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.schema">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.schema">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.schema">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.schema">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.schema">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.CastModel.schema_json">schema_json() (asyncpow.models.common.CastModel class method)</a>
 
@@ -2725,11 +3326,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.schema_json">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.schema_json">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.schema_json">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.schema_json">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.schema_json">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.schema_json">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.schema_json">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -2769,6 +3372,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.schema_json">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.schema_json">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.schema_json">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.schema_json">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.schema_json">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.schema_json">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.schema_json">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -2785,6 +3400,8 @@
       <ul>
         <li><a href="models/media.html#asyncpow.models.media.SeasonRequestModel.seasonNumber">(asyncpow.models.media.SeasonRequestModel attribute)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.seasonNumber">(asyncpow.models.tv.EpisodeModel attribute)</a>
+</li>
       </ul></li>
       <li><a href="models/media.html#asyncpow.models.media.SeasonRequestModel">SeasonRequestModel (class in asyncpow.models.media)</a>
 </li>
@@ -2792,6 +3409,8 @@
 
       <ul>
         <li><a href="models/media.html#asyncpow.models.media.MediaRequestModel.seasons">(asyncpow.models.media.MediaRequestModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.seasons">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
       </ul></li>
       <li><a href="models/media.html#asyncpow.models.media.MediaRequestModel.serverId">serverId (asyncpow.models.media.MediaRequestModel attribute)</a>
@@ -2808,21 +3427,29 @@
 </li>
       <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.serviceUrl4k">serviceUrl4k (asyncpow.models.media.MediaInfoModel attribute)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.settings">settings (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/user.html#asyncpow.models.user.UserModel.settings">settings (asyncpow.models.user.UserModel attribute)</a>
+</li>
+      <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.showId">showId (asyncpow.models.tv.EpisodeModel attribute)</a>
 </li>
       <li><a href="models/movie.html#asyncpow.models.movie.RelatedVideoModel.site">site (asyncpow.models.movie.RelatedVideoModel attribute)</a>
 </li>
       <li><a href="models/movie.html#asyncpow.models.movie.RelatedVideoModel.size">size (asyncpow.models.movie.RelatedVideoModel attribute)</a>
 </li>
       <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.spokenLanguages">spokenLanguages (asyncpow.models.movie.MovieDetailsModel attribute)</a>
+
+      <ul>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.spokenLanguages">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
+      </ul></li>
       <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelMovie">SpokenLanguagesModelMovie (class in asyncpow.models.common)</a>
 </li>
       <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv">SpokenLanguagesModelTv (class in asyncpow.models.common)</a>
 </li>
-      <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.status">status (asyncpow.models.media.MediaInfoModel attribute)</a>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.status">status (asyncpow.models.issue.IssueModel attribute)</a>
 
       <ul>
+        <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.status">(asyncpow.models.media.MediaInfoModel attribute)</a>
+</li>
         <li><a href="models/media.html#asyncpow.models.media.MediaModel2.status">(asyncpow.models.media.MediaModel2 attribute)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaRequestModel.status">(asyncpow.models.media.MediaRequestModel attribute)</a>
@@ -2833,6 +3460,8 @@
 </li>
         <li><a href="models/movie.html#asyncpow.models.movie.RequestModel.status">(asyncpow.models.movie.RequestModel attribute)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.status">(asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
       </ul></li>
       <li><a href="apis/status.html#asyncpow.apis.status.Status">Status (class in asyncpow.apis.status)</a>
 </li>
@@ -2842,6 +3471,8 @@
 </li>
       <li><a href="models/status.html#asyncpow.models.status.StatusModel">StatusModel (class in asyncpow.models.status)</a>
 </li>
+      <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.stillPath">stillPath (asyncpow.models.tv.EpisodeModel attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -2849,12 +3480,20 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.tagline">tagline (asyncpow.models.movie.MovieDetailsModel attribute)</a>
+
+      <ul>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.tagline">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
+      </ul></li>
       <li><a href="models/media.html#asyncpow.models.media.MediaRequestModel.tags">tags (asyncpow.models.media.MediaRequestModel attribute)</a>
 </li>
       <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.tautulliUrl">tautulliUrl (asyncpow.models.media.MediaInfoModel attribute)</a>
 </li>
       <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.tautulliUrl4k">tautulliUrl4k (asyncpow.models.media.MediaInfoModel attribute)</a>
+</li>
+      <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.telegramChatId">telegramChatId (asyncpow.models.user.UserSettingsModel attribute)</a>
+</li>
+      <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.telegramSendSilently">telegramSendSilently (asyncpow.models.user.UserSettingsModel attribute)</a>
 </li>
       <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.title">title (asyncpow.models.movie.MovieDetailsModel attribute)</a>
 
@@ -2886,6 +3525,8 @@
         <li><a href="models/search.html#asyncpow.models.search.SearchResultModel.totalResults">(asyncpow.models.search.SearchResultModel attribute)</a>
 </li>
       </ul></li>
+      <li><a href="apis/tv.html#asyncpow.apis.tv.Tv">Tv (class in asyncpow.apis.tv)</a>
+</li>
       <li><a href="models/common.html#asyncpow.models.common.ExternalIdsModel.tvdbId">tvdbId (asyncpow.models.common.ExternalIdsModel attribute)</a>
 
       <ul>
@@ -2894,9 +3535,11 @@
         <li><a href="models/media.html#asyncpow.models.media.MediaModel2.tvdbId">(asyncpow.models.media.MediaModel2 attribute)</a>
 </li>
       </ul></li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.tvQuotaDays">tvQuotaDays (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel">TvDetailsModel (class in asyncpow.models.tv)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.tvQuotaLimit">tvQuotaLimit (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/user.html#asyncpow.models.user.UserModel.tvQuotaDays">tvQuotaDays (asyncpow.models.user.UserModel attribute)</a>
+</li>
+      <li><a href="models/user.html#asyncpow.models.user.UserModel.tvQuotaLimit">tvQuotaLimit (asyncpow.models.user.UserModel attribute)</a>
 </li>
       <li><a href="models/common.html#asyncpow.models.common.ExternalIdsModel.tvrageId">tvrageId (asyncpow.models.common.ExternalIdsModel attribute)</a>
 </li>
@@ -2908,6 +3551,8 @@
 
       <ul>
         <li><a href="models/movie.html#asyncpow.models.movie.RelatedVideoModel.type">(asyncpow.models.movie.RelatedVideoModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.type">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -2943,11 +3588,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.update_forward_refs">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.update_forward_refs">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.update_forward_refs">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.update_forward_refs">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.update_forward_refs">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.update_forward_refs">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.update_forward_refs">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -2987,14 +3634,28 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.update_forward_refs">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.update_forward_refs">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.update_forward_refs">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.update_forward_refs">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.update_forward_refs">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.update_forward_refs">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.update_forward_refs">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="models/status.html#asyncpow.models.status.StatusModel.updateAvailable">updateAvailable (asyncpow.models.status.StatusModel attribute)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.updatedAt">updatedAt (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.updatedAt">updatedAt (asyncpow.models.issue.IssueCommentModel attribute)</a>
 
       <ul>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.updatedAt">(asyncpow.models.issue.IssueModel attribute)</a>
+</li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.updatedAt">(asyncpow.models.media.MediaInfoModel attribute)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaRequestModel.updatedAt">(asyncpow.models.media.MediaRequestModel attribute)</a>
@@ -3007,25 +3668,41 @@
 </li>
         <li><a href="models/movie.html#asyncpow.models.movie.RequestModel.updatedAt">(asyncpow.models.movie.RequestModel attribute)</a>
 </li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.updatedAt">(asyncpow.models.user.UserModel attribute)</a>
+</li>
       </ul></li>
       <li><a href="models/movie.html#asyncpow.models.movie.RelatedVideoModel.url">url (asyncpow.models.movie.RelatedVideoModel attribute)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel">UserModel (class in asyncpow.models.common)</a>
-</li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.username">username (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.user">user (asyncpow.models.issue.IssueCommentModel attribute)</a>
 
       <ul>
-        <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.username">(asyncpow.models.movie.ModifiedByModel attribute)</a>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.user">(asyncpow.models.user.UserPushSubscriptionModel attribute)</a>
 </li>
-        <li><a href="models/movie.html#asyncpow.models.movie.RequestedByModel.username">(asyncpow.models.movie.RequestedByModel attribute)</a>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.user">(asyncpow.models.user.UserSettingsModel attribute)</a>
 </li>
       </ul></li>
-      <li><a href="models/common.html#asyncpow.models.common.UserModel.userType">userType (asyncpow.models.common.UserModel attribute)</a>
+      <li><a href="apis/user.html#asyncpow.apis.user.User">User (class in asyncpow.apis.user)</a>
+</li>
+      <li><a href="models/user.html#asyncpow.models.user.UserModel">UserModel (class in asyncpow.models.user)</a>
+</li>
+      <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.username">username (asyncpow.models.movie.ModifiedByModel attribute)</a>
 
       <ul>
-        <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.userType">(asyncpow.models.movie.ModifiedByModel attribute)</a>
+        <li><a href="models/movie.html#asyncpow.models.movie.RequestedByModel.username">(asyncpow.models.movie.RequestedByModel attribute)</a>
 </li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.username">(asyncpow.models.user.UserModel attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel">UserPushSubscriptionModel (class in asyncpow.models.user)</a>
+</li>
+      <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel">UserSettingsModel (class in asyncpow.models.user)</a>
+</li>
+      <li><a href="models/movie.html#asyncpow.models.movie.ModifiedByModel.userType">userType (asyncpow.models.movie.ModifiedByModel attribute)</a>
+
+      <ul>
         <li><a href="models/movie.html#asyncpow.models.movie.RequestedByModel.userType">(asyncpow.models.movie.RequestedByModel attribute)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.userType">(asyncpow.models.user.UserModel attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3061,11 +3738,13 @@
 </li>
         <li><a href="models/common.html#asyncpow.models.common.SpokenLanguagesModelTv.validate">(asyncpow.models.common.SpokenLanguagesModelTv class method)</a>
 </li>
-        <li><a href="models/common.html#asyncpow.models.common.UserModel.validate">(asyncpow.models.common.UserModel class method)</a>
-</li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel.validate">(asyncpow.models.common.WatchProviderDetailsModel class method)</a>
 </li>
         <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel.validate">(asyncpow.models.common.WatchProviderModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueCommentModel.validate">(asyncpow.models.issue.IssueCommentModel class method)</a>
+</li>
+        <li><a href="models/issue.html#asyncpow.models.issue.IssueModel.validate">(asyncpow.models.issue.IssueModel class method)</a>
 </li>
         <li><a href="models/media.html#asyncpow.models.media.MediaInfoModel.validate">(asyncpow.models.media.MediaInfoModel class method)</a>
 </li>
@@ -3105,6 +3784,18 @@
 </li>
         <li><a href="models/status.html#asyncpow.models.status.StatusModel.validate">(asyncpow.models.status.StatusModel class method)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.CreatedByModel.validate">(asyncpow.models.tv.CreatedByModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.validate">(asyncpow.models.tv.EpisodeModel class method)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.validate">(asyncpow.models.tv.TvDetailsModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserModel.validate">(asyncpow.models.user.UserModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.validate">(asyncpow.models.user.UserPushSubscriptionModel class method)</a>
+</li>
+        <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.validate">(asyncpow.models.user.UserSettingsModel class method)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -3127,6 +3818,10 @@
 </li>
         <li><a href="models/search.html#asyncpow.models.search.TvResultModel.voteAverage">(asyncpow.models.search.TvResultModel attribute)</a>
 </li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.voteAverage">(asyncpow.models.tv.EpisodeModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.voteAverage">(asyncpow.models.tv.TvDetailsModel attribute)</a>
+</li>
       </ul></li>
       <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.voteCount">voteCount (asyncpow.models.movie.MovieDetailsModel attribute)</a>
 
@@ -3134,6 +3829,10 @@
         <li><a href="models/search.html#asyncpow.models.search.MovieResultModel.voteCount">(asyncpow.models.search.MovieResultModel attribute)</a>
 </li>
         <li><a href="models/search.html#asyncpow.models.search.TvResultModel.voteCount">(asyncpow.models.search.TvResultModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.EpisodeModel.voteCount">(asyncpow.models.tv.EpisodeModel attribute)</a>
+</li>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.voteCount">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3144,14 +3843,22 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="models/search.html#asyncpow.models.search.WatchlistModel">WatchlistModel (class in asyncpow.models.search)</a>
 </li>
-      <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel">WatchProviderDetailsModel (class in asyncpow.models.common)</a>
+      <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.watchlistSyncMovies">watchlistSyncMovies (asyncpow.models.user.UserSettingsModel attribute)</a>
+</li>
+      <li><a href="models/user.html#asyncpow.models.user.UserSettingsModel.watchlistSyncTv">watchlistSyncTv (asyncpow.models.user.UserSettingsModel attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="models/common.html#asyncpow.models.common.WatchProviderDetailsModel">WatchProviderDetailsModel (class in asyncpow.models.common)</a>
+</li>
       <li><a href="models/common.html#asyncpow.models.common.WatchProviderModel">WatchProviderModel (class in asyncpow.models.common)</a>
 </li>
       <li><a href="models/movie.html#asyncpow.models.movie.MovieDetailsModel.watchProviders">watchProviders (asyncpow.models.movie.MovieDetailsModel attribute)</a>
+
+      <ul>
+        <li><a href="models/tv.html#asyncpow.models.tv.TvDetailsModel.watchProviders">(asyncpow.models.tv.TvDetailsModel attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 

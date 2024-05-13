@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Movie Models" href="movie.html" />
-    <link rel="prev" title="Common Models" href="common.html" /> 
+    <link rel="prev" title="Issue Models" href="issue.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,7 +37,7 @@
             
           </a>
               <div class="version">
-                0.4.1
+                0.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -55,12 +55,17 @@
 <p class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../apis/media.html">Media</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis/movie.html">Movie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis/request.html">Request</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../apis/search.html">Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../apis/status.html">Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis/tv.html">Tv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apis/user.html">User</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Models</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="common.html">Common Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue.html">Issue Models</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Media Models</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#asyncpow.models.media.MediaRequestModel"><code class="docutils literal notranslate"><span class="pre">MediaRequestModel</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#asyncpow.models.media.MediaRequestModel.id"><code class="docutils literal notranslate"><span class="pre">MediaRequestModel.id</span></code></a></li>
@@ -282,8 +287,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="movie.html">Movie Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request.html">Request Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="search.html">Search Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="status.html">Status Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tv.html">TV Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User Models</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Utils</span></p>
 <ul>
@@ -338,12 +346,12 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="asyncpow.models.media.MediaRequestModel.requestedBy">
-<span class="sig-name descname"><span class="pre">requestedBy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="common.html#asyncpow.models.common.UserModel" title="asyncpow.models.common.UserModel"><span class="pre">UserModel</span></a></em><a class="headerlink" href="#asyncpow.models.media.MediaRequestModel.requestedBy" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">requestedBy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#asyncpow.models.media.MediaRequestModel.requestedBy" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="asyncpow.models.media.MediaRequestModel.modifiedBy">
-<span class="sig-name descname"><span class="pre">modifiedBy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="common.html#asyncpow.models.common.UserModel" title="asyncpow.models.common.UserModel"><span class="pre">UserModel</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#asyncpow.models.media.MediaRequestModel.modifiedBy" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">modifiedBy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#asyncpow.models.media.MediaRequestModel.modifiedBy" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -571,7 +579,7 @@ If mode is ‘python’, the output may contain non-JSON-serializable Python obj
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="asyncpow.models.media.MediaRequestModel.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'createdAt':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'id':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=True),</span> <span class="pre">'is4k':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=True),</span> <span class="pre">'isAutoRequest':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=False,</span> <span class="pre">default=False),</span> <span class="pre">'languageProfileId':</span> <span class="pre">FieldInfo(annotation=Union[int,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'media':</span> <span class="pre">FieldInfo(annotation=MediaInfoModel,</span> <span class="pre">required=True),</span> <span class="pre">'modifiedBy':</span> <span class="pre">FieldInfo(annotation=Union[UserModel,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'profileId':</span> <span class="pre">FieldInfo(annotation=Union[int,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'requestedBy':</span> <span class="pre">FieldInfo(annotation=UserModel,</span> <span class="pre">required=True),</span> <span class="pre">'rootFolder':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'seasonCount':</span> <span class="pre">FieldInfo(annotation=Union[int,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'seasons':</span> <span class="pre">FieldInfo(annotation=Union[list[SeasonRequestModel],</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'serverId':</span> <span class="pre">FieldInfo(annotation=Union[int,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'status':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=True),</span> <span class="pre">'tags':</span> <span class="pre">FieldInfo(annotation=Union[list,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'type':</span> <span class="pre">FieldInfo(annotation=Literal['movie',</span> <span class="pre">'tv'],</span> <span class="pre">required=True),</span> <span class="pre">'updatedAt':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#asyncpow.models.media.MediaRequestModel.model_fields" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'createdAt':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'id':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=True),</span> <span class="pre">'is4k':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=True),</span> <span class="pre">'isAutoRequest':</span> <span class="pre">FieldInfo(annotation=bool,</span> <span class="pre">required=False,</span> <span class="pre">default=False),</span> <span class="pre">'languageProfileId':</span> <span class="pre">FieldInfo(annotation=Union[int,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'media':</span> <span class="pre">FieldInfo(annotation=MediaInfoModel,</span> <span class="pre">required=True),</span> <span class="pre">'modifiedBy':</span> <span class="pre">FieldInfo(annotation=Union[dict,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'profileId':</span> <span class="pre">FieldInfo(annotation=Union[int,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'requestedBy':</span> <span class="pre">FieldInfo(annotation=dict,</span> <span class="pre">required=True),</span> <span class="pre">'rootFolder':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'seasonCount':</span> <span class="pre">FieldInfo(annotation=Union[int,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'seasons':</span> <span class="pre">FieldInfo(annotation=Union[list[SeasonRequestModel],</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'serverId':</span> <span class="pre">FieldInfo(annotation=Union[int,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'status':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=True),</span> <span class="pre">'tags':</span> <span class="pre">FieldInfo(annotation=Union[list,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'type':</span> <span class="pre">FieldInfo(annotation=Literal['movie',</span> <span class="pre">'tv'],</span> <span class="pre">required=True),</span> <span class="pre">'updatedAt':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#asyncpow.models.media.MediaRequestModel.model_fields" title="Link to this definition"></a></dt>
 <dd><p>Metadata about the fields defined on the model,
 mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
@@ -1668,11 +1676,11 @@ If rebuilding _was_ required, returns <cite>True</cite> if rebuilding was succes
 
 <dl class="py class">
 <dt class="sig sig-object py" id="asyncpow.models.media.MediaModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncpow.models.media.</span></span><span class="sig-name descname"><span class="pre">MediaModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pageInfo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="common.html#asyncpow.models.common.PageInfoModel" title="asyncpow.models.common.PageInfoModel"><span class="pre">PageInfoModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#asyncpow.models.media.MediaInfoModel" title="asyncpow.models.media.MediaInfoModel"><span class="pre">MediaInfoModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asyncpow/models/media.html#MediaModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asyncpow.models.media.MediaModel" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncpow.models.media.</span></span><span class="sig-name descname"><span class="pre">MediaModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pageInfo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="common.html#asyncpow.models.common.PageInfoModel" title="asyncpow.models.common.PageInfoModel"><span class="pre">PageInfoModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#asyncpow.models.media.MediaInfoModel" title="asyncpow.models.media.MediaInfoModel"><span class="pre">MediaInfoModel</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asyncpow/models/media.html#MediaModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asyncpow.models.media.MediaModel" title="Link to this definition"></a></dt>
 <dd><p>Data class representing a media model.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="asyncpow.models.media.MediaModel.results">
-<span class="sig-name descname"><span class="pre">results</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#asyncpow.models.media.MediaInfoModel" title="asyncpow.models.media.MediaInfoModel"><span class="pre">MediaInfoModel</span></a></em><a class="headerlink" href="#asyncpow.models.media.MediaModel.results" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">results</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#asyncpow.models.media.MediaInfoModel" title="asyncpow.models.media.MediaInfoModel"><span class="pre">MediaInfoModel</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#asyncpow.models.media.MediaModel.results" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1840,7 +1848,7 @@ If mode is ‘python’, the output may contain non-JSON-serializable Python obj
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="asyncpow.models.media.MediaModel.model_fields">
-<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'pageInfo':</span> <span class="pre">FieldInfo(annotation=PageInfoModel,</span> <span class="pre">required=True),</span> <span class="pre">'results':</span> <span class="pre">FieldInfo(annotation=MediaInfoModel,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#asyncpow.models.media.MediaModel.model_fields" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'pageInfo':</span> <span class="pre">FieldInfo(annotation=PageInfoModel,</span> <span class="pre">required=True),</span> <span class="pre">'results':</span> <span class="pre">FieldInfo(annotation=list[MediaInfoModel],</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#asyncpow.models.media.MediaModel.model_fields" title="Link to this definition"></a></dt>
 <dd><p>Metadata about the fields defined on the model,
 mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
@@ -2423,7 +2431,7 @@ If rebuilding _was_ required, returns <cite>True</cite> if rebuilding was succes
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="common.html" class="btn btn-neutral float-left" title="Common Models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="issue.html" class="btn btn-neutral float-left" title="Issue Models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="movie.html" class="btn btn-neutral float-right" title="Movie Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

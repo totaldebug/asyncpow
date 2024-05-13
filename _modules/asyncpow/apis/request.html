@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>asyncpow.apis.request &mdash; asyncpow  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+          </a>
+              <div class="version">
+                0.4.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">🚀 Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/media.html">Media</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/movie.html">Movie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/request.html">Request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/search.html">Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/status.html">Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/tv.html">Tv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/user.html">User</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/common.html">Common Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/issue.html">Issue Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/media.html">Media Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/movie.html">Movie Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/request.html">Request Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/search.html">Search Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/status.html">Status Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/tv.html">TV Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/user.html">User Models</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/http.html">HTTP</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">asyncpow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">asyncpow.apis.request</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for asyncpow.apis.request</h1><div class="highlight"><pre>
+<span></span><span class="c1"># AsyncPOW - https://github.com/totaldebug/asyncpow</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2024 Steven Marks, Total Debug</span>
+<span class="c1">#</span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy of</span>
+<span class="c1"># this software and associated documentation files (the &quot;Software&quot;), to deal in</span>
+<span class="c1"># the Software without restriction, including without limitation the rights to</span>
+<span class="c1"># use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of</span>
+<span class="c1"># the Software, and to permit persons to whom the Software is furnished to do so,</span>
+<span class="c1"># subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
+<span class="c1"># copies or substantial portions of the Software.</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS</span>
+<span class="c1"># FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR</span>
+<span class="c1"># COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER</span>
+<span class="c1"># IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN</span>
+<span class="c1"># CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
+
+<span class="kn">from</span> <span class="nn">aiohttp</span> <span class="kn">import</span> <span class="n">ClientSession</span><span class="p">,</span> <span class="n">hdrs</span>
+<span class="kn">from</span> <span class="nn">yarl</span> <span class="kn">import</span> <span class="n">URL</span>
+
+<span class="kn">from</span> <span class="nn">asyncpow.apis.movie</span> <span class="kn">import</span> <span class="n">Movie</span>
+<span class="kn">from</span> <span class="nn">asyncpow.apis.tv</span> <span class="kn">import</span> <span class="n">Tv</span>
+<span class="kn">from</span> <span class="nn">asyncpow.exceptions</span> <span class="kn">import</span> <span class="n">POWException</span><span class="p">,</span> <span class="n">POWMediaTypeException</span>
+<span class="kn">from</span> <span class="nn">asyncpow.models.common</span> <span class="kn">import</span> <span class="n">SortOptions</span>
+<span class="kn">from</span> <span class="nn">asyncpow.models.media</span> <span class="kn">import</span> <span class="n">MediaRequestModel</span>
+<span class="kn">from</span> <span class="nn">asyncpow.models.request</span> <span class="kn">import</span> <span class="n">RequestFilterOptions</span><span class="p">,</span> <span class="n">RequestResultsResponseModel</span>
+<span class="kn">from</span> <span class="nn">asyncpow.models.tv</span> <span class="kn">import</span> <span class="n">TvDetailsModel</span>
+<span class="kn">from</span> <span class="nn">asyncpow.utils.http</span> <span class="kn">import</span> <span class="n">request</span>
+
+
+<div class="viewcode-block" id="Request">
+<a class="viewcode-back" href="../../../apis/request.html#asyncpow.apis.request.Request">[docs]</a>
+<span class="k">class</span> <span class="nc">Request</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to interact with request-related endpoints.</span>
+
+<span class="sd">    Initialize the Request object with the base URL, API key, and session.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">base_url</span><span class="p">:</span> <span class="n">URL</span><span class="p">,</span>
+        <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">session</span><span class="p">:</span> <span class="n">ClientSession</span><span class="p">,</span>
+        <span class="n">raw_response</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">tv_instance</span><span class="p">:</span> <span class="n">Tv</span><span class="p">,</span>
+        <span class="n">movie_instance</span><span class="p">:</span> <span class="n">Movie</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the RequestAPI object with the base URL, API key, and session.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            base_url (str): The base URL for the media API.</span>
+<span class="sd">            api_key (str): The API key for authentication.</span>
+<span class="sd">            session (ClientSession): HTTP Session</span>
+<span class="sd">            tv_instance (Search): The Search class instance</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request_url</span> <span class="o">=</span> <span class="n">base_url</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;request&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">session</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_response</span> <span class="o">=</span> <span class="n">raw_response</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tv</span> <span class="o">=</span> <span class="n">tv_instance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">movie</span> <span class="o">=</span> <span class="n">movie_instance</span>
+
+<div class="viewcode-block" id="Request.async_get_requests">
+<a class="viewcode-back" href="../../../apis/request.html#asyncpow.apis.request.Request.async_get_requests">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">async_get_requests</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">raw_response</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">take</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nb">filter</span><span class="p">:</span> <span class="n">RequestFilterOptions</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span>
+        <span class="n">sort</span><span class="p">:</span> <span class="n">SortOptions</span> <span class="o">=</span> <span class="s2">&quot;added&quot;</span><span class="p">,</span>
+        <span class="n">requested_by</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="n">RequestResultsResponseModel</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a list of requests</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            raw_response (bool, optional): Return JSON response. Defaults to None.</span>
+<span class="sd">            take (int, optional): Number if pages. Defaults to 20.</span>
+<span class="sd">            skip (int, optional): Pages to skip. Defaults to 0.</span>
+<span class="sd">            filter (RequestFilterOptions, optional): Filter requests. Defaults to &quot;all&quot;.</span>
+<span class="sd">            sort (SortOptions, optional): Sort Requests. Defaults to &quot;added&quot;.</span>
+<span class="sd">            requested_by (int, optional): Only requests by user. Defaults to 1.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict | RequestResultsResponseModel: Returns a request record</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">raw_response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">raw_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_response</span>
+
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_url</span><span class="o">.</span><span class="n">with_query</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;take&quot;</span><span class="p">:</span> <span class="n">take</span><span class="p">,</span>
+                <span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="n">skip</span><span class="p">,</span>
+                <span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="nb">filter</span><span class="p">,</span>
+                <span class="s2">&quot;sort&quot;</span><span class="p">:</span> <span class="n">sort</span><span class="p">,</span>
+                <span class="s2">&quot;requestedBy&quot;</span><span class="p">:</span> <span class="n">requested_by</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;X-Api-Key&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span> <span class="k">if</span> <span class="n">raw_response</span> <span class="k">else</span> <span class="n">RequestResultsResponseModel</span><span class="p">(</span><span class="o">**</span><span class="n">response</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Request.async_post_request">
+<a class="viewcode-back" href="../../../apis/request.html#asyncpow.apis.request.Request.async_post_request">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">async_post_request</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;movie&quot;</span><span class="p">,</span> <span class="s2">&quot;tv&quot;</span><span class="p">],</span>
+        <span class="n">series</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;latest&quot;</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span>
+        <span class="n">raw_response</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="n">MediaRequestModel</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a list of requests</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            id (int): Movie or TV ID.</span>
+<span class="sd">            type (str): Type of request movie | tv.</span>
+<span class="sd">            series (str, optional): What series to request - all | latest | first, only aplies to tv. Defautls to all</span>
+<span class="sd">            raw_response (bool, optional): Return JSON response. Defaults to None.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict | MediaRequestModel: Returns a request record</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">raw_response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">raw_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_response</span>
+
+        <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;movie&quot;</span><span class="p">:</span>
+            <span class="n">req_data</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;mediaType&quot;</span><span class="p">:</span> <span class="s2">&quot;movie&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;mediaId&quot;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;tv&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">tv</span><span class="o">.</span><span class="n">async_get_tv</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">TvDetailsModel</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">POWException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expecting TvDetailsModel, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">series</span> <span class="o">==</span> <span class="s2">&quot;all&quot;</span><span class="p">:</span>
+                <span class="n">seasons_array</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">season</span><span class="o">.</span><span class="n">seasonNumber</span> <span class="k">for</span> <span class="n">season</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">seasons</span> <span class="k">if</span> <span class="n">season</span><span class="o">.</span><span class="n">seasonNumber</span> <span class="o">!=</span> <span class="mi">0</span>
+                <span class="p">]</span>
+            <span class="k">elif</span> <span class="n">series</span> <span class="o">==</span> <span class="s2">&quot;first&quot;</span><span class="p">:</span>
+                <span class="n">seasons_array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="k">elif</span> <span class="n">series</span> <span class="o">==</span> <span class="s2">&quot;latest&quot;</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">season</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">seasons</span><span class="p">:</span>
+                    <span class="n">seasons_array</span> <span class="o">=</span> <span class="p">[</span><span class="n">season</span><span class="o">.</span><span class="n">seasonNumber</span><span class="p">]</span>
+            <span class="n">req_data</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;mediaType&quot;</span><span class="p">:</span> <span class="s2">&quot;tv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;mediaId&quot;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+                <span class="s2">&quot;tvdbId&quot;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">externalIds</span><span class="o">.</span><span class="n">tvdbId</span><span class="p">,</span>
+                <span class="s2">&quot;seasons&quot;</span><span class="p">:</span> <span class="n">seasons_array</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">POWMediaTypeException</span><span class="p">(</span><span class="s2">&quot;Unknown media type, use either movie or tv&quot;</span><span class="p">)</span>
+
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;X-Api-Key&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">,</span> <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request_url</span><span class="p">,</span>
+            <span class="n">method</span><span class="o">=</span><span class="n">hdrs</span><span class="o">.</span><span class="n">METH_POST</span><span class="p">,</span>
+            <span class="n">json_data</span><span class="o">=</span><span class="n">req_data</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span> <span class="k">if</span> <span class="n">raw_response</span> <span class="k">else</span> <span class="n">MediaRequestModel</span><span class="p">(</span><span class="o">**</span><span class="n">response</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Steven Marks, TotalDebug.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

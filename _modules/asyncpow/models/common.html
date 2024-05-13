@@ -34,7 +34,7 @@
             
           </a>
               <div class="version">
-                0.4.1
+                0.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -52,16 +52,24 @@
 <p class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../apis/media.html">Media</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/movie.html">Movie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/request.html">Request</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../apis/search.html">Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../apis/status.html">Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/tv.html">Tv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/user.html">User</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Models</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../models/common.html">Common Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/issue.html">Issue Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../models/media.html">Media Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../models/movie.html">Movie Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/request.html">Request Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../models/search.html">Search Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../models/status.html">Status Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/tv.html">TV Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/user.html">User Models</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Utils</span></p>
 <ul>
@@ -120,41 +128,8 @@
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
 <span class="n">SortOptions</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;added&quot;</span><span class="p">,</span> <span class="s2">&quot;modified&quot;</span><span class="p">,</span> <span class="s2">&quot;mediaAdded&quot;</span><span class="p">]</span>
+<span class="n">UserSortOptions</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;created&quot;</span><span class="p">]</span>
 <span class="n">MediaType</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;movie&quot;</span><span class="p">,</span> <span class="s2">&quot;tv&quot;</span><span class="p">]</span>
-
-
-<div class="viewcode-block" id="UserModel">
-<a class="viewcode-back" href="../../../models/common.html#asyncpow.models.common.UserModel">[docs]</a>
-<span class="k">class</span> <span class="nc">UserModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Data class representing a user model.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">displayName</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">resetPasswordGuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">recoveryLinkExpirationDate</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">userType</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">plexId</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">plexToken</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">plexUsername</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">permissions</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">avatar</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">createdAt</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">updatedAt</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">requestCount</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">requests</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># TODO: Requests</span>
-    <span class="n">movieQuotaLimit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">movieQuotaDays</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">tvQuotaLimit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">tvQuotaDays</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># TODO: UserSettingsModel</span>
-    <span class="n">pushSubscriptions</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># TODO: UserPushSubscriptionModel</span>
-    <span class="n">createdIssues</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># TODO: IssueModel</span></div>
-
 
 
 <div class="viewcode-block" id="PageInfoModel">

@@ -36,7 +36,7 @@
             
           </a>
               <div class="version">
-                0.4.1
+                0.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -54,16 +54,24 @@
 <p class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="apis/media.html">Media</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis/movie.html">Movie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis/request.html">Request</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apis/search.html">Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apis/status.html">Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis/tv.html">Tv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis/user.html">User</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Models</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="models/common.html">Common Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/issue.html">Issue Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models/media.html">Media Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models/movie.html">Movie Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/request.html">Request Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models/search.html">Search Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models/status.html">Status Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/tv.html">TV Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/user.html">User Models</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Utils</span></p>
 <ul>
@@ -149,7 +157,7 @@
 <h1>About The Project<a class="headerlink" href="#about-the-project" title="Link to this heading"></a></h1>
 <p>This project is a work in progress, the main branch is being developed on live, which may cause breaking changes until the first full release.</p>
 <p>The library returns results in JSON format for ease of use, this also reduces the risk of failue when the APIs are updated.</p>
-<p>Type hints and type models are in place for all of the APIs, if you notice missing items please create a request to have it fixed.</p>
+<p>Type hints and type models are in place where possible (this API has terrible circular dependencies which breaks python), if you notice missing items please create a request to have it fixed.</p>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <section id="built-with">
 <h2>Built With<a class="headerlink" href="#built-with" title="Link to this heading"></a></h2>
@@ -184,6 +192,14 @@
 <li><p>Update Status - Completed</p></li>
 <li><p>Delete</p></li>
 <li><p>Get Watch Data</p></li>
+</ul>
+</li>
+<li><p>User - WIP</p>
+<ul>
+<li><p>Get - Completed</p></li>
+<li><p>Bulk Update - Completed</p></li>
+<li><p>Update</p></li>
+<li><p>Delete</p></li>
 </ul>
 </li>
 </ul>
@@ -261,6 +277,21 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="apis/movie.html">Movie</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apis/movie.html#asyncpow.apis.movie.Movie"><code class="docutils literal notranslate"><span class="pre">Movie</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apis/movie.html#asyncpow.apis.movie.Movie.async_get_movie"><code class="docutils literal notranslate"><span class="pre">Movie.async_get_movie()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apis/request.html">Request</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apis/request.html#asyncpow.apis.request.Request"><code class="docutils literal notranslate"><span class="pre">Request</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apis/request.html#asyncpow.apis.request.Request.async_get_requests"><code class="docutils literal notranslate"><span class="pre">Request.async_get_requests()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apis/request.html#asyncpow.apis.request.Request.async_post_request"><code class="docutils literal notranslate"><span class="pre">Request.async_post_request()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="apis/search.html">Search</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="apis/search.html#asyncpow.apis.search.Search"><code class="docutils literal notranslate"><span class="pre">Search</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apis/search.html#asyncpow.apis.search.Search.async_get_search"><code class="docutils literal notranslate"><span class="pre">Search.async_get_search()</span></code></a></li>
@@ -281,67 +312,28 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="apis/tv.html">Tv</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apis/tv.html#asyncpow.apis.tv.Tv"><code class="docutils literal notranslate"><span class="pre">Tv</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apis/tv.html#asyncpow.apis.tv.Tv.async_get_tv"><code class="docutils literal notranslate"><span class="pre">Tv.async_get_tv()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apis/user.html">User</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apis/user.html#asyncpow.apis.user.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apis/user.html#asyncpow.apis.user.User.async_get_user"><code class="docutils literal notranslate"><span class="pre">User.async_get_user()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apis/user.html#asyncpow.apis.user.User.async_create_user"><code class="docutils literal notranslate"><span class="pre">User.async_create_user()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apis/user.html#asyncpow.apis.user.User.async_bulk_update_user"><code class="docutils literal notranslate"><span class="pre">User.async_bulk_update_user()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Models</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="models/common.html">Common Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel"><code class="docutils literal notranslate"><span class="pre">UserModel</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.displayName"><code class="docutils literal notranslate"><span class="pre">UserModel.displayName</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.id"><code class="docutils literal notranslate"><span class="pre">UserModel.id</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.email"><code class="docutils literal notranslate"><span class="pre">UserModel.email</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.username"><code class="docutils literal notranslate"><span class="pre">UserModel.username</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.password"><code class="docutils literal notranslate"><span class="pre">UserModel.password</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.resetPasswordGuid"><code class="docutils literal notranslate"><span class="pre">UserModel.resetPasswordGuid</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.recoveryLinkExpirationDate"><code class="docutils literal notranslate"><span class="pre">UserModel.recoveryLinkExpirationDate</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.userType"><code class="docutils literal notranslate"><span class="pre">UserModel.userType</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.plexId"><code class="docutils literal notranslate"><span class="pre">UserModel.plexId</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.plexToken"><code class="docutils literal notranslate"><span class="pre">UserModel.plexToken</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.plexUsername"><code class="docutils literal notranslate"><span class="pre">UserModel.plexUsername</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.permissions"><code class="docutils literal notranslate"><span class="pre">UserModel.permissions</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.avatar"><code class="docutils literal notranslate"><span class="pre">UserModel.avatar</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.createdAt"><code class="docutils literal notranslate"><span class="pre">UserModel.createdAt</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.updatedAt"><code class="docutils literal notranslate"><span class="pre">UserModel.updatedAt</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.requestCount"><code class="docutils literal notranslate"><span class="pre">UserModel.requestCount</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.requests"><code class="docutils literal notranslate"><span class="pre">UserModel.requests</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.movieQuotaLimit"><code class="docutils literal notranslate"><span class="pre">UserModel.movieQuotaLimit</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.movieQuotaDays"><code class="docutils literal notranslate"><span class="pre">UserModel.movieQuotaDays</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.tvQuotaLimit"><code class="docutils literal notranslate"><span class="pre">UserModel.tvQuotaLimit</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.tvQuotaDays"><code class="docutils literal notranslate"><span class="pre">UserModel.tvQuotaDays</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.settings"><code class="docutils literal notranslate"><span class="pre">UserModel.settings</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.pushSubscriptions"><code class="docutils literal notranslate"><span class="pre">UserModel.pushSubscriptions</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.createdIssues"><code class="docutils literal notranslate"><span class="pre">UserModel.createdIssues</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.construct"><code class="docutils literal notranslate"><span class="pre">UserModel.construct()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.copy"><code class="docutils literal notranslate"><span class="pre">UserModel.copy()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.dict"><code class="docutils literal notranslate"><span class="pre">UserModel.dict()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.from_orm"><code class="docutils literal notranslate"><span class="pre">UserModel.from_orm()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.json"><code class="docutils literal notranslate"><span class="pre">UserModel.json()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">UserModel.model_computed_fields</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_config"><code class="docutils literal notranslate"><span class="pre">UserModel.model_config</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_construct"><code class="docutils literal notranslate"><span class="pre">UserModel.model_construct()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_copy"><code class="docutils literal notranslate"><span class="pre">UserModel.model_copy()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_dump"><code class="docutils literal notranslate"><span class="pre">UserModel.model_dump()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_dump_json"><code class="docutils literal notranslate"><span class="pre">UserModel.model_dump_json()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_extra"><code class="docutils literal notranslate"><span class="pre">UserModel.model_extra</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_fields"><code class="docutils literal notranslate"><span class="pre">UserModel.model_fields</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_fields_set"><code class="docutils literal notranslate"><span class="pre">UserModel.model_fields_set</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_json_schema"><code class="docutils literal notranslate"><span class="pre">UserModel.model_json_schema()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_parametrized_name"><code class="docutils literal notranslate"><span class="pre">UserModel.model_parametrized_name()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_post_init"><code class="docutils literal notranslate"><span class="pre">UserModel.model_post_init()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_rebuild"><code class="docutils literal notranslate"><span class="pre">UserModel.model_rebuild()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_validate"><code class="docutils literal notranslate"><span class="pre">UserModel.model_validate()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_validate_json"><code class="docutils literal notranslate"><span class="pre">UserModel.model_validate_json()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.model_validate_strings"><code class="docutils literal notranslate"><span class="pre">UserModel.model_validate_strings()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.parse_file"><code class="docutils literal notranslate"><span class="pre">UserModel.parse_file()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.parse_obj"><code class="docutils literal notranslate"><span class="pre">UserModel.parse_obj()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.parse_raw"><code class="docutils literal notranslate"><span class="pre">UserModel.parse_raw()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.schema"><code class="docutils literal notranslate"><span class="pre">UserModel.schema()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.schema_json"><code class="docutils literal notranslate"><span class="pre">UserModel.schema_json()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.update_forward_refs"><code class="docutils literal notranslate"><span class="pre">UserModel.update_forward_refs()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.UserModel.validate"><code class="docutils literal notranslate"><span class="pre">UserModel.validate()</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="models/common.html#asyncpow.models.common.PageInfoModel"><code class="docutils literal notranslate"><span class="pre">PageInfoModel</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.PageInfoModel.page"><code class="docutils literal notranslate"><span class="pre">PageInfoModel.page</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="models/common.html#asyncpow.models.common.PageInfoModel.pages"><code class="docutils literal notranslate"><span class="pre">PageInfoModel.pages</span></code></a></li>
@@ -870,6 +862,88 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="models/issue.html">Issue Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.id"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.user"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.user</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.issue"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.issue</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.message"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.message</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.createdAt"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.createdAt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.updatedAt"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.updatedAt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.construct"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.copy"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.dict"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.from_orm"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.from_orm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.json"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_computed_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_config"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_construct"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_copy"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_dump"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_dump()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_dump_json"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_dump_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_extra"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_extra</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_fields"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_fields_set"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_fields_set</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_json_schema"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_json_schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_parametrized_name"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_parametrized_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_post_init"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_post_init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_rebuild"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_rebuild()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_validate"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_validate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_validate_json"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_validate_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.model_validate_strings"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.model_validate_strings()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.parse_file"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.parse_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.parse_obj"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.parse_obj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.parse_raw"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.parse_raw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.schema"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.schema_json"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.schema_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.update_forward_refs"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.update_forward_refs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueCommentModel.validate"><code class="docutils literal notranslate"><span class="pre">IssueCommentModel.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel"><code class="docutils literal notranslate"><span class="pre">IssueModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.id"><code class="docutils literal notranslate"><span class="pre">IssueModel.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.issueType"><code class="docutils literal notranslate"><span class="pre">IssueModel.issueType</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.status"><code class="docutils literal notranslate"><span class="pre">IssueModel.status</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.problemSeason"><code class="docutils literal notranslate"><span class="pre">IssueModel.problemSeason</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.problemEpisode"><code class="docutils literal notranslate"><span class="pre">IssueModel.problemEpisode</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.media"><code class="docutils literal notranslate"><span class="pre">IssueModel.media</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.createdBy"><code class="docutils literal notranslate"><span class="pre">IssueModel.createdBy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.modifiedBy"><code class="docutils literal notranslate"><span class="pre">IssueModel.modifiedBy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.comments"><code class="docutils literal notranslate"><span class="pre">IssueModel.comments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.createdAt"><code class="docutils literal notranslate"><span class="pre">IssueModel.createdAt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.updatedAt"><code class="docutils literal notranslate"><span class="pre">IssueModel.updatedAt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.construct"><code class="docutils literal notranslate"><span class="pre">IssueModel.construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.copy"><code class="docutils literal notranslate"><span class="pre">IssueModel.copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.dict"><code class="docutils literal notranslate"><span class="pre">IssueModel.dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.from_orm"><code class="docutils literal notranslate"><span class="pre">IssueModel.from_orm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.json"><code class="docutils literal notranslate"><span class="pre">IssueModel.json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_computed_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_config"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_construct"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_copy"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_dump"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_dump()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_dump_json"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_dump_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_extra"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_extra</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_fields"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_fields_set"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_fields_set</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_json_schema"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_json_schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_parametrized_name"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_parametrized_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_post_init"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_post_init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_rebuild"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_rebuild()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_validate"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_validate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_validate_json"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_validate_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.model_validate_strings"><code class="docutils literal notranslate"><span class="pre">IssueModel.model_validate_strings()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.parse_file"><code class="docutils literal notranslate"><span class="pre">IssueModel.parse_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.parse_obj"><code class="docutils literal notranslate"><span class="pre">IssueModel.parse_obj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.parse_raw"><code class="docutils literal notranslate"><span class="pre">IssueModel.parse_raw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.schema"><code class="docutils literal notranslate"><span class="pre">IssueModel.schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.schema_json"><code class="docutils literal notranslate"><span class="pre">IssueModel.schema_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.update_forward_refs"><code class="docutils literal notranslate"><span class="pre">IssueModel.update_forward_refs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/issue.html#asyncpow.models.issue.IssueModel.validate"><code class="docutils literal notranslate"><span class="pre">IssueModel.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="models/media.html">Media Models</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="models/media.html#asyncpow.models.media.MediaRequestModel"><code class="docutils literal notranslate"><span class="pre">MediaRequestModel</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="models/media.html#asyncpow.models.media.MediaRequestModel.id"><code class="docutils literal notranslate"><span class="pre">MediaRequestModel.id</span></code></a></li>
@@ -1353,6 +1427,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="models/request.html">Request Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models/search.html">Search Models</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="models/search.html#asyncpow.models.search.MovieResultModel"><code class="docutils literal notranslate"><span class="pre">MovieResultModel</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="models/search.html#asyncpow.models.search.MovieResultModel.id"><code class="docutils literal notranslate"><span class="pre">MovieResultModel.id</span></code></a></li>
@@ -1662,6 +1737,293 @@
 <li class="toctree-l3"><a class="reference internal" href="models/status.html#asyncpow.models.status.StatusAppDataModel.schema_json"><code class="docutils literal notranslate"><span class="pre">StatusAppDataModel.schema_json()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="models/status.html#asyncpow.models.status.StatusAppDataModel.update_forward_refs"><code class="docutils literal notranslate"><span class="pre">StatusAppDataModel.update_forward_refs()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="models/status.html#asyncpow.models.status.StatusAppDataModel.validate"><code class="docutils literal notranslate"><span class="pre">StatusAppDataModel.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models/tv.html">TV Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel"><code class="docutils literal notranslate"><span class="pre">EpisodeModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.id"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.name"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.airDate"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.airDate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.episodeNumber"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.episodeNumber</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.overview"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.overview</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.productionCode"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.productionCode</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.seasonNumber"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.seasonNumber</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.showId"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.showId</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.stillPath"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.stillPath</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.voteAverage"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.voteAverage</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.voteCount"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.voteCount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.construct"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.copy"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.dict"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.from_orm"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.from_orm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.json"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_computed_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_config"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_construct"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_copy"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_dump"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_dump()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_dump_json"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_dump_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_extra"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_extra</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_fields"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_fields_set"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_fields_set</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_json_schema"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_json_schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_parametrized_name"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_parametrized_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_post_init"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_post_init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_rebuild"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_rebuild()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_validate"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_validate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_validate_json"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_validate_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.model_validate_strings"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.model_validate_strings()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.parse_file"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.parse_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.parse_obj"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.parse_obj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.parse_raw"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.parse_raw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.schema"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.schema_json"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.schema_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.update_forward_refs"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.update_forward_refs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.EpisodeModel.validate"><code class="docutils literal notranslate"><span class="pre">EpisodeModel.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel"><code class="docutils literal notranslate"><span class="pre">CreatedByModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.id"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.name"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.gender"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.gender</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.profilePath"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.profilePath</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.construct"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.copy"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.dict"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.from_orm"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.from_orm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.json"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_computed_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_config"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_construct"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_copy"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_dump"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_dump()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_dump_json"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_dump_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_extra"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_extra</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_fields"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_fields_set"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_fields_set</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_json_schema"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_json_schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_parametrized_name"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_parametrized_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_post_init"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_post_init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_rebuild"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_rebuild()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_validate"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_validate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_validate_json"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_validate_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.model_validate_strings"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.model_validate_strings()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.parse_file"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.parse_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.parse_obj"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.parse_obj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.parse_raw"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.parse_raw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.schema"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.schema_json"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.schema_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.update_forward_refs"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.update_forward_refs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.CreatedByModel.validate"><code class="docutils literal notranslate"><span class="pre">CreatedByModel.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.id"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.backdropPath"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.backdropPath</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.posterPath"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.posterPath</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.contentRatings"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.contentRatings</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.createdBy"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.createdBy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.episodeRunTime"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.episodeRunTime</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.firstAirDate"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.firstAirDate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.genres"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.genres</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.homepage"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.homepage</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.inProduction"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.inProduction</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.languages"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.languages</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.lastAirDate"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.lastAirDate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.lastEpisodeToAir"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.lastEpisodeToAir</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.name"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.nextEpisodeToAir"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.nextEpisodeToAir</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.networks"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.networks</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.numberOfEpisodes"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.numberOfEpisodes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.numberOfSeasons"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.numberOfSeasons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.originCountry"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.originCountry</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.originalLanguage"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.originalLanguage</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.originalName"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.originalName</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.overview"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.overview</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.popularity"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.popularity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.productionCompanies"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.productionCompanies</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.productionCountries"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.productionCountries</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.spokenLanguages"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.spokenLanguages</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.seasons"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.seasons</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.status"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.status</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.tagline"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.tagline</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.type"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.voteAverage"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.voteAverage</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.voteCount"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.voteCount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.credits"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.credits</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.externalIds"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.externalIds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.keywords"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.keywords</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.watchProviders"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.watchProviders</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.construct"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.copy"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.dict"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.from_orm"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.from_orm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.json"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_computed_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_config"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_construct"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_copy"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_dump"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_dump()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_dump_json"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_dump_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_extra"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_extra</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_fields"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_fields_set"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_fields_set</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_json_schema"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_json_schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_parametrized_name"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_parametrized_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_post_init"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_post_init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_rebuild"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_rebuild()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_validate"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_validate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_validate_json"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_validate_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.model_validate_strings"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.model_validate_strings()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.parse_file"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.parse_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.parse_obj"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.parse_obj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.parse_raw"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.parse_raw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.schema"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.schema_json"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.schema_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.update_forward_refs"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.update_forward_refs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tv.html#asyncpow.models.tv.TvDetailsModel.validate"><code class="docutils literal notranslate"><span class="pre">TvDetailsModel.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models/user.html">User Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.id"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.user"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.user</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.locale"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.locale</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.region"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.region</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.originalLanguage"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.originalLanguage</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.pgpKey"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.pgpKey</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.discordId"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.discordId</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.pushbulletAccessToken"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.pushbulletAccessToken</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.pushoverApplicationToken"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.pushoverApplicationToken</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.pushoverUserKey"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.pushoverUserKey</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.pushoverSound"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.pushoverSound</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.telegramChatId"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.telegramChatId</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.telegramSendSilently"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.telegramSendSilently</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.watchlistSyncMovies"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.watchlistSyncMovies</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.watchlistSyncTv"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.watchlistSyncTv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.construct"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.copy"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.dict"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.from_orm"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.from_orm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.json"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_computed_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_config"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_construct"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_copy"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_dump"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_dump()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_dump_json"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_dump_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_extra"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_extra</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_fields"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_fields_set"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_fields_set</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_json_schema"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_json_schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_parametrized_name"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_parametrized_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_post_init"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_post_init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_rebuild"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_rebuild()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_validate"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_validate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_validate_json"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_validate_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.model_validate_strings"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.model_validate_strings()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.parse_file"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.parse_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.parse_obj"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.parse_obj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.parse_raw"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.parse_raw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.schema"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.schema_json"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.schema_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.update_forward_refs"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.update_forward_refs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserSettingsModel.validate"><code class="docutils literal notranslate"><span class="pre">UserSettingsModel.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.id"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.user"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.user</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.endpoint"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.endpoint</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.p256dh"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.p256dh</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.auth"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.auth</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.construct"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.copy"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.dict"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.from_orm"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.from_orm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.json"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_computed_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_config"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_construct"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_copy"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_dump"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_dump()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_dump_json"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_dump_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_extra"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_extra</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_fields"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_fields_set"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_fields_set</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_json_schema"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_json_schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_parametrized_name"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_parametrized_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_post_init"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_post_init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_rebuild"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_rebuild()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_validate"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_validate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_validate_json"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_validate_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.model_validate_strings"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.model_validate_strings()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.parse_file"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.parse_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.parse_obj"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.parse_obj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.parse_raw"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.parse_raw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.schema"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.schema_json"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.schema_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.update_forward_refs"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.update_forward_refs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserPushSubscriptionModel.validate"><code class="docutils literal notranslate"><span class="pre">UserPushSubscriptionModel.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel"><code class="docutils literal notranslate"><span class="pre">UserModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.displayName"><code class="docutils literal notranslate"><span class="pre">UserModel.displayName</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.id"><code class="docutils literal notranslate"><span class="pre">UserModel.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.email"><code class="docutils literal notranslate"><span class="pre">UserModel.email</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.plexUsername"><code class="docutils literal notranslate"><span class="pre">UserModel.plexUsername</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.username"><code class="docutils literal notranslate"><span class="pre">UserModel.username</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.password"><code class="docutils literal notranslate"><span class="pre">UserModel.password</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.resetPasswordGuid"><code class="docutils literal notranslate"><span class="pre">UserModel.resetPasswordGuid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.recoveryLinkExpirationDate"><code class="docutils literal notranslate"><span class="pre">UserModel.recoveryLinkExpirationDate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.userType"><code class="docutils literal notranslate"><span class="pre">UserModel.userType</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.plexId"><code class="docutils literal notranslate"><span class="pre">UserModel.plexId</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.plexToken"><code class="docutils literal notranslate"><span class="pre">UserModel.plexToken</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.permissions"><code class="docutils literal notranslate"><span class="pre">UserModel.permissions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.avatar"><code class="docutils literal notranslate"><span class="pre">UserModel.avatar</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.requestCount"><code class="docutils literal notranslate"><span class="pre">UserModel.requestCount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.requests"><code class="docutils literal notranslate"><span class="pre">UserModel.requests</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.movieQuotaLimit"><code class="docutils literal notranslate"><span class="pre">UserModel.movieQuotaLimit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.movieQuotaDays"><code class="docutils literal notranslate"><span class="pre">UserModel.movieQuotaDays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.tvQuotaLimit"><code class="docutils literal notranslate"><span class="pre">UserModel.tvQuotaLimit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.tvQuotaDays"><code class="docutils literal notranslate"><span class="pre">UserModel.tvQuotaDays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.settings"><code class="docutils literal notranslate"><span class="pre">UserModel.settings</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.pushSubscriptions"><code class="docutils literal notranslate"><span class="pre">UserModel.pushSubscriptions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.createdIssues"><code class="docutils literal notranslate"><span class="pre">UserModel.createdIssues</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.createdAt"><code class="docutils literal notranslate"><span class="pre">UserModel.createdAt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.updatedAt"><code class="docutils literal notranslate"><span class="pre">UserModel.updatedAt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.construct"><code class="docutils literal notranslate"><span class="pre">UserModel.construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.copy"><code class="docutils literal notranslate"><span class="pre">UserModel.copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.dict"><code class="docutils literal notranslate"><span class="pre">UserModel.dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.from_orm"><code class="docutils literal notranslate"><span class="pre">UserModel.from_orm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.json"><code class="docutils literal notranslate"><span class="pre">UserModel.json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">UserModel.model_computed_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_config"><code class="docutils literal notranslate"><span class="pre">UserModel.model_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_construct"><code class="docutils literal notranslate"><span class="pre">UserModel.model_construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_copy"><code class="docutils literal notranslate"><span class="pre">UserModel.model_copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_dump"><code class="docutils literal notranslate"><span class="pre">UserModel.model_dump()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_dump_json"><code class="docutils literal notranslate"><span class="pre">UserModel.model_dump_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_extra"><code class="docutils literal notranslate"><span class="pre">UserModel.model_extra</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_fields"><code class="docutils literal notranslate"><span class="pre">UserModel.model_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_fields_set"><code class="docutils literal notranslate"><span class="pre">UserModel.model_fields_set</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_json_schema"><code class="docutils literal notranslate"><span class="pre">UserModel.model_json_schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_parametrized_name"><code class="docutils literal notranslate"><span class="pre">UserModel.model_parametrized_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_post_init"><code class="docutils literal notranslate"><span class="pre">UserModel.model_post_init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_rebuild"><code class="docutils literal notranslate"><span class="pre">UserModel.model_rebuild()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_validate"><code class="docutils literal notranslate"><span class="pre">UserModel.model_validate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_validate_json"><code class="docutils literal notranslate"><span class="pre">UserModel.model_validate_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.model_validate_strings"><code class="docutils literal notranslate"><span class="pre">UserModel.model_validate_strings()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.parse_file"><code class="docutils literal notranslate"><span class="pre">UserModel.parse_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.parse_obj"><code class="docutils literal notranslate"><span class="pre">UserModel.parse_obj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.parse_raw"><code class="docutils literal notranslate"><span class="pre">UserModel.parse_raw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.schema"><code class="docutils literal notranslate"><span class="pre">UserModel.schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.schema_json"><code class="docutils literal notranslate"><span class="pre">UserModel.schema_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.update_forward_refs"><code class="docutils literal notranslate"><span class="pre">UserModel.update_forward_refs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/user.html#asyncpow.models.user.UserModel.validate"><code class="docutils literal notranslate"><span class="pre">UserModel.validate()</span></code></a></li>
 </ul>
 </li>
 </ul>

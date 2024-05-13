@@ -34,7 +34,7 @@
             
           </a>
               <div class="version">
-                0.4.1
+                0.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -52,16 +52,24 @@
 <p class="caption" role="heading"><span class="caption-text">APIs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../apis/media.html">Media</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/movie.html">Movie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/request.html">Request</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../apis/search.html">Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../apis/status.html">Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/tv.html">Tv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apis/user.html">User</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Models</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../models/common.html">Common Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/issue.html">Issue Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../models/media.html">Media Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../models/movie.html">Movie Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/request.html">Request Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../models/search.html">Search Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../models/status.html">Status Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/tv.html">TV Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/user.html">User Models</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Utils</span></p>
 <ul>
@@ -131,9 +139,17 @@
 <span class="sd">    Initialize the Status object with the base URL, API key, and session.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_url</span><span class="p">:</span> <span class="n">URL</span><span class="p">,</span> <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">ClientSession</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">base_url</span><span class="p">:</span> <span class="n">URL</span><span class="p">,</span> <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">ClientSession</span><span class="p">,</span> <span class="n">raw_response</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the Status object with the base URL, API key, and session.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            base_url (str): The base URL for the user API.</span>
+<span class="sd">            api_key (str): The API key for authentication.</span>
+<span class="sd">            session (ClientSession): HTTP Session.</span>
+<span class="sd">            raw_response (bool): Return json if True.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            None</span>
@@ -142,35 +158,45 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="n">base_url</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">session</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_response</span> <span class="o">=</span> <span class="n">raw_response</span>
 
 <div class="viewcode-block" id="Status.async_get_status">
 <a class="viewcode-back" href="../../../apis/status.html#asyncpow.apis.status.Status.async_get_status">[docs]</a>
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">async_get_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_response</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="n">StatusModel</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">async_get_status</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">raw_response</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="n">StatusModel</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Summary:</span>
 <span class="sd">            Asynchronously retrieves the status from the server.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            raw_response (bool): Flag to determine whether to return the raw response (True) or an object (False). Default is False.</span>
+<span class="sd">            raw_response (bool, optional): return raw json. Defaults to None.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            dict | StatusModel: The status information as either a dictionary or a StatusModel object.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">raw_response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">raw_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_response</span>
+
         <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span> <span class="k">if</span> <span class="n">raw_response</span> <span class="k">else</span> <span class="n">StatusModel</span><span class="p">(</span><span class="o">**</span><span class="n">response</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Status.async_get_appdata">
 <a class="viewcode-back" href="../../../apis/status.html#asyncpow.apis.status.Status.async_get_appdata">[docs]</a>
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">async_get_appdata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_response</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="n">StatusAppDataModel</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">async_get_appdata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_response</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="n">StatusAppDataModel</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Retrieves the appdata from the server</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            raw_response (bool, optional): Flag to determine whether to return the raw response (True) or an object (False). Default is False.</span>
+<span class="sd">            raw_response (bool, optional): return raw json. Defaults to None.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            dict | StatusAppDataModel: The model object containing appdata items.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">raw_response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">raw_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_response</span>
+
         <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;appdata&quot;</span><span class="p">)</span>
         <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span> <span class="k">if</span> <span class="n">raw_response</span> <span class="k">else</span> <span class="n">StatusAppDataModel</span><span class="p">(</span><span class="o">**</span><span class="n">response</span><span class="p">)</span></div>
