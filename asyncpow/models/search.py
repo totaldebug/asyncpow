@@ -20,7 +20,7 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, field_validator
 
 from asyncpow.exceptions import POWMediaTypeException
 from asyncpow.models.media import MediaInfoModel
@@ -84,7 +84,7 @@ class PersonResultModel(BaseModel):
     knownFor: list[MovieResultModel | TvResultModel]
     profilePath: str | None = None
 
-    @validator("knownFor", pre=True)
+    @field_validator("knownFor")
     def validate_knownfor(cls, v):
         """
         Validate the 'knownFor' field by creating and returning a list of validated known for items.
@@ -124,7 +124,7 @@ class SearchResultModel(BaseModel):
     totalResults: int
     results: list[MovieResultModel | TvResultModel | PersonResultModel]
 
-    @validator("results", pre=True)
+    @field_validator("results")
     def validate_results(cls, v):
         """
         Validate the 'results' field by creating and returning a list of validated result items.

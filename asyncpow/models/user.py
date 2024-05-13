@@ -22,6 +22,8 @@
 
 from pydantic import BaseModel
 
+from asyncpow.models.common import PaginatedResponseModel
+
 
 class UserSettingsModel(BaseModel):
     """User Settings Model"""
@@ -64,10 +66,10 @@ class UserModel(BaseModel):
     password: str | None = None
     resetPasswordGuid: str | None = None
     recoveryLinkExpirationDate: str | None = None
-    userType: str
+    userType: int
     plexId: int | None = None
     plexToken: str | None = None
-    permissions: str
+    permissions: int
     avatar: str
     requestCount: int
     requests: list[dict] | None = None  # TODO: should be requests model, but circular imports
@@ -80,3 +82,11 @@ class UserModel(BaseModel):
     createdIssues: list[dict] | None = None  # TODO: should be issues model, but circular imports
     createdAt: str
     updatedAt: str
+
+
+class UserResultsResponseModel(PaginatedResponseModel):
+    """
+    Data class representing a user model.
+    """
+
+    results: list[UserModel]

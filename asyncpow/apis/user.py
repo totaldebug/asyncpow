@@ -24,7 +24,7 @@ from aiohttp import ClientSession, hdrs
 from yarl import URL
 
 from asyncpow.models.common import UserSortOptions
-from asyncpow.models.user import UserModel
+from asyncpow.models.user import UserModel, UserResultsResponseModel
 from asyncpow.utils.http import request
 
 
@@ -84,7 +84,7 @@ class User:
         if raw_response:
             return response
         else:
-            return UserModel(**response) if id else list[UserModel(**response)]
+            return UserModel(**response) if id else UserResultsResponseModel(**response)
 
     async def async_create_user(
         self, email: str, username: str, permissions: int, raw_response: bool | None = None
