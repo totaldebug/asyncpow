@@ -1,3 +1,16 @@
+## [0.5.0](https://github.com/totaldebug/asyncpow/compare/v0.4.2...v0.5.0) (2024-05-14)
+
+
+### Features
+
+* add API Key check to ensure valid key ([297645c](https://github.com/totaldebug/asyncpow/commit/297645c9bc2d66e5a30f8ca0aee141314a5d6911))
+* Added user & Global raw_response option ([9b58ce5](https://github.com/totaldebug/asyncpow/commit/9b58ce5f7816c3dd366bdf8dc4733f1bd904bf73))
+
+
+### Bug Fixes
+
+* UserModel error and validator deprecation ([86385ab](https://github.com/totaldebug/asyncpow/commit/86385ab93ba905be23e331f08a6727509ad145ee))
+
 ## [0.4.2](https://github.com/totaldebug/asyncpow/compare/v0.4.1...v0.4.2) (2024-04-15)
 
 
