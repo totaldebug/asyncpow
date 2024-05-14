@@ -32,6 +32,7 @@ from asyncpow.apis.status import Status
 from asyncpow.apis.tv import Tv
 from asyncpow.apis.user import User
 from asyncpow.const import API_URI
+from asyncpow.utils.api_key import is_valid_api_key
 
 VERSION_CACHE: TTLCache[str, str | None] = TTLCache(maxsize=16, ttl=7200)
 
@@ -94,7 +95,13 @@ class Overseerr:
             port=port,
             path=base_path,
         ).joinpath(API_URI)
-        self.api_key = api_key
+        if not api_key:
+            raise ValueError("No API Key provided")
+
+        if is_valid_api_key(api_key):
+            self.api_key = api_key
+        else:
+            raise ValueError("API Key is not valid")
 
         # Initialize a single instance of ClientSession
         self._session = aiohttp.ClientSession()
